@@ -1,5 +1,73 @@
 const net = require('net');
 
+class ResponseParser {
+	constructor() {
+		this.WAITING_STATUS_LINE = 0;
+		this.WAITING_STATUS_LINE_END = 1;
+		this.WAITING_HEADER_NAME = 2;
+		this.WAITING_HEADER_VALUE = 3;
+		this.WAITING_HEADER_SPACE = 4;
+		this.WAITING_HEADER_VALUE_END = 5;
+		this.WAITING_HEADER_BLOCK_END = 6;  // header 和 body 之间的空行
+		this.WAITING_BODY = 7;
+		
+		this.current = this.WAITING_STATUS_LINE;
+		this.statusLine = '';
+		this.headers = {};
+		this.headerName = "";
+		this.headerValue = "";
+		
+	}
+	receive(string) {
+		for(let i=0; i<string.length; i++) {
+			this.receiveChar(string.charAt(i));
+		}
+		// console.log(this.statusLine)
+		// console.log(this.headers)
+        // console.log('--------------------')
+	}
+	receiveChar(char) {
+		if(this.current === this.WAITING_STATUS_LINE) {
+			if(char === '\r') {
+				this.current = this.WAITING_STATUS_LINE_END;
+			} else if(char === '\n') {
+				this.current = this.WAITING_HEADER_NAME;
+			} else {
+				this.statusLine += char;
+			}
+		} else if(this.current === this.WAITING_STATUS_LINE_END) {
+			if(char === '\n') {
+				this.current = this.WAITING_HEADER_NAME;
+			}
+		} else if(this.current === this.WAITING_HEADER_NAME) {
+			if(char === '\r') {
+				this.current = this.WAITING_BODY;
+			} else if(char === ':') {
+				this.current = this.WAITING_HEADER_SPACE;
+			} else {
+				this.headerName += char;
+			}
+		} else if(this.current === this.WAITING_HEADER_SPACE) {
+			if(char === ' ') {
+				this.current = this.WAITING_HEADER_VALUE
+			}
+		} else if(this.current === this.WAITING_HEADER_VALUE) {
+			if(char === '\r') {
+				this.current = this.WAITING_HEADER_VALUE_END;
+				this.headers[this.headerName] = this.headerValue;
+				this.headerName = '';
+				this.headerValue = '';
+			} else {
+				this.headerValue += char;
+			}
+		} else if(this.current === this.WAITING_HEADER_VALUE_END) {
+			if(char === '\n') {
+				this.current = this.WAITING_HEADER_NAME
+			}
+		}
+	}
+}
+
 class Request {
     // method,url = host + port + path;
     // headers
@@ -27,12 +95,12 @@ class Request {
     toString() {
         return `${this.menthod}${this.path} HTTP/1.1\r
 ${Object.keys(this.headers).map(key => `${key}: ${this.headers[key]}`).join('\r\n')}\r\n
-${this.bodyText}
-        `
+${this.bodyText}`
     }
 
     send(connection) {
         return new Promise((resolve, reject) => {
+            const parser = new ResponseParser;
             if(connection) {
                 connection.write(this.toString())
             } else {
@@ -44,7 +112,9 @@ ${this.bodyText}
                 })
             }
             connection.on('data', (data) => {
-                resolve(data.toString());
+				parser.receive(data.toString());
+				console.log(parser.headers)
+                // resolve(data.toString());
                 connection.end();
                 });
 
@@ -123,40 +193,6 @@ class Response {
 
 }
 
-class ResponseParser {
-    constructor() {
-        this.WAITING_STATUS_LINE = 0;
-        this.WAITING_STATUS_LINE_END = 1;
-        this.WAITING_HEADER_NAME = 2;
-        this.WAITING_HEADER_VALUE = 3;
-        this.WAITING_HEADER_VALUE_END = 4;
-        this.WAITING_HEADER_BLOCK_END = 5;
-        this.WAITING_BODY = 6;
-
-        this.current = this.WAITING_STATUS_LINE;
-        this.statusLine = '';
-        this.headers = {};
-        this.headerName = "";;
-        this.headerValue = "";
-
-    }
-    receive(string) {
-        for(let i=0; i<string.length; i++) {
-            this.receiveChar(string.charAt(i));
-        }
-    }
-    receiveChar(char) {
-        if(this.current === this.WAITING_STATUS_LINE) {
-            if(char === '\r') {
-                this.current = this.WAITING_STATUS_LINE_END;
-            } else if(char === '\n') {
-                this.current = this.WAITING_HEADER_NAME;
-            } else {
-                this.statusLine += char;
-            }
-        }
-    }
-}
 
 class TrunkedBodyParser {
     constructor() {
