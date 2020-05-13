@@ -23,14 +23,10 @@ class ResponseParser {
 		for(let i=0; i<string.length; i++) {
 			this.receiveChar(string.charAt(i));
 		}
-		// console.log(this.statusLine)
-		// console.log(this.headers)
-        // console.log('--------------------')
-		// console.log(this.bodyParser)
 	}
 	// 每一行的最后一般都是 \r\n
 	receiveChar(char) {
-		// 当前遍历的是状态行
+		// 最开始遍历的是状态行
 		if(this.current === this.WAITING_STATUS_LINE) {
 			if(char === '\r') {
 				this.current = this.WAITING_STATUS_LINE_END;
@@ -82,6 +78,22 @@ class ResponseParser {
 			this.bodyParser.receiveChar(char);
 		}
 	}
+	
+	// 判断是否解析完毕
+	get isFinished() {
+		return this.bodyParser && this.bodyParser.isFinished;
+	}
+	// 返回数据 response
+	get response() {
+		this.statusLine.match(/HTTP\/1.1 ([0-9]+) ([\S\s]+)/);
+		return {
+			statusCode: RegExp.$1,
+			statusText: RegExp.$2,
+			headers: this.headers,
+			body: this.bodyParser.content.join('')
+		}
+		
+	}
 }
 
 class Request {
@@ -129,9 +141,9 @@ ${this.bodyText}`
             }
             connection.on('data', (data) => {
 				parser.receive(data.toString());
-				console.log(parser.statusLine)
-				console.log(parser.headers)
-				console.log(parser.bodyParser.content.join(''))
+				if(parser.isFinished) {
+					resolve(parser.response)
+				}
                 // resolve(data.toString());
                 connection.end();
                 });
@@ -142,7 +154,6 @@ ${this.bodyText}`
             });
         })
     }
-
 }
 
 // 一、实现 send() 方法之前
@@ -204,12 +215,6 @@ void async function() {
     let response  = await request.send();
     console.log(response)
 }()
-
-
-
-class Response {
-
-}
 
 
 class TrunkedBodyParser {
