@@ -16,6 +16,7 @@ class ResponseParser {
 		this.headers = {};
 		this.headerName = "";
 		this.headerValue = "";
+		this.bodyParser = null;
 		
 	}
 	receive(string) {
@@ -25,8 +26,11 @@ class ResponseParser {
 		// console.log(this.statusLine)
 		// console.log(this.headers)
         // console.log('--------------------')
+		// console.log(this.bodyParser)
 	}
+	// 每一行的最后一般都是 \r\n
 	receiveChar(char) {
+		// 当前遍历的是状态行
 		if(this.current === this.WAITING_STATUS_LINE) {
 			if(char === '\r') {
 				this.current = this.WAITING_STATUS_LINE_END;
@@ -35,24 +39,30 @@ class ResponseParser {
 			} else {
 				this.statusLine += char;
 			}
-		} else if(this.current === this.WAITING_STATUS_LINE_END) {
+		} else if(this.current === this.WAITING_STATUS_LINE_END) { // 状态行结束后，将当前状态改为 header 的 name
+			// 此处的 \n 和上面的 \r 连接，表示要切换到下一行了。
+			// 状态行结束 就是 headers 部分
 			if(char === '\n') {
 				this.current = this.WAITING_HEADER_NAME;
 			}
-		} else if(this.current === this.WAITING_HEADER_NAME) {
-			if(char === '\r') {
-				this.current = this.WAITING_BODY;
-			} else if(char === ':') {
+		} else if(this.current === this.WAITING_HEADER_NAME) {  // 当前遍历的是 headers 的键
+			if(char === '\r') {   // 此时如果出现了 \r ，说明 headers 部分结束了，到了空行部分
+				this.current = this.WAITING_HEADER_BLOCK_END;
+				// 接下来根据 Transfer-Encoding 的值，将要解析 body 部分内容
+				if(this.headers['Transfer-Encoding'] === 'chunked') {
+					this.bodyParser = new TrunkedBodyParser();
+				}
+			} else if(char === ':') {  // 如果是 ： ，那么接下来的一个字符就是 键值对之间的空格
 				this.current = this.WAITING_HEADER_SPACE;
 			} else {
 				this.headerName += char;
 			}
 		} else if(this.current === this.WAITING_HEADER_SPACE) {
-			if(char === ' ') {
-				this.current = this.WAITING_HEADER_VALUE
+			if(char === ' ') {  // 空格后就是headers的值部分，切换状态
+				this.current = this.WAITING_HEADER_VALUE;
 			}
-		} else if(this.current === this.WAITING_HEADER_VALUE) {
-			if(char === '\r') {
+		} else if(this.current === this.WAITING_HEADER_VALUE) {  // 当前遍历的是 headers的 值部分
+			if(char === '\r') {  // 此时如果出现 \r， 说明值部分结束了，切换状态，并将这个header记录下来
 				this.current = this.WAITING_HEADER_VALUE_END;
 				this.headers[this.headerName] = this.headerValue;
 				this.headerName = '';
@@ -61,9 +71,15 @@ class ResponseParser {
 				this.headerValue += char;
 			}
 		} else if(this.current === this.WAITING_HEADER_VALUE_END) {
-			if(char === '\n') {
-				this.current = this.WAITING_HEADER_NAME
+			if(char === '\n') {   // 值部分结束，则重新当作 headers 键来遍历，切换到 header_name 状态
+				this.current = this.WAITING_HEADER_NAME;
 			}
+		} else if(this.current === this.WAITING_HEADER_BLOCK_END) {
+			if(char === '\n') {  // 如果是headers 和 body 的中间的空行，则接下来是body 部分。
+				this.current = this.WAITING_BODY;
+			}
+		} else if(this.current === this.WAITING_BODY) {  // 开始解析body 部分
+			this.bodyParser.receiveChar(char);
 		}
 	}
 }
@@ -102,18 +118,20 @@ ${this.bodyText}`
         return new Promise((resolve, reject) => {
             const parser = new ResponseParser;
             if(connection) {
-                connection.write(this.toString())
+                connection.write(this.toString());
             } else {
                 connection = net.createConnection({
                     host: this.host,
                     port: this.port
                 }, () => {
-                    connection.write(this.toString())
+                    connection.write(this.toString());
                 })
             }
             connection.on('data', (data) => {
 				parser.receive(data.toString());
+				console.log(parser.statusLine)
 				console.log(parser.headers)
+				console.log(parser.bodyParser.content.join(''))
                 // resolve(data.toString());
                 connection.end();
                 });
@@ -195,6 +213,9 @@ class Response {
 
 
 class TrunkedBodyParser {
+	// 需要注意的是：body 部分不止是需要的内容，而是由内容和字符组成的，
+	// 每一行内容的前一行是这行内容的字符数，
+	// 所有的内容接收完之后， 最后会有一个 0
     constructor() {
         this.WAITING_LENGTH = 0;
         this.WAITING_LENGTH_LINE_END = 1;
@@ -204,31 +225,46 @@ class TrunkedBodyParser {
         this.length = 0;
         this.content = [];
         this.isFinished = false;
-
         this.current = this.WAITING_LENGTH;
     }
 
     receiveChar(char) {
+    	console.log(char.codePointAt(0), char)
+		// 当this.isFinished=true 时，即处理完所有内容后，后面的 \r\n 不在进行处理
+		if(this.isFinished) return;
+    	// 刚开始的状态为等待处理内容的字符长度
         if(this.current === this.WAITING_LENGTH) {
-            if(char === '\r') {
-                if(this.length === 0) {
+            if(char === '\r') {  // 碰到 \r 表示字符长度处理完毕，切换状态
+				this.current = this.WAITING_LENGTH_LINE_END;
+                if(this.length === 0) {  // 此时如果长度数为0，表示后面已没有内容，内容处理完毕
                     this.isFinished = true;
                 }
-                this.current = this.WAITING_LENGTH_LINE_END;
-            } else {
-                this.length += 10;
-                this.length += char.charCodeAt(0) - '0'.charCodeAt(0)
+            } else {  // 字符长度值 为 十进制
+                this.length *= 10;
+                this.length += Number(char);  //char.charCodeAt(0) - '0'.charCodeAt(0)
             }
         } else if(this.current === this.WAITING_LENGTH_LINE_END) {
-            if(char === '\r') {
+            if(char === '\n') {  // 与上面的 \r 连接，表示字符长度行的结束，将要进入内容部分
                 this.current = this.READING_TRUNK;
             }
-        } else if(this.current === this.READING_TRUNK) {
-            this.current.push(char);
+        } else if(this.current === this.READING_TRUNK) {  // 遍历内容 trunk 流
+        	// 注意：这里不能简单像 Request 里一样使用 \r\n 来判断要不要切换状态
+			// 因为内容中可能会包含 \r\n， 所以要使用字符数来判断，字符数为0了，表示内容遍历完毕
+            this.content.push(char);
             this.length--;
             if(this.length === 0) {
-                this.current = this.WAITING_LENGTH;
+                this.current = this.WAITING_NEW_LINE;
             }
-        } 
+        }
+        // 下面这两个条件主要是把 \r\n 给去掉
+        else if(this.current === this.WAITING_NEW_LINE) {
+    		if(char === '\r') {
+    			this.current = this.WAITING_NEW_LINE_END;
+			}
+		} else if(this.current === this.WAITING_NEW_LINE_END) {
+    		if(char === '\n') {
+    			this.current = this.WAITING_LENGTH;
+			}
+		}
     }
 }

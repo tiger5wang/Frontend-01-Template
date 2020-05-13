@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/week05/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/week05/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week05/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/week05/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,7 +23,7 @@
         <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -29,15 +31,25 @@
       <file leaf-file-name="client.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/week05/client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="47" column="40" lean-forward="true" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+            <state relative-caret-position="324">
+              <caret line="256" column="13" lean-forward="true" selection-start-line="256" selection-start-column="13" selection-end-line="256" selection-end-column="13" />
+              <folding>
+                <element signature="n#!!block;n#constructor#0;n#Request#0" />
+                <element signature="n#!!block;n#toString#0;n#Request#0" />
+                <element signature="e#1910#3040#0" />
+                <element signature="e#3082#3395#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week05/server.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -49,6 +61,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/week01/NOTE.md" />
+        <option value="$PROJECT_DIR$/week05/server.js" />
         <option value="$PROJECT_DIR$/week05/client.js" />
       </list>
     </option>
@@ -102,7 +115,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../rn-yh" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.scopes" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -244,7 +257,7 @@
       <updated>1586956726968</updated>
       <workItem from="1586956728767" duration="2467000" />
       <workItem from="1586996936985" duration="631000" />
-      <workItem from="1589264061249" duration="8572000" />
+      <workItem from="1589264061249" duration="15398000" />
     </task>
     <task id="LOCAL-00001" summary="第一周学习总结">
       <created>1586958695650</created>
@@ -253,11 +266,18 @@
       <option name="project" value="LOCAL" />
       <updated>1586958695650</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ResponseParser">
+      <created>1589277959850</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589277959850</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11670000" />
+    <option name="totallyTimeSpent" value="18496000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -267,12 +287,12 @@
       <window_info content_ui="combo" id="Project" order="0" weight="0.25670242" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50067025" side_tool="true" weight="0.32489452" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32911393" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067025" side_tool="true" weight="0.32489452" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32911393" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49932975" visible="true" weight="0.32489452" />
-      <window_info anchor="bottom" id="RNConsole" order="7" />
+      <window_info active="true" anchor="right" id="Terminal" order="4" sideWeight="0.49932975" visible="true" weight="0.25603217" />
+      <window_info anchor="bottom" id="RNConsole" order="10" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -321,7 +341,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第一周学习总结" />
-    <option name="LAST_COMMIT_MESSAGE" value="第一周学习总结" />
+    <MESSAGE value="ResponseParser" />
+    <option name="LAST_COMMIT_MESSAGE" value="ResponseParser" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
@@ -341,17 +362,27 @@
     <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/week05/server.js">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/week05/client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="47" column="40" lean-forward="true" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+        <state relative-caret-position="324">
+          <caret line="256" column="13" lean-forward="true" selection-start-line="256" selection-start-column="13" selection-end-line="256" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!block;n#constructor#0;n#Request#0" />
+            <element signature="n#!!block;n#toString#0;n#Request#0" />
+            <element signature="e#1910#3040#0" />
+            <element signature="e#3082#3395#0" />
+          </folding>
         </state>
       </provider>
     </entry>
