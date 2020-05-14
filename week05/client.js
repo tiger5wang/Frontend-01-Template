@@ -244,9 +244,9 @@ class TrunkedBodyParser {
                 if(this.length === 0) {  // 此时如果长度数为0，表示后面已没有内容，内容处理完毕
                     this.isFinished = true;
                 }
-            } else {  // 字符长度值 为 十进制
-                this.length *= 10;
-                this.length += Number(char);  //char.charCodeAt(0) - '0'.charCodeAt(0)
+            } else {  // 字符长度值 为 十六进制
+                this.length *= 16;
+                this.length += parseInt(char, 16);
             }
         } else if(this.current === this.WAITING_LENGTH_LINE_END) {
             if(char === '\n') {  // 与上面的 \r 连接，表示字符长度行的结束，将要进入内容部分
