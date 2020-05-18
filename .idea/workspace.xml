@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Frontend-01-Template.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Frontend-01-Template.iml" afterDir="false" />
+    <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="一个字符串中找到指定的字符">
+      <change afterPath="$PROJECT_DIR$/week06/client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week06/parser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week06/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +30,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1bzL63mpEpkkE7x9owNzcFcNaXq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,14 +41,15 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="E:/LionBridge/MStone_CRM_RN" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/week06" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\myProject\Frontend-01-Template\week06" />
       <recent name="C:\work\myProject\Frontend-01-Template\week01" />
     </key>
   </component>
@@ -88,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589277959850</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="一个字符串中找到指定的字符">
+      <created>1589700721937</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589700721938</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,25 +122,49 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第一周学习总结" />
     <MESSAGE value="ResponseParser" />
-    <option name="LAST_COMMIT_MESSAGE" value="ResponseParser" />
+    <MESSAGE value="一个字符串中找到指定的字符" />
+    <option name="LAST_COMMIT_MESSAGE" value="一个字符串中找到指定的字符" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="176" y="50" width="1238" height="784" key="CommitChangelistDialog2" timestamp="1589814020918">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="176" y="50" width="1238" height="784" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1589814020918" />
     <state x="182" y="346" key="FileChooserDialogImpl" timestamp="1589634488314">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="182" y="346" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1589634488314" />
-    <state x="380" y="82" width="992" height="707" key="SettingsEditor" timestamp="1589700139023">
+    <state x="380" y="82" width="992" height="707" key="SettingsEditor" timestamp="1589723410514">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="380" y="82" width="992" height="707" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1589700139023" />
-    <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589674443062">
+    <state x="380" y="82" width="992" height="707" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1589723410514" />
+    <state x="361" y="151" key="Vcs.Push.Dialog.v2" timestamp="1589700724789">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1589674443062" />
+    <state x="361" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1589700724789" />
+    <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589810457093">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1589810457093" />
   </component>
   <component name="masterDetails">
     <states>
