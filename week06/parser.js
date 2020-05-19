@@ -5,7 +5,7 @@ let stack = [{type: 'document', children: []}];
 
 function emit(token) {
     if(token.type === 'text') return;
-	
+	// console.log(token)
 	let top = stack[stack.length - 1];
 	
 	if(token.type === 'startTag') {
@@ -14,9 +14,9 @@ function emit(token) {
             children: [],
             attributes: []
         };
-	    
+
 	    element.tagName = token.tagName;
-	    
+
 	    for (let p in token) {
 	        if(p !== 'type' && p !== 'tagName') {
 	            element.attributes.push({
@@ -25,16 +25,16 @@ function emit(token) {
                 })
             }
         }
-        
+
         top.children.push(element);
 	    element.parent = top;
 	    // console.log(top)
 	    if(!token.isSelfClosure) {
 	        stack.push(element);
         }
-	    
+
         currentTextNode = null;
-	    
+
     } else if(token.type === 'endTag') {
 	    console.log(token.tagName, top.tagName)
 	    if(token.tagName !== top.tagName) {
@@ -120,9 +120,7 @@ function beforeAttributeName(char) {
     if(char.match(/^[\t\n\f ]$/)) {  // 标签名和属性之间 空格可能有多个
         return beforeAttributeName;
     } else if(char === ">" || char === '/' || char === EOF) {
-        // return afterAttributeName(char);
-		emit(currentToken);
-		return data;
+        return afterAttributeName(char);
     } else if(char === '=') {
     
     } else {
@@ -273,5 +271,5 @@ module.exports.parserHTML = function (html) {
         state = state(char)
     }
     state = state(EOF);
-    console.log(stack[0])
+    console.log('stack', stack[0])
 };

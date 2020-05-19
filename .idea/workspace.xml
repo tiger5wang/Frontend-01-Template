@@ -1,64 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="">
+    <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="parser.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/week06/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/week06/parser.js" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="matchString.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week06/matchString.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="246" column="20" lean-forward="true" selection-start-line="246" selection-start-column="20" selection-end-line="246" selection-end-column="20" />
-              <folding>
-                <element signature="n#!!block;n#matchString#0" />
-                <element signature="n#!!block;n#matchString2#0" />
-                <element signature="n#!!block;n#matchString3#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="client.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week06/client.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="255" column="13" lean-forward="true" selection-start-line="255" selection-start-column="13" selection-end-line="255" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parser.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/week06/parser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week06/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -67,75 +17,18 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>c</find>
-      <find>emit</find>
-      <find>currentToken</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/.gitingore" />
-        <option value="$PROJECT_DIR$/week06/server.js" />
-        <option value="$PROJECT_DIR$/week06/parser.js" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1060" />
-  </component>
   <component name="ProjectId" id="1bzL63mpEpkkE7x9owNzcFcNaXq" />
-  <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Frontend-01-Template" type="cbb8eebc:String" user="Frontend-01-Template" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Frontend-01-Template" type="cbb8eebc:String" user="Frontend-01-Template" />
-              <item name="week05" type="cbb8eebc:String" user="week05" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Frontend-01-Template" type="cbb8eebc:String" user="Frontend-01-Template" />
-              <item name="week06" type="cbb8eebc:String" user="week06" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -145,10 +38,10 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../rn-yh" />
+    <property name="last_opened_file_path" value="E:/rn-yh" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -156,134 +49,13 @@
       <recent name="C:\work\myProject\Frontend-01-Template\week01" />
     </key>
   </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/week06/client.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/week06/parser.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/week06/server.js</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="Node.js.client.js">
-    <configuration name="client.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="client.js" working-dir="$PROJECT_DIR$/week06" />
-    <configuration name="matchString.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="matchString.js" working-dir="$PROJECT_DIR$/week06" />
+    <configuration name="client.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="client.js" working-dir="$PROJECT_DIR$/week06">
+      <method v="2" />
+    </configuration>
+    <configuration name="matchString.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="matchString.js" working-dir="$PROJECT_DIR$/week06">
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Node.js.matchString.js" />
       <item itemvalue="Node.js.client.js" />
@@ -371,30 +143,6 @@
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="18289000" />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-1688" y="-87" width="1696" height="1036" extended-state="6" />
-    <layout>
-      <window_info anchor="right" id="Key Promoter X" order="3" weight="0.3297587" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15342298" />
-      <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50067025" side_tool="true" weight="0.32489452" />
-      <window_info anchor="bottom" id="Run" order="10" weight="0.31504923" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32911393" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49932975" visible="true" weight="0.36343366" />
-      <window_info anchor="bottom" id="RNConsole" order="9" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.3994374" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -407,21 +155,12 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第一周学习总结" />
@@ -435,18 +174,86 @@
     <option name="LAST_COMMIT_MESSAGE" value="emitToken创建元素" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="76" key="#Notifications" timestamp="1589899237977">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="76" key="#Notifications/0.0.1536.834@0.0.1536.834" timestamp="1589899237977" />
     <state x="176" y="50" width="1238" height="784" key="CommitChangelistDialog2" timestamp="1589814020918">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="176" y="50" width="1238" height="784" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1589814020918" />
-    <state x="182" y="346" key="FileChooserDialogImpl" timestamp="1589634488314">
+    <state x="182" y="346" key="FileChooserDialogImpl" timestamp="1589895948686">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="182" y="346" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1589634488314" />
-    <state x="380" y="82" width="992" height="707" key="SettingsEditor" timestamp="1589723410514">
+    <state x="182" y="346" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1589895948686" />
+    <state width="1436" height="265" key="GridCell.Tab.0.bottom" timestamp="1589900913986">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="380" y="82" width="992" height="707" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1589723410514" />
+    <state width="1436" height="265" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1589900913986" />
+    <state width="1436" height="265" key="GridCell.Tab.0.center" timestamp="1589900913986">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1589900913986" />
+    <state width="1436" height="265" key="GridCell.Tab.0.left" timestamp="1589900913986">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1589900913986" />
+    <state width="1436" height="265" key="GridCell.Tab.0.right" timestamp="1589900913986">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1589900913986" />
+    <state width="1436" height="265" key="GridCell.Tab.1.bottom" timestamp="1589900913987">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1589900913987" />
+    <state width="1436" height="265" key="GridCell.Tab.1.center" timestamp="1589900913986">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1589900913986" />
+    <state width="1436" height="265" key="GridCell.Tab.1.left" timestamp="1589900913986">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1589900913986" />
+    <state width="1436" height="265" key="GridCell.Tab.1.right" timestamp="1589900913987">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1589900913987" />
+    <state width="1436" height="265" key="GridCell.Tab.2.bottom" timestamp="1589900914667">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1589900914667" />
+    <state width="1436" height="265" key="GridCell.Tab.2.center" timestamp="1589900914663">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1589900914663" />
+    <state width="1436" height="265" key="GridCell.Tab.2.left" timestamp="1589900914662">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1589900914662" />
+    <state width="1436" height="265" key="GridCell.Tab.2.right" timestamp="1589900914666">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1589900914666" />
+    <state width="1436" height="265" key="GridCell.Tab.3.bottom" timestamp="1589900913988">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.3.bottom/0.0.1536.834@0.0.1536.834" timestamp="1589900913988" />
+    <state width="1436" height="265" key="GridCell.Tab.3.center" timestamp="1589900913988">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.3.center/0.0.1536.834@0.0.1536.834" timestamp="1589900913988" />
+    <state width="1436" height="265" key="GridCell.Tab.3.left" timestamp="1589900913987">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.3.left/0.0.1536.834@0.0.1536.834" timestamp="1589900913987" />
+    <state width="1436" height="265" key="GridCell.Tab.3.right" timestamp="1589900913988">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1436" height="265" key="GridCell.Tab.3.right/0.0.1536.834@0.0.1536.834" timestamp="1589900913988" />
+    <state x="380" y="82" width="992" height="707" key="SettingsEditor" timestamp="1589896725602">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="380" y="82" width="992" height="707" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1589896725602" />
     <state x="361" y="151" key="Vcs.Push.Dialog.v2" timestamp="1589700724789">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -456,151 +263,23 @@
     </state>
     <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1589810457093" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/week06/matchString.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3036">
-          <caret line="185" lean-forward="true" selection-start-line="185" selection-end-line="185" />
-          <folding>
-            <element signature="n#!!block;n#matchString#0" />
-            <element signature="n#!!block;n#matchString2#0" />
-            <element signature="n#!!block;n#matchString3#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week06/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="276" column="1" lean-forward="true" selection-start-line="276" selection-start-column="1" selection-end-line="276" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week06/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week06/parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week05/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week05/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6075">
-          <caret line="274" column="1" lean-forward="true" selection-start-line="274" selection-start-column="1" selection-end-line="274" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!block;n#response#0;n#ResponseParser#0" />
-            <element signature="n#!!block;n#constructor#0;n#Request#0" />
-            <element signature="n#!!block;n#toString#0;n#Request#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week05/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="260" column="53" selection-start-line="260" selection-start-column="53" selection-end-line="260" selection-end-column="53" />
-          <folding>
-            <element signature="n#!!block;n#response#0;n#ResponseParser#0" />
-            <element signature="n#!!block;n#constructor#0;n#Request#0" />
-            <element signature="n#!!block;n#toString#0;n#Request#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week05/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-396" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week06/matchString.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="246" column="20" lean-forward="true" selection-start-line="246" selection-start-column="20" selection-end-line="246" selection-end-column="20" />
-          <folding>
-            <element signature="n#!!block;n#matchString#0" />
-            <element signature="n#!!block;n#matchString2#0" />
-            <element signature="n#!!block;n#matchString3#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week06/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="255" column="13" lean-forward="true" selection-start-line="255" selection-start-column="13" selection-end-line="255" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitingore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week06/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week06/parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/week06/parser.js</url>
+          <line>20</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/week06/parser.js</url>
+          <line>39</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>
