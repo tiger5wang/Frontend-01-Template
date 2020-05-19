@@ -1,16 +1,29 @@
 const EOF = Symbol('EOF');  // EPF: end of file;
+let currentToken = null;
 
+function emit(token) {
+    console.log('token', token)
+}
 
 
 // 元素的内容部分
 function data(char) {
     if (char === '<') {
-		console.log(currentToken);
+		console.log('currentToken', currentToken);
 		return statTagOpen;
-    } else if (char === EOF)
-        return ;
-    else
+    } else if (char === EOF) {
+		emit({
+			type: 'EOF'
+		});
+		return ;
+    }
+    else {
+        emit({
+            type: 'text',
+            content: char
+        });
         return data;
+    }
 }
 
 // 元素的开始标签
@@ -18,6 +31,10 @@ function statTagOpen(char) {
     if(char === '/') {  // statTagOpen 状态如果是 / 那就表明这个标签是结束标签，切换状态
         return endTagOpen;
     } else if(char.match(/^[a-zA-Z]$/)) {  // 如果碰到正常字符 a-zA-Z， 表明开始标签名部分了
+        currentToken = {
+            type: 'startTag',
+            tagName: ''
+        };
 		return tagName(char);
     } else
         return data;
@@ -25,6 +42,10 @@ function statTagOpen(char) {
 // 元素的结束标签
 function endTagOpen(char) {
     if(char.match(/^[a-zA-Z]$/)) {
+        currentToken = {
+            type: 'endTag',
+            tagName: ''
+        };
         return tagName(char);
     }
     if (char === '>') {
@@ -38,12 +59,15 @@ function endTagOpen(char) {
 
 function tagName(char) {
     if(char.match(/^[a-zA-Z]$/)) {
+        currentToken.tagName += char;  // toLowerCase()
         return tagName;
     } else if(char.match(/^[\t\n\ ]&/)) {
         return beforeAttributeName;
     } else if(char === '/') {
+        emit(currentToken);
         return selfClosureTag;
     } else if(char === '>') {
+        emit(currentToken);
         return data;
     } else {
         return tagName;
