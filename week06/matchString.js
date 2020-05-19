@@ -130,7 +130,7 @@ console.log(result);*/
 	let state = start;
 	for(let char of string) {
 		state = state(char);
-		if(state === end) break;
+		if(state === end) break;   // 如果找到了相应的字符串，则停止字符串的遍历，提高性能。
 	}
 	return state === end;
 }
@@ -190,7 +190,7 @@ function matchString6(string) {
 	let state = start;
 	for(let char of string) {
 		state = state(char);
-		if(state === end) break;
+		if(state === end) break;   // 如果找到了相应的字符串，则停止字符串的遍历，提高性能。
 	}
 	return state === end;
 }
@@ -241,11 +241,11 @@ function foundB3(char) {
 	if(char === 'x')
 		return end;
 	else
-		return foundB2(char);
+		return foundB2(char);  //注意这里return 的值跟其他地方不同，同样是以防 ab 重复的多
 }
 
 function end(char) {
 	return end;
 }
 
-matchString6('ababababx');
+matchString6('asdababababxasdfg');

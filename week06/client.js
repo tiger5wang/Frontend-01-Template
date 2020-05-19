@@ -1,5 +1,5 @@
 const net = require('net');
-const parse = require('./parser');
+const parser = require('./parser');
 
 class ResponseParser {
 	constructor() {
@@ -214,9 +214,9 @@ void async function() {
         }
     });
     let response  = await request.send();
-    // console.log(response)    ;
-    let dom = parse.parseHTML(response.body);
-}()
+    // console.log(response)
+	let dom = parser.parserHTML(response.body)
+}();
 
 
 class TrunkedBodyParser {
@@ -236,7 +236,7 @@ class TrunkedBodyParser {
     }
 
     receiveChar(char) {
-    	// console.log(char.codePointAt(0), char)
+    	// console.log(char.codePointAt(0), char);
 		// 当this.isFinished=true 时，即处理完所有内容后，后面的 \r\n 不在进行处理
 		if(this.isFinished) return;
     	// 刚开始的状态为等待处理内容的字符长度
