@@ -1,11 +1,49 @@
 const EOF = Symbol('EOF');  // EPF: end of file;
 let currentToken = null;
 let currentAttribute = null;
-
+let stack = [{type: 'document', children: []}];
 
 function emit(token) {
-    if(token.type !== 'text')
-        console.log('token', token)
+    if(token.type === 'text') return;
+	
+	let top = stack[stack.length - 1];
+	
+	if(token.type === 'startTag') {
+	    let element = {
+	        type: 'element',
+            children: [],
+            attributes: []
+        };
+	    
+	    element.tagName = token.tagName;
+	    
+	    for (let p in token) {
+	        if(p !== 'type' && p !== 'tagName') {
+	            element.attributes.push({
+                    name: p,
+                    value: token[p]
+                })
+            }
+        }
+        
+        top.children.push(element);
+	    element.parent = top;
+	    // console.log(top)
+	    if(!token.isSelfClosure) {
+	        stack.push(element);
+        }
+	    
+        currentTextNode = null;
+	    
+    } else if(token.type === 'endTag') {
+	    console.log(token.tagName, top.tagName)
+	    if(token.tagName !== top.tagName) {
+	        throw new Error("tag start end does not match!")
+        } else {
+	        stack.pop();
+        }
+        currentTextNode = null;
+    }
 }
 
 
@@ -234,5 +272,6 @@ module.exports.parserHTML = function (html) {
     for (let char of html) {
         state = state(char)
     }
-    return state(EOF)
+    state = state(EOF);
+    console.log(stack[0])
 };
