@@ -2,22 +2,26 @@ const EOF = Symbol('EOF');  // EPF: end of file;
 let currentToken = null;
 let currentAttribute = null;
 let stack = [{type: 'document', children: []}];
+let currentNodeText = null;
 
+// 提交 token 方法
 function emit(token) {
-    if(token.type === 'text') return;
+    // if(token.type === 'text') return;
 	// console.log(token)
-	let top = stack[stack.length - 1];
-	
+	let top = stack[stack.length - 1];  // 取出栈顶元素
+	// 开始标签
 	if(token.type === 'startTag') {
+		// 定义一个空元素
 	    let element = {
 	        type: 'element',
             children: [],
             attributes: []
         };
-
+		// 添加元素名
 	    element.tagName = token.tagName;
-
+		// 遍历 token的属性
 	    for (let p in token) {
+	    	// 除去 type , tagName 外，其他为属性，添加到元素上
 	        if(p !== 'type' && p !== 'tagName') {
 	            element.attributes.push({
                     name: p,
@@ -25,25 +29,41 @@ function emit(token) {
                 })
             }
         }
-
+		// 栈顶元素的children 添加此元素，设置元素的父节点为栈顶元素
         top.children.push(element);
 	    element.parent = top;
-	    // console.log(top)
+	   
+	    // 非自封闭标签添加到栈
+		// 因为自封闭标签没有对应的结束标签，入栈后不能出栈，所以不入栈，只添加对应元素（上面步骤）
 	    if(!token.isSelfClosure) {
 	        stack.push(element);
         }
-
-        currentTextNode = null;
+		// 当前标签结束，进入下一个标签前将 文本节点置为 null
+		currentNodeText = null;
 
     } else if(token.type === 'endTag') {
-	    console.log(token.tagName, top.tagName)
+	    // 如果是结束标签，且与当前元素的标签名相同，则将栈顶元素出栈，否则抛出错误
 	    if(token.tagName !== top.tagName) {
 	        throw new Error("tag start end does not match!")
         } else {
 	        stack.pop();
         }
-        currentTextNode = null;
-    }
+		// 当前标签结束，进入下一个标签前将 文本节点置为 null
+		currentNodeText = null;
+	   
+    } else if(token.type === 'text') {  // 文本节点
+		// 开始一个新的文本节点，先定义一个内容为空的文本节点
+		if(currentNodeText == null) {
+			currentNodeText = {
+				type: 'text',
+				content: ''
+			};
+			// 并将此节点添加到栈顶元素 children 中
+			top.children.push(currentNodeText)
+		}
+		// 追加文本节点的内容
+		currentNodeText.content += token.content;
+	}
 }
 
 
