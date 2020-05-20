@@ -1,8 +1,11 @@
+const {addCSSRules, computeCSS} = require('./addCSSRUles');
+// import {addCSSRules} from './addCSSRules'
 const EOF = Symbol('EOF');  // EPF: end of file;
 let currentToken = null;
 let currentAttribute = null;
 let stack = [{type: 'document', children: []}];
 let currentNodeText = null;
+
 
 // 提交 token 方法
 function emit(token) {
@@ -29,6 +32,10 @@ function emit(token) {
                 })
             }
         }
+		// 每当一个元素创建后都需要计算CSS，css计算需要尽可能早，跟style的计算不同
+		// 有的时候有些结构有一个很大的 MAIN 的父元素，它的计算就会在最后，但是CSS计算有一个特点，就是有的时候我们的CSS的计算要依赖于父元素来计算，这样导致渲染的时间非常迟
+		computeCSS(element, stack);  // CSS 计算
+		
 		// 栈顶元素的children 添加此元素，设置元素的父节点为栈顶元素
         top.children.push(element);
 	    element.parent = top;
@@ -46,6 +53,11 @@ function emit(token) {
 	    if(token.tagName !== top.tagName) {
 	        throw new Error("tag start end does not match!")
         } else {
+	    	// +++++++++++++ 遇到 style 标签时， 添加CSS 规则的操作++++++++++++++
+			// 原因是：在此时能获取到 style 标签的所有子元素，其他时候如 push的时候，style标签的子元素为空
+			if(top.tagName === 'style') {
+				addCSSRules(top.children[0].content);
+			}
 	        stack.pop();
         }
 		// 当前标签结束，进入下一个标签前将 文本节点置为 null
