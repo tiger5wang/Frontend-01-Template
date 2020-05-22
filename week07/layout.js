@@ -35,10 +35,10 @@ function layout(element) {
 	if(style.display !== 'flex' && style.display !== 'inline-flex')
 		return;
 	
-	let items = element.children.filter(el => el.type === 'element');  // 将非 element 的内容过滤掉
+	let elementChildren = element.children.filter(el => el.type === 'element');  // 将非 element 的子元素过滤掉
 	
 	// 排序
-	items.sort(function(a, b) {
+	elementChildren.sort(function(a, b) {
 		return (a.order || 0) - (b.order || 0);  // 疑问： order 是啥
 	})
 	
@@ -122,7 +122,18 @@ function layout(element) {
 		crossBase = 0;
 	}
 	
-	
+	let isAutoMainType = false;
+	if(!style[mainType]) {     // auto sizing
+		style[mainType] = 0;
+		for(let i=0; i<elementChildren.length; i++) {
+			let item = item[i];
+			let itemStyle = getStyle(item);
+			if(!!itemStyle[mainType]) {
+				style[mainType] += itemStyle[mainType]
+			}
+		}
+		isAutoMainType = true;
+	}
 	
 }
 
