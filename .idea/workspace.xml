@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="parser.js">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+    <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="注释">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week06/addCSSRUles.js" beforeDir="false" afterPath="$PROJECT_DIR$/week06/addCSSRUles.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -45,8 +43,8 @@
       <file leaf-file-name="parser.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week06/parser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="34" />
+            <state relative-caret-position="616">
+              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="34" />
               <folding>
                 <element signature="n#!!block;n#data#0" />
               </folding>
@@ -54,15 +52,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addCSSRUles.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addCSSRUles.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week06/addCSSRUles.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="223" column="16" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
+            <state relative-caret-position="-189">
+              <caret line="196" column="27" lean-forward="true" selection-start-line="196" selection-start-column="27" selection-end-line="196" selection-end-column="27" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="n#!!block;n#compare#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -239,7 +246,8 @@
       <workItem from="1589629805086" duration="761000" />
       <workItem from="1589850167927" duration="48200000" />
       <workItem from="1590022182547" duration="28000" />
-      <workItem from="1590022256165" duration="9355000" />
+      <workItem from="1590022256165" duration="9584000" />
+      <workItem from="1590121410187" duration="672000" />
     </task>
     <task id="LOCAL-00001" summary="第一周学习总结">
       <created>1586958695650</created>
@@ -325,28 +333,34 @@
       <option name="project" value="LOCAL" />
       <updated>1589969162481</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="注释">
+      <created>1590054862175</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1590054862175</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51984000" />
+    <option name="totallyTimeSpent" value="52885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.3297587" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17024128" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16957104" />
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50067025" side_tool="true" weight="0.32489452" />
-      <window_info anchor="bottom" id="Run" order="10" weight="0.31504923" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32911393" />
+      <window_info anchor="bottom" id="Run" order="10" weight="0.31504923" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932975" weight="0.40787622" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49932975" visible="true" weight="0.40787622" />
       <window_info anchor="bottom" id="RNConsole" order="9" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.35021096" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.35021096" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -399,7 +413,8 @@
     <MESSAGE value="文本节点" />
     <MESSAGE value="install css" />
     <MESSAGE value="addCSSRules，computeCSS" />
-    <option name="LAST_COMMIT_MESSAGE" value="addCSSRules，computeCSS" />
+    <MESSAGE value="注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="注释" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="76" key="#Notifications" timestamp="1589899237977">
@@ -500,6 +515,53 @@
     <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1589981594359" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/week06/matchString.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4378">
+          <caret line="246" column="20" selection-start-line="246" selection-start-column="20" selection-end-line="246" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!block;n#matchString#0" />
+            <element signature="n#!!block;n#matchString2#0" />
+            <element signature="n#!!block;n#matchString3#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week06/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5632">
+          <caret line="256" column="13" selection-start-line="256" selection-start-column="13" selection-end-line="256" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week06/parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!block;n#data#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week06/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week06/addCSSRUles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2090">
+          <caret line="199" column="21" lean-forward="true" selection-start-line="199" selection-start-column="21" selection-end-line="199" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#compare#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/week06/matchString.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4378">
@@ -693,13 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/week06/client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5632">
@@ -723,8 +778,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/week06/parser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="34" />
+        <state relative-caret-position="616">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="34" />
           <folding>
             <element signature="n#!!block;n#data#0" />
           </folding>
@@ -733,12 +788,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/week06/addCSSRUles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="223" column="16" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
+        <state relative-caret-position="-189">
+          <caret line="196" column="27" lean-forward="true" selection-start-line="196" selection-start-column="27" selection-end-line="196" selection-end-column="27" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#compare#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>

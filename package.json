@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tiger5wang/Frontend-01-Template#readme",
   "dependencies": {
-    "css": "^2.2.4"
+    "css": "^2.2.4",
+    "images": "^3.0.2"
   }
 }
