@@ -173,6 +173,32 @@ module.exports.computeCSS = function(element, stack) {
 	// 给元素添加 computedStyle 属性
 	if(!element.computedStyle)
 		element.computedStyle = {};
+
+
+	// 下面是对 行内样式 优先级的计算
+    let inlineStyle = element.attributes.filter(attr => attr.name === 'style');  // 选出行内样式
+
+    if (inlineStyle.length > 0) {   // 如果有行内样式
+        let styles = inlineStyle[0].value.split(';');  // 将行内样式用 ; 拆分开成 属性=值得 数据，如 color=red
+        let computedStyle = element.computedStyle;
+
+        for (let style of styles) {   // 拆分开的数组样式遍历
+            let styleKVArr = style.split('=');  // 将字符串形式color=red 样式 拆分成 属性、值得数组
+
+            if (!computedStyle[styleKVArr[0]]) {   // 如果 computedStyle 没有 此样式
+                computedStyle[styleKVArr[0]] = {}  // 给此样式赋初始值
+            }
+
+            if (!computedStyle[styleKVArr[0]].specificity) {  // 如果此样式还没有 specificity ，就给此样式赋当前的值 和 specificity
+                computedStyle[styleKVArr[0]].value = styleKVArr[1];
+                computedStyle[styleKVArr[0]].specificity = [1,0,0,0]
+            } else if (compare(computedStyle[styleKVArr[0]].specificity, [1,0,0,0]) < 0) { // 如果有specificity，当此specificity小于 [1,0,0,0] 时，说明当前的样式优先级高，重新赋值，否则不处理
+                computedStyle[styleKVArr[0]].value = styleKVArr[1];
+                computedStyle[styleKVArr[0]].specificity = [1,0,0,0]
+            }
+        }
+    }
+
 	
 	// 遍历style标签内的 CSS 规则
 	for(let rule of rules) {
@@ -216,12 +242,6 @@ module.exports.computeCSS = function(element, stack) {
                     computedStyle[declaration.property].value = declaration.value;
                     computedStyle[declaration.property].specificity = sp;
                 }
-			}
-		}
-		
-		for(let attr of element.attributes) {
-			if(attr.name === 'style') {
-			
 			}
 		}
 	}
