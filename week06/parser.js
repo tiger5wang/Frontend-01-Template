@@ -1,4 +1,5 @@
 const {addCSSRules, computeCSS} = require('./addCSSRUles');
+const layout = require('../week07/layout');
 // import {addCSSRules} from './addCSSRules'
 const EOF = Symbol('EOF');  // EPF: end of file;
 let currentToken = null;
@@ -58,6 +59,7 @@ function emit(token) {
 			if(top.tagName === 'style') {
 				addCSSRules(top.children[0].content);
 			}
+			layout(top);
 	        stack.pop();
         }
 		// 当前标签结束，进入下一个标签前将 文本节点置为 null
