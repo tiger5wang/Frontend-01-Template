@@ -48,7 +48,7 @@ function layout(element) {
 		}
 	});
 	
-	
+	// 定义初始值
 	if(!style.flexDirection || style.flexDirection === 'auto') {
 		style.flexDirection = 'row'
 	}
@@ -121,20 +121,161 @@ function layout(element) {
 		crossSign = +1;
 		crossBase = 0;
 	}
-	
+
+	// 一个特例，就是style里面没有给定 mainType的时候，也即autoSize
 	let isAutoMainType = false;
 	if(!style[mainType]) {     // auto sizing
 		style[mainType] = 0;
 		for(let i=0; i<elementChildren.length; i++) {
 			let item = item[i];
 			let itemStyle = getStyle(item);
-			if(!!itemStyle[mainType]) {
+			if(!!itemStyle[mainType]) {  // mainType的实际值就是它的所有元素的 mainType 值得总和
 				style[mainType] += itemStyle[mainType]
 			}
 		}
 		isAutoMainType = true;
 	}
-	
+
+	let flexLine = [];    // 主轴行
+	let flexLines = [flexLine];   // 主轴所有行
+
+    let leftSpace = style[mainType];   // 定义主轴剩余空间
+    let crossSpace = 0;    // 定义交叉轴剩余空间
+
+    for (let i=0; i<elementChildren.length; i++) {
+        let item = elementChildren[i];
+        let itemStyle = getStyle(item);
+
+        if (itemStyle[mainType] == null) {
+            itemStyle[mainType] = 0;
+        }
+
+        if (itemStyle.flex) {
+            flexLine.push(item);
+        } else if (style.flexWrap === 'nowrap' && isAutoMainType) {
+            leftSpace -= itemStyle[mainType];
+            if (!!itemStyle[crossType]) {
+                crossSpace = Math.max(crossSpace, itemStyle[crossType])
+            }
+            flexLine.push(item);
+        } else {
+            if (itemStyle[mainType] > style[mainType]) {
+                itemStyle[mainType] = style[mainType]
+            }
+            if (leftSpace < itemStyle[mainType]) {
+                flexLine.leftSpace = leftSpace;
+                flexLine.crossSpace = crossSpace;
+
+                flexLine = [item];   // 新的一行
+                flexLines.push(flexLine);  // 添加新的行
+                leftSpace = style[mainType];   // 恢复初始值
+                crossSpace = 0;  // 恢复初始值
+            } else {
+                flexLine.push(item);
+                if (!!itemStyle[crossType]) {
+                    crossSpace = Math.max(crossSpace, itemStyle[crossType])
+                }
+            }
+            // winter 写的位置
+            // if (!!itemStyle[crossType]) {
+            //     crossSpace = Math.max(crossSpace, itemStyle[crossType])
+            // }
+            leftSpace -= itemStyle[mainType];
+        }
+    }
+    flexLine.leftSpace = leftSpace;
+
+    if (style.flexWrap === 'nowrap' || isAutoMainType) {
+        flexLine.crossSpace = style[mainType] ? style[mainType] : crossSpace;
+    } else {
+        flexLine.crossSpace = crossSpace;
+    }
+
+    if (leftSpace < 0) {
+        let scale = style[mainType] / (style[mainType] - leftSpace);
+        let currentPosition = mainBase;
+        for (let i=0; i<elementChildren.length; i++) {
+            let item = elementChildren[i];
+            let itemStyle = getStyle(item);
+
+            if (itemStyle.flex) {
+                itemStyle[mainType] = 0
+            }
+
+            itemStyle[mainType] = itemStyle[mainType] * scale;
+
+            itemStyle[mainStart] = currentPosition;
+            itemStyle[mainEnd] = itemStyle[mainStart] + mainSign * itemStyle[mainType];
+            currentPosition = itemStyle[mainEnd];
+        }
+    } else {
+        flexLines.forEach(flexLine => {
+            let leftSpace = flexLine.leftSpace;
+            let flexTotal = 0;
+
+            for (let i=0; i<flexLine.length; i++) {
+                let item = flexLine[i];
+                let itemStyle = getStyle(item);
+
+                if (itemStyle.flex) {
+                    flexTotal += itemStyle.flex
+                }
+            }
+
+            if (flexTotal > 0) {
+                let currentPosition = mainBase;
+
+                for (let i=0; i<flexLine.length; i++) {
+                    let item = flexLine[i];
+                    let itemStyle = getStyle(item);
+
+                    if (itemStyle.flex) {
+                        itemStyle[mainSign] = leftSpace / flexTotal;
+                    }
+
+                    itemStyle[mainStart] = currentPosition;
+                    itemStyle[mainEnd] = itemStyle[mainStart] + mainSign * itemStyle[mainType];
+                    currentPosition = itemStyle[mainEnd];
+                }
+            } else {
+                let currentPosition, sp;  // space between 间距
+                if (style.flexDirection === 'flex-start') {
+                    currentPosition = mainBase;
+                    sp = 0
+                }
+                if (style.flexDirection === 'flex-end') {
+                    currentPosition = mainBase + leftSpace * mainSign;
+                    sp = 0
+                }
+                if (style.flexDirection === 'center') {
+                    currentPosition = mainBase + leftSpace / 2 * mainSign;
+                    sp = 0
+                }
+                if (style.flexDirection === 'space-between') {
+                    currentPosition = mainBase;
+                    sp = leftSpace / (flexLine.length - 1) * mainSign
+                }
+                if (style.flexDirection === 'space-around') {
+                    sp = leftSpace / (flexLine.length) * mainSign;
+                    currentPosition = mainBase + sp / 2;
+                }
+
+                for (let i=0; i<flexLine.length; i++) {
+                    let item = flexLine[i];
+                    let itemStyle = getStyle(item);
+
+                    itemStyle[mainStart] = currentPosition;
+                    itemStyle[mainEnd] = itemStyle[mainStart] + mainSign * itemStyle[mainType];
+                    currentPosition = itemStyle[mainEnd] + sp;
+                }
+            }
+
+        })
+
+    }
+
+
+
 }
 
 module.exports = layout;

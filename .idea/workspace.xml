@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="笔记">
+    <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="行内样式优先级计算">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week06/addCSSRUles.js" beforeDir="false" afterPath="$PROJECT_DIR$/week06/addCSSRUles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week07/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/week07/layout.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,16 +17,6 @@
         <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>c</find>
-      <find>currentToken</find>
-      <find>tagName</find>
-      <find>UnquoteAttributeValue</find>
-      <find>afterAttributeValue</find>
-      <find>emit</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -44,11 +34,6 @@
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-5" />
-    <option name="width" value="1945" />
-    <option name="height" value="1105" />
   </component>
   <component name="ProjectId" id="1bzL63mpEpkkE7x9owNzcFcNaXq" />
   <component name="ProjectLevelVcsManager">
@@ -222,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590122250639</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="行内样式优先级计算">
+      <created>1590191375266</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1590191375267</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -264,17 +256,19 @@
     <MESSAGE value="addCSSRules，computeCSS" />
     <MESSAGE value="注释" />
     <MESSAGE value="npm install images" />
-    <option name="LAST_COMMIT_MESSAGE" value="npm install images" />
+    <MESSAGE value="行内样式优先级计算" />
+    <option name="LAST_COMMIT_MESSAGE" value="行内样式优先级计算" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="76" key="#Notifications" timestamp="1589899237977">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="76" key="#Notifications/0.0.1536.834@0.0.1536.834" timestamp="1589899237977" />
-    <state x="176" y="50" width="1238" height="784" key="CommitChangelistDialog2" timestamp="1589987210336">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="176" y="51" width="1238" height="784" key="CommitChangelistDialog2" timestamp="1590191365555">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="176" y="50" width="1238" height="784" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1589987210336" />
+    <state x="176" y="51" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1590191365555" />
     <state x="182" y="346" key="FileChooserDialogImpl" timestamp="1589895948686">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -356,10 +350,11 @@
     </state>
     <state x="380" y="82" width="992" height="707" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1589896725602" />
     <state x="380" y="85" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1590189081993" />
-    <state x="361" y="151" key="Vcs.Push.Dialog.v2" timestamp="1589987213402">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="361" y="156" key="Vcs.Push.Dialog.v2" timestamp="1590191377907">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1589987213402" />
+    <state x="361" y="156" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1590191377907" />
     <state x="562" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590189182674">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -372,6 +367,12 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/week07/layout.js</url>
           <line>41</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/week07/layout.js</url>
+          <line>174</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
