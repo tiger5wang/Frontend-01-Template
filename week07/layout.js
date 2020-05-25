@@ -271,9 +271,96 @@ function layout(element) {
             }
 
         })
-
     }
+    
+    // 交叉轴 剩余空间（总体，不是每一行的）
+    let crossLeftSpace;
+    if(!style[crossType]) {
+		crossLeftSpace = 0;
+		style[crossType] = 0;
+		for(let i=0; i<flexLines.length; i++) {
+			style[crossType] += flexLines[i][crossType]
+		}
+	} else {
+		crossLeftSpace = style[crossType];
+		for(let flexLine of flexLines) {
+			crossLeftSpace -= flexLine[crossType];
+		}
+	}
 
+	if(style.flexWrap === 'wrap-reverse') {
+    	crossBase = style[crossBase]
+	} else {
+    	crossBase = 0;
+	}
+	
+	let lineSize = style[crossType] / flexLines.length;
+    
+    let step;
+    if(style.alignContent === 'flex-start') {
+    	crossBase = 0;
+    	step = 0;
+	}
+	if(style.alignContent === 'flex-end') {
+		crossBase += crossSign * crossLeftSpace;
+		step = 0;
+	}
+	if(style.alignContent === 'center') {
+		crossBase += crossSign * crossLeftSpace / 2;
+		step = 0;
+	}
+	if(style.alignContent === 'space-between') {
+		step = crossLeftSpace / (flexLines.length - 1);
+		crossBase += 0;
+	}
+	if(style.alignContent === 'space-around') {
+		step = crossLeftSpace / flexLines.length;
+		crossBase += crossSign * step / 2;
+	}
+	if(style.alignContent === 'stretch') {
+		step = 0;
+		crossBase = 0;
+	}
+	
+	flexLines.forEach(function (flexLine) {
+		let lineCrossType = style.alignContent === 'stretch' ?
+			lineSize :
+			flexLine.crossSpace;
+		
+		for(let i=0; i<flexLine.length; i++) {
+			let item = flexLine[i];
+			let itemStyle= getStyle(item);
+			
+			let align = itemStyle.alignSelf || style.alignItems;
+			
+			if(!itemStyle[crossType]) {
+				itemStyle[crossType] = align === 'stretch' ? lineCrossType : 0
+			}
+			
+			if(align === 'flex-start') {
+				itemStyle[crossStart] = crossBase;
+				itemStyle[crossEnd] = crossBase + itemStyle[crossType]
+			}
+			if(align === 'flex-end') {
+				itemStyle[crossEnd] = crossBase + crossSign * lineCrossType;
+				itemStyle[crossStart] = itemStyle[crossEnd] - crossSign * itemStyle[crossType];
+			}
+			if(align === 'center') {
+				itemStyle[crossStart] = crossBase + crossSign * (lineCrossType - itemStyle[crossType]) / 2;
+				itemStyle[crossEnd] = itemStyle[crossStart] + itemStyle[crossType];
+			}
+			if(align === 'stretch') {
+				itemStyle[crossStart] = crossBase;
+				itemStyle[crossEnd] = crossBase + crossSign * lineCrossType;
+				
+				itemStyle[crossType] = lineCrossType;  // crossSign * (itemStyle[crossEnd] - itemStyle[crossStart])
+			}
+		}
+		
+		crossBase += crossSign * (lineCrossType + step)
+	})
+	
+	
 
 
 }
