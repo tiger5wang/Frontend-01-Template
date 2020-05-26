@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="行内样式优先级计算">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week07/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/week07/layout.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +213,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590191375267</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="行内样式优先级计算">
+      <created>1590330026754</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1590330026755</updated>
+    </task>
+    <task id="LOCAL-00017" summary="行内样式优先级计算">
+      <created>1590330076388</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1590330076388</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -260,15 +273,16 @@
     <option name="LAST_COMMIT_MESSAGE" value="行内样式优先级计算" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="76" key="#Notifications" timestamp="1589899237977">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="361" y="79" key="#Notifications" timestamp="1590499775976">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="76" key="#Notifications/0.0.1536.834@0.0.1536.834" timestamp="1589899237977" />
-    <state x="176" y="47" width="1238" height="784" key="CommitChangelistDialog2" timestamp="1590330061271">
+    <state x="361" y="79" key="#Notifications/0.0.1536.864@0.0.1536.864" timestamp="1590499775976" />
+    <state x="176" y="47" width="1238" height="784" key="CommitChangelistDialog2" timestamp="1590330096375">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="176" y="50" width="1238" height="784" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1589987210336" />
-    <state x="176" y="47" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1590330061271" />
+    <state x="176" y="47" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1590330096375" />
     <state x="182" y="346" key="FileChooserDialogImpl" timestamp="1589895948686">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -350,16 +364,16 @@
     </state>
     <state x="380" y="82" width="992" height="707" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1589896725602" />
     <state x="380" y="85" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1590189081993" />
-    <state x="361" y="156" key="Vcs.Push.Dialog.v2" timestamp="1590330068673">
+    <state x="361" y="156" key="Vcs.Push.Dialog.v2" timestamp="1590330099886">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1589987213402" />
-    <state x="361" y="156" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1590330068673" />
-    <state x="562" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590189182674">
+    <state x="361" y="156" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1590330099886" />
+    <state x="562" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590499782142">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1589981594359" />
-    <state x="562" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1590189182674" />
+    <state x="562" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1590499782142" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
