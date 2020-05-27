@@ -10,18 +10,20 @@
 }*/
 
 // 将element.computedStyle 转换为正常的style
-function getStyle(computedStyle) {
-	let style = {};
-	for(let prop in computedStyle) {
-		style[prop] = computedStyle[prop].value;
+function getStyle(element) {
+	if(!element.style)
+		element.style = {};
+	
+	for(let prop in element.computedStyle) {
+		element.style[prop] = element.computedStyle[prop].value;
 		
 		// 这里先只用 px, 先转换成数字，方便后面计算
-		if(style[prop].toString().match(/px$/) || style[prop].toString().match(/[^0-9\.]+/)) {
-			style[prop] = parseInt(computedStyle[prop].value);
+		if(element.style[prop].toString().match(/px$/) || element.style[prop].toString().match(/^[0-9\.]+$/)) {
+			element.style[prop] = parseInt(element.computedStyle[prop].value);
 		}
 		
 	}
-	return style;
+	return element.style;
 }
 
 
@@ -30,7 +32,7 @@ function layout(element) {
 	if(!element.computedStyle || Object.getOwnPropertyNames(element.computedStyle).length === 0)
 		return;
 	
-	let style = getStyle(element.computedStyle);
+	let style = getStyle(element);
 	
 	if(style.display !== 'flex' && style.display !== 'inline-flex')
 		return;
@@ -38,11 +40,12 @@ function layout(element) {
 	let elementChildren = element.children.filter(el => el.type === 'element');  // 将非 element 的子元素过滤掉
 	
 	// 排序
-	elementChildren.sort(function(a, b) {
-		return (a.order || 0) - (b.order || 0);  // 疑问： order 是啥
-	})
+	// elementChildren.sort(function(a, b) {
+	// 	return (a.style.order || 0) - (b.style.order || 0);  // 疑问： order 是啥
+	// });
 	
-	['width', 'height'].forEach(item => {
+	let types = ['width', 'height'];
+	types.forEach(item => {
 		if(style[item] === 'auto' || style[item] === '' || style[item] === undefined) {
 			style[item] = null;
 		}
@@ -127,7 +130,7 @@ function layout(element) {
 	if(!style[mainType]) {     // auto sizing
 		style[mainType] = 0;
 		for(let i=0; i<elementChildren.length; i++) {
-			let item = item[i];
+			let item = elementChildren[i];
 			let itemStyle = getStyle(item);
 			if(!!itemStyle[mainType]) {  // mainType的实际值就是它的所有元素的 mainType 值得总和
 				style[mainType] += itemStyle[mainType]
@@ -172,14 +175,14 @@ function layout(element) {
                 crossSpace = 0;  // 恢复初始值
             } else {
                 flexLine.push(item);
-                if (!!itemStyle[crossType]) {
-                    crossSpace = Math.max(crossSpace, itemStyle[crossType])
-                }
+                // if (!!itemStyle[crossType]) {
+                //     crossSpace = Math.max(crossSpace, itemStyle[crossType])
+                // }
             }
             // winter 写的位置
-            // if (!!itemStyle[crossType]) {
-            //     crossSpace = Math.max(crossSpace, itemStyle[crossType])
-            // }
+            if (!!itemStyle[crossType]) {
+                crossSpace = Math.max(crossSpace, itemStyle[crossType])
+            }
             leftSpace -= itemStyle[mainType];
         }
     }
@@ -217,7 +220,7 @@ function layout(element) {
                 let item = flexLine[i];
                 let itemStyle = getStyle(item);
 
-                if (itemStyle.flex) {
+                if (!!itemStyle.flex) {
                     flexTotal += itemStyle.flex
                 }
             }
@@ -230,7 +233,7 @@ function layout(element) {
                     let itemStyle = getStyle(item);
 
                     if (itemStyle.flex) {
-                        itemStyle[mainSign] = leftSpace / flexTotal;
+                        itemStyle[mainType] = (leftSpace / flexTotal) * itemStyle.flex;
                     }
 
                     itemStyle[mainStart] = currentPosition;
@@ -241,7 +244,7 @@ function layout(element) {
                 let currentPosition, sp;  // space between 间距
                 if (style.flexDirection === 'flex-start') {
                     currentPosition = mainBase;
-                    sp = 0
+                    sp = 0;
                 }
                 if (style.flexDirection === 'flex-end') {
                     currentPosition = mainBase + leftSpace * mainSign;
@@ -275,16 +278,18 @@ function layout(element) {
     
     // 交叉轴 剩余空间（总体，不是每一行的）
     let crossLeftSpace;
+    
     if(!style[crossType]) {
 		crossLeftSpace = 0;
 		style[crossType] = 0;
+		
 		for(let i=0; i<flexLines.length; i++) {
-			style[crossType] += flexLines[i][crossType]
+			style[crossType] += flexLines[i].crossSpace;
 		}
 	} else {
 		crossLeftSpace = style[crossType];
-		for(let flexLine of flexLines) {
-			crossLeftSpace -= flexLine[crossType];
+		for(let i=0; i<flexLines.length; i++) {
+			crossLeftSpace -= flexLines[i].crossSpace;
 		}
 	}
 
@@ -298,7 +303,7 @@ function layout(element) {
     
     let step;
     if(style.alignContent === 'flex-start') {
-    	crossBase = 0;
+    	crossBase += 0;
     	step = 0;
 	}
 	if(style.alignContent === 'flex-end') {
@@ -319,12 +324,12 @@ function layout(element) {
 	}
 	if(style.alignContent === 'stretch') {
 		step = 0;
-		crossBase = 0;
+		crossBase += 0;
 	}
 	
 	flexLines.forEach(function (flexLine) {
 		let lineCrossType = style.alignContent === 'stretch' ?
-			lineSize :
+			flexLine.crossSpace + crossLeftSpace :
 			flexLine.crossSpace;
 		
 		for(let i=0; i<flexLine.length; i++) {
@@ -339,7 +344,7 @@ function layout(element) {
 			
 			if(align === 'flex-start') {
 				itemStyle[crossStart] = crossBase;
-				itemStyle[crossEnd] = crossBase + itemStyle[crossType]
+				itemStyle[crossEnd] = itemStyle[crossStart] + crossSign * itemStyle[crossType]
 			}
 			if(align === 'flex-end') {
 				itemStyle[crossEnd] = crossBase + crossSign * lineCrossType;
@@ -347,22 +352,19 @@ function layout(element) {
 			}
 			if(align === 'center') {
 				itemStyle[crossStart] = crossBase + crossSign * (lineCrossType - itemStyle[crossType]) / 2;
-				itemStyle[crossEnd] = itemStyle[crossStart] + itemStyle[crossType];
+				itemStyle[crossEnd] = itemStyle[crossStart] + crossSign * itemStyle[crossType];
 			}
 			if(align === 'stretch') {
 				itemStyle[crossStart] = crossBase;
-				itemStyle[crossEnd] = crossBase + crossSign * lineCrossType;
+				itemStyle[crossEnd] = crossBase + crossSign * (!!itemStyle[crossType] ? itemStyle[crossType] : lineCrossType);
 				
-				itemStyle[crossType] = lineCrossType;  // crossSign * (itemStyle[crossEnd] - itemStyle[crossStart])
+				itemStyle[crossType] = crossSign * (itemStyle[crossEnd] - itemStyle[crossStart]) ;  // lineCrossType
 			}
 		}
 		
 		crossBase += crossSign * (lineCrossType + step)
-	})
+	});
 	
-	
-
-
 }
 
 module.exports = layout;

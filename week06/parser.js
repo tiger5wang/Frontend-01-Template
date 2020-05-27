@@ -77,6 +77,7 @@ function emit(token) {
 		}
 		// 追加文本节点的内容
 		currentNodeText.content += token.content;
+		
 	}
 }
 
