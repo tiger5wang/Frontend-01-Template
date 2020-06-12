@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes mykf {
+            0% {top: 0; transition: top ease}
+            50% {top: 30px; transition: top ease-in}
+            75% {top: 10px; transition: top ease-out}
+            100% {top: 0; transition: top linear}
+        }
+        div {
+            animation: mykf 5s infinite;
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
