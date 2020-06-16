@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="aa">
+    <span>1</span>
+    <p>2</p>
+    <p>3</p>
+    <span>4</span>
+    <p>5</p>
+</div>
+
+<script>
+    let element = document.getElementById('aa');
+    // 子元素逆序方法
+    // function reverseChildren(element) {
+    //     let children = element.childNodes;
+    //     let len = children.length;
+    //     let fragment = document.createDocumentFragment();
+    //     while (len-- > 0) {
+    //         fragment.appendChild(children[len])
+    //     }
+    //     element.appendChild(fragment)
+    // }
+    // reverseChildren(element);
+
+    function reverseChildren2(element) {
+        let range = new Range();
+        range.selectNodeContents(element);
+
+        let fragment = range.extractContents();
+        let len = fragment.childNodes.length;
+        while (len-- > 0) {
+            fragment.appendChild(fragment.childNodes[len])
+        }
+        element.appendChild(fragment)
+    }
+
+    reverseChildren2(element)
+
+</script>
+</body>
+</html>
