@@ -28,10 +28,9 @@
 </body>
 
 <script>
-    let pattern = [
-    	[0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0]
+    let pattern = [0, 0, 0,
+        0, 0, 0,
+        0, 0, 0
     ];
 
     let person = 1;
@@ -44,8 +43,8 @@
 				let cell = document.createElement('div');
 				cell.classList.add('cell');   // 添加 class
 				cell.innerText =
-					pattern[i][j] === 2 ? 'X':
-					pattern[i][j] === 1 ? 'O':
+					pattern[i *3 +j] === 2 ? 'X':
+					pattern[i *3 +j] === 1 ? 'O':
 					'';
 
 				cell.addEventListener('click', () => userMove(j, i));  // 添加点击事件
@@ -57,9 +56,9 @@
 
     // 用户点击事件
     function userMove(x, y) {
-    	if(pattern[y][x] !== 0) return;  // 如果这个位置有值了，直接返回
+    	if(pattern[y * 3 + x] !== 0) return;  // 如果这个位置有值了，直接返回
         // 给这个位置添加对应的标志
-        pattern[y][x] = person;
+        pattern[y * 3 + x] = person;
         // 判断是不是赢了
 		if(judge(x, y, person, pattern)) {
 			alert(person == 2 ? 'x is winner!': 'o is winner!')
@@ -80,7 +79,7 @@
 	function computeMove() {
         let choice = bestChoice(person, pattern);  // 先找到最优选择
         if(choice.point) {  // 在最优选择点下棋
-			pattern[choice.point[1]][choice.point[0]] = person;
+			pattern[choice.point[1] * 3 + choice.point[0]] = person;
             // 判断没有没赢
 			if(judge(choice.point[0], choice.point[1], person, pattern)) {
 				alert(person == 2 ? 'x is winner!': 'o is winner!')
@@ -97,7 +96,7 @@
 
     	// 判断当前行是否赢了
     	let lineResult = true;
-    	let line = pat[y];  // 取当前行
+    	let line = pat.slice(y * 3, y * 3 +3);  // 取当前行
     	for (let i=0; i<3; i++) {
     		if(line[i] !== person) {
     			lineResult = false;
@@ -110,7 +109,7 @@
         // 判断当前列是否赢了
         let verticalResult = true;
     	for (let j=0; j<3; j++) {
-    		if(pat[j][x] !== person) {
+    		if(pat[j * 3 + x] !== person) {
     			verticalResult = false;
     			break;
             }
@@ -122,7 +121,7 @@
         if((x===0 && y===0) || (x===2 && y===2)) {
         	let result = true;
         	for(let i=0; i<3; i++) {
-        		if(pat[i][i] !== person) {
+        		if(pat[i * 3 + i] !== person) {
         			result = false;
         			break;
                 }
@@ -135,7 +134,7 @@
         if((x===0 && y===2) || (x===2 && y===0)) {
 			let result = true;
 			for(let i=0; i<3; i++) {
-				if(pat[2-i][i] !== person) {
+				if(pat[(2-i) * 3 +i] !== person) {
 					result = false;
 					break;
 				}
@@ -157,12 +156,12 @@
     function willWin(person, pattern) {
         for(let i=0; i<3; i++) {
         	for(let j=0; j<3;j++) {
-        		if(pattern[i][j] !== 0) {  // 此处有棋子则跳过
+        		if(pattern[i * 3 + j] !== 0) {  // 此处有棋子则跳过
         			continue;
                 }
                 // 模拟每一个位置下棋，判断有没有赢的位置
 				const tmp = clone(pattern);  // 拷贝当前的 pattern ， 以防污染全局变量 pattern ，这里要注意
-				tmp[i][j]  = person;  // 下棋
+				tmp[i * 3 + j]  = person;  // 下棋
 				if(judge(j, i, person, tmp)) {  // 判断
 					return [j, i];  // 如果有，则将坐标返回
 				}
@@ -202,11 +201,11 @@
         let result = -1;
 		outer:for(let i=0; i<3; i++) {
 			for(let j=0; j<3; j++) {
-				if(pattern[i][j] !== 0) {  // 有值则跳过
+				if(pattern[i * 3 + j] !== 0) {  // 有值则跳过
 					continue;
 				}
 				const tmp = clone(pattern);
-				tmp[i][j]  = person;
+				tmp[i * 3 + j]  = person;
 				let opp = bestChoice(3-person, tmp);  // 对手最优选择
 				if(-opp.result >= result) {  // 对手的最优选择如果高过自己的最优选择，那么选择对手的最优选择点
 					point = [j, i];
