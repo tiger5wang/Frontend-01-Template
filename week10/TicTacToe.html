@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #board {
+            width: 350px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            display: inline-block;
+            vertical-align: middle;
+            border: solid 1px white;
+
+            line-height: 100px;
+            text-align: center;
+            font-size: 50px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="board"></div>
+</body>
+
+<script>
+    let pattern = [
+    	[2, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]
+    ];
+
+    let person = 1;
+
+    function show() {
+		let board = document.getElementById('board');
+        board.innerHTML = '';  // 每次调用show 方法之前都要先把 board 元素的内容清空
+		for(let i=0; i<3; i++) {
+			for(let j=0; j<3; j++) {
+				let cell = document.createElement('div');
+				cell.classList.add('cell');   // 添加 class
+				cell.innerText =
+					pattern[i][j] === 2 ? 'X':
+					pattern[i][j] === 1 ? 'O':
+					'';
+
+				cell.addEventListener('click', () => userMove(j, i));  // 添加点击事件
+				board.appendChild(cell);
+			}
+			board.appendChild(document.createElement('br'))
+		}
+	}
+
+    // 用户点击事件
+    function userMove(x, y) {
+    	if(pattern[y][x] !== 0) return;  // 如果这个位置有值了，直接返回
+        // 给这个位置添加对应的标志
+        pattern[y][x] = person;
+        // 判断是不是赢了
+		if(judge(x, y, person, pattern)) {
+			alert(person == 2 ? 'x is winner!': 'o is winner!')
+		}
+        // 将标志切换到另一个状态
+        person = 3- person;
+		// 重新渲染
+        show();
+        // 判断是不是将要赢了
+		if(willWin(person, pattern)) {
+			console.log(person == 2 ? 'x will winner!': 'o will winner!')
+		}
+        // 计算机自动走棋
+		computeMove()
+	}
+
+	// 自动计算方法
+	function computeMove() {
+        let choice = bestChoice(person, pattern);  // 先找到最优选择
+        if(choice.point) {  // 在最优选择点下棋
+			pattern[choice.point[1]][choice.point[0]] = person;
+            // 判断没有没赢
+			if(judge(choice.point[0], choice.point[1], person, pattern)) {
+				alert(person == 2 ? 'x is winner!': 'o is winner!')
+			}
+        }
+        // 切换状态
+		person = 3- person;
+		show();  // 重新渲染
+	}
+
+	// 判断方法
+	function judge(x, y, person, tmp) {
+    	let pat = tmp ? tmp : pattern;
+
+    	// 判断当前行是否赢了
+    	let lineResult = true;
+    	let line = pat[y];  // 去当前行
+    	for (let i=0; i<3; i++) {
+    		if(line[i] !== person) {
+    			lineResult = false;
+    			break;
+            }
+        }
+        if(lineResult)
+        	return true;
+
+        // 判断当前列是否赢了
+        let verticalResult = true;
+    	for (let j=0; j<3; j++) {
+    		if(pat[j][x] !== person) {
+    			verticalResult = false;
+    			break;
+            }
+        }
+        if(verticalResult)
+        	return true;
+
+    	// 判断左上到右下对角线
+        if((x===0 && y===0) || (x===2 && y===2)) {
+        	let result = true;
+        	for(let i=0; i<3; i++) {
+        		if(pat[i][i] !== person) {
+        			result = false;
+        			break;
+                }
+            }
+            if(result)
+            	return true;
+        }
+
+        // 判断左下到右上对角线
+        if((x===0 && y===2) || (x===2 && y===0)) {
+			let result = true;
+			for(let i=0; i<3; i++) {
+				if(pat[2-i][i] !== person) {
+					result = false;
+					break;
+				}
+			}
+			if(result)
+				return true;
+		}
+
+    	return false
+	}
+
+	// 拷贝 pattern
+	function clone(pattern) {
+        return JSON.parse(JSON.stringify(pattern))
+	}
+
+	// 判断是否要赢了
+    // 基本思路就是遍历没有下棋的地方，将要下的棋子放到该处，有没有可以赢的位置
+    function willWin(person, pattern) {
+        for(let i=0; i<3; i++) {
+        	for(let j=0; j<3;j++) {
+        		if(pattern[i][j] !== 0) {  // 此处有棋子则跳过
+        			continue;
+                }
+                // 模拟每一个位置下棋，判断有没有赢的位置
+				const tmp = clone(pattern);  // 拷贝当前的 pattern ， 以防污染全局变量 pattern ，这里要注意
+				tmp[i][j]  = person;  // 下棋
+				if(judge(j, i, person, tmp)) {  // 判断
+					return [j, i];  // 如果有，则将坐标返回
+				}
+            }
+        }
+        // 没有返回 null
+        return null;
+	}
+
+	// 最优选择方法
+    function bestChoice(person, pattern) {
+    	// 先判断有没有将要赢的位置
+    	let point = willWin(person, pattern);
+        // 如果存在将要赢得点，则将这个点返回
+    	if(point) {
+    		return {
+    			point,
+                result: 1,  // 1 自己赢； 0 平局； -1 对手赢
+            }
+        }
+
+        let result = -1;
+		outer:for(let i=0; i<3; i++) {
+			for(let j=0; j<3; j++) {
+				if(pattern[i][j] !== 0) {  // 有值则跳过
+					continue;
+				}
+				const tmp = clone(pattern);
+				tmp[i][j]  = person;
+				let opp = bestChoice(3-person, tmp);  // 对手最优选择
+				if(-opp.result >= result) {  // 对手的最优选择如果高过自己的最优选择，那么选择对手的最优选择点
+					point = [j, i];
+					result = -opp.result
+                }
+                if(result === 1) {  // 如果找到了会赢的点，那么停止遍历
+					break outer;
+                }
+			}
+        }
+        return {
+			point,
+            result: point ? result: 0
+        }
+    }
+
+
+	show(pattern);
+
+
+</script>
+</html>
