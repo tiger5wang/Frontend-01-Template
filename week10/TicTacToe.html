@@ -29,8 +29,8 @@
 
 <script>
     let pattern = [
-    	[2, 0, 0],
-        [0, 1, 0],
+    	[0, 0, 0],
+        [0, 0, 0],
         [0, 0, 0]
     ];
 
@@ -172,8 +172,23 @@
         return null;
 	}
 
+	let openings = new Map();
+    openings.set([
+		[0, 0, 0],
+		[0, 0, 0],
+		[0, 0, 0]
+	].toString(), {
+    	point: [1,1],
+        result: 0
+    });
+
+
 	// 最优选择方法
     function bestChoice(person, pattern) {
+    	if(openings.has(pattern.toString())) {
+    		return openings.get(pattern.toString())
+        }
+
     	// 先判断有没有将要赢的位置
     	let point = willWin(person, pattern);
         // 如果存在将要赢得点，则将这个点返回
