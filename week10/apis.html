@@ -96,3 +96,1598 @@ names = filterOut(names, ["SyncManager"]);
 console.log(names.length);
 
 </script>
+
+
+<!--whatwgAPI-->
+<script>
+
+	let whatwgAPI = [];
+	let dt = $0.getElementsByTagName('dt');
+	for(let i=0; i<dt.length; i++){
+		let ele = dt[i].children[0];
+		whatwgAPI.push({
+			name: ele.innerText,
+			url: ele.href
+		})
+	}
+	console.log(whatwgAPI);
+
+	whatwgAPI =
+    [
+		{
+			"name": "Compatibility",
+			"url": "https://compat.spec.whatwg.org/"
+		},
+		{
+			"name": "Console",
+			"url": "https://console.spec.whatwg.org/"
+		},
+		{
+			"name": "DOM",
+			"url": "https://dom.spec.whatwg.org/"
+		},
+		{
+			"name": "Encoding",
+			"url": "https://encoding.spec.whatwg.org/"
+		},
+		{
+			"name": "Fetch",
+			"url": "https://fetch.spec.whatwg.org/"
+		},
+		{
+			"name": "Fullscreen API",
+			"url": "https://fullscreen.spec.whatwg.org/"
+		},
+		{
+			"name": "HTML",
+			"url": "https://html.spec.whatwg.org/multipage/"
+		},
+		{
+			"name": "Infra",
+			"url": "https://infra.spec.whatwg.org/"
+		},
+		{
+			"name": "MIME Sniffing",
+			"url": "https://mimesniff.spec.whatwg.org/"
+		},
+		{
+			"name": "Notifications API",
+			"url": "https://notifications.spec.whatwg.org/"
+		},
+		{
+			"name": "Quirks Mode",
+			"url": "https://quirks.spec.whatwg.org/"
+		},
+		{
+			"name": "Storage",
+			"url": "https://storage.spec.whatwg.org/"
+		},
+		{
+			"name": "Streams",
+			"url": "https://streams.spec.whatwg.org/"
+		},
+		{
+			"name": "URL",
+			"url": "https://url.spec.whatwg.org/"
+		},
+		{
+			"name": "XMLHttpRequest",
+			"url": "https://xhr.spec.whatwg.org/"
+		}
+	];
+
+	var elements = Array.prototype.slice.call($0.children);
+
+	var result = [];
+
+    function getAPI(element, res) {
+		for (let i=0; i<element.length; i++) {
+			res.push({
+                name: element[i].firstElementChild.children[1].innerText,
+                children: []
+            });
+
+            if(element[i].children.length > 1) {
+				getAPI(element[i].children[1].children, res[i].children)
+            }
+        }
+    }
+
+    getAPI(elements, result)
+	console.log(JSON.stringify(result, null, '   ') )
+
+
+	let Compatibility =	[
+		{
+			"name": "Introduction",
+			"children": []
+		},
+        {
+            "name": "Conformance",
+            "children": []
+        },
+        {
+            "name": "CSS Compatibility",
+            "children": [
+                {
+                    "name": "CSS At-rules",
+                    "children": []
+                },
+                {
+                    "name": "CSS Media Queries",
+                    "children": [
+                        {
+                            "name": "-webkit-device-pixel-ratio",
+                            "children": []
+                        },
+                        {
+                            "name": "-webkit-transform-3d",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "CSS Gradients",
+                    "children": [
+                        {
+                            "name": "-webkit-linear-gradient()",
+                            "children": []
+                        },
+                        {
+                            "name": "-webkit-radial-gradient()",
+                            "children": []
+                        },
+                        {
+                            "name": "-webkit-repeating-linear-gradient()",
+                            "children": []
+                        },
+                        {
+                            "name": "-webkit-repeating-radial-gradient()",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "CSS Properties",
+                    "children": [
+                        {
+                            "name": "Simple property aliases",
+                            "children": []
+                        },
+                        {
+                            "name": "Prefixed property aliases",
+                            "children": []
+                        },
+                        {
+                            "name": "Non-aliased vendor prefixed properties",
+                            "children": []
+                        },
+                        {
+                            "name": "Property mappings",
+                            "children": []
+                        },
+                        {
+                            "name": "Keyword mappings",
+                            "children": []
+                        },
+                        {
+                            "name": "Foreground Text Clipping: the -webkit-background-clip property",
+                            "children": []
+                        },
+                        {
+                            "name": "Text Fill and Stroking",
+                            "children": [
+                                {
+                                    "name": "Foreground Text Color: the -webkit-text-fill-color property",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Text Stroke Color: the -webkit-text-stroke-color property",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Text Stroke Thickness: the -webkit-text-stroke-width property",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Text Stroke Shorthand: the -webkit-text-stroke property",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "CSS Property values",
+                    "children": [
+                        {
+                            "name": "Additional touch-action values",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "DOM Compatibility",
+            "children": [
+                {
+                    "name": "The WebKitCSSMatrix interface",
+                    "children": []
+                },
+                {
+                    "name": "window.orientation API",
+                    "children": [
+                        {
+                            "name": "window.orientation angle",
+                            "children": []
+                        },
+                        {
+                            "name": "Event Handlers on Window objects and body elements",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+
+    let Console = [
+		{
+			"name": "Namespace console",
+			"children": [
+				{
+					"name": "Logging functions",
+					"children": [
+						{
+							"name": "assert(condition, ...data)",
+							"children": []
+						},
+						{
+							"name": "clear()",
+							"children": []
+						},
+						{
+							"name": "debug(...data)",
+							"children": []
+						},
+						{
+							"name": "error(...data)",
+							"children": []
+						},
+						{
+							"name": "info(...data)",
+							"children": []
+						},
+						{
+							"name": "log(...data)",
+							"children": []
+						},
+						{
+							"name": "table(tabularData, properties)",
+							"children": []
+						},
+						{
+							"name": "trace(...data)",
+							"children": []
+						},
+						{
+							"name": "warn(...data)",
+							"children": []
+						},
+						{
+							"name": "dir(item, options)",
+							"children": []
+						},
+						{
+							"name": "dirxml(...data)",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Counting functions",
+					"children": [
+						{
+							"name": "count(label)",
+							"children": []
+						},
+						{
+							"name": "countReset(label)",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Grouping functions",
+					"children": [
+						{
+							"name": "group(...data)",
+							"children": []
+						},
+						{
+							"name": "groupCollapsed(...data)",
+							"children": []
+						},
+						{
+							"name": "groupEnd()",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Timing functions",
+					"children": [
+						{
+							"name": "time(label)",
+							"children": []
+						},
+						{
+							"name": "timeLog(label, ...data)",
+							"children": []
+						},
+						{
+							"name": "timeEnd(label)",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Supporting abstract operations",
+			"children": [
+				{
+					"name": "Logger(logLevel, args)",
+					"children": []
+				},
+				{
+					"name": "Formatter(args)",
+					"children": [
+						{
+							"name": "Summary of formatting specifiers",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Printer(logLevel, args[, options])",
+					"children": [
+						{
+							"name": "Indicating logLevel severity",
+							"children": []
+						},
+						{
+							"name": "Printer user experience innovation",
+							"children": []
+						},
+						{
+							"name": "Common object formats",
+							"children": []
+						},
+						{
+							"name": "Example printer in Node.js",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Reporting warnings to the console",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Acknowledgments",
+			"children": []
+		},
+		{
+			"name": "Index",
+			"children": [
+				{
+					"name": "Terms defined by this specification",
+					"children": []
+				},
+				{
+					"name": "Terms defined by reference",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "References",
+			"children": [
+				{
+					"name": "Normative References",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "IDL Index",
+			"children": []
+		}
+	];
+
+    let DOM = [
+		{
+			"name": "Infrastructure",
+			"children": [
+				{
+					"name": "Trees",
+					"children": []
+				},
+				{
+					"name": "Ordered sets",
+					"children": []
+				},
+				{
+					"name": "Selectors",
+					"children": []
+				},
+				{
+					"name": "Namespaces",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"children": [
+				{
+					"name": "Introduction to \"DOM Events\"",
+					"children": []
+				},
+				{
+					"name": "Interface Event",
+					"children": []
+				},
+				{
+					"name": "Legacy extensions to the Window interface",
+					"children": []
+				},
+				{
+					"name": "Interface CustomEvent",
+					"children": []
+				},
+				{
+					"name": "Constructing events",
+					"children": []
+				},
+				{
+					"name": "Defining event interfaces",
+					"children": []
+				},
+				{
+					"name": "Interface EventTarget",
+					"children": []
+				},
+				{
+					"name": "Observing event listeners",
+					"children": []
+				},
+				{
+					"name": "Dispatching events",
+					"children": []
+				},
+				{
+					"name": "Firing events",
+					"children": []
+				},
+				{
+					"name": "Action versus occurrence",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Aborting ongoing activities",
+			"children": [
+				{
+					"name": "Interface AbortController",
+					"children": []
+				},
+				{
+					"name": "Interface AbortSignal",
+					"children": []
+				},
+				{
+					"name": "Using AbortController and AbortSignal objects in APIs",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Nodes",
+			"children": [
+				{
+					"name": "Introduction to \"The DOM\"",
+					"children": []
+				},
+				{
+					"name": "Node tree",
+					"children": [
+						{
+							"name": "Document tree",
+							"children": []
+						},
+						{
+							"name": "Shadow tree",
+							"children": [
+								{
+									"name": "Slots",
+									"children": []
+								},
+								{
+									"name": "Slottables",
+									"children": []
+								},
+								{
+									"name": "Finding slots and slottables",
+									"children": []
+								},
+								{
+									"name": "Assigning slottables and slots",
+									"children": []
+								},
+								{
+									"name": "Signaling slot change",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "Mutation algorithms",
+							"children": []
+						},
+						{
+							"name": "Mixin NonElementParentNode",
+							"children": []
+						},
+						{
+							"name": "Mixin DocumentOrShadowRoot",
+							"children": []
+						},
+						{
+							"name": "Mixin ParentNode",
+							"children": []
+						},
+						{
+							"name": "Mixin NonDocumentTypeChildNode",
+							"children": []
+						},
+						{
+							"name": "Mixin ChildNode",
+							"children": []
+						},
+						{
+							"name": "Mixin Slottable",
+							"children": []
+						},
+						{
+							"name": "Old-style collections: NodeList and HTMLCollection",
+							"children": [
+								{
+									"name": "Interface NodeList",
+									"children": []
+								},
+								{
+									"name": "Interface HTMLCollection",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Mutation observers",
+					"children": [
+						{
+							"name": "Interface MutationObserver",
+							"children": []
+						},
+						{
+							"name": "Queuing a mutation record",
+							"children": []
+						},
+						{
+							"name": "Interface MutationRecord",
+							"children": []
+						},
+						{
+							"name": "Garbage collection",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Interface Node",
+					"children": []
+				},
+				{
+					"name": "Interface Document",
+					"children": [
+						{
+							"name": "Interface DOMImplementation",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Interface DocumentType",
+					"children": []
+				},
+				{
+					"name": "Interface DocumentFragment",
+					"children": []
+				},
+				{
+					"name": "Interface ShadowRoot",
+					"children": []
+				},
+				{
+					"name": "Interface Element",
+					"children": [
+						{
+							"name": "Interface NamedNodeMap",
+							"children": []
+						},
+						{
+							"name": "Interface Attr",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Interface CharacterData",
+					"children": []
+				},
+				{
+					"name": "Interface Text",
+					"children": []
+				},
+				{
+					"name": "Interface CDATASection",
+					"children": []
+				},
+				{
+					"name": "Interface ProcessingInstruction",
+					"children": []
+				},
+				{
+					"name": "Interface Comment",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Ranges",
+			"children": [
+				{
+					"name": "Introduction to \"DOM Ranges\"",
+					"children": []
+				},
+				{
+					"name": "Boundary points",
+					"children": []
+				},
+				{
+					"name": "Interface AbstractRange",
+					"children": []
+				},
+				{
+					"name": "Interface StaticRange",
+					"children": []
+				},
+				{
+					"name": "Interface Range",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Traversal",
+			"children": [
+				{
+					"name": "Interface NodeIterator",
+					"children": []
+				},
+				{
+					"name": "Interface TreeWalker",
+					"children": []
+				},
+				{
+					"name": "Interface NodeFilter",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Sets",
+			"children": [
+				{
+					"name": "Interface DOMTokenList",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "XPath",
+			"children": [
+				{
+					"name": "Interface XPathResult",
+					"children": []
+				},
+				{
+					"name": "Interface XPathExpression",
+					"children": []
+				},
+				{
+					"name": "Mixin XPathEvaluatorBase",
+					"children": []
+				},
+				{
+					"name": "Interface XPathEvaluator",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Historical",
+			"children": [
+				{
+					"name": "DOM Events",
+					"children": []
+				},
+				{
+					"name": "DOM Core",
+					"children": []
+				},
+				{
+					"name": "DOM Ranges",
+					"children": []
+				},
+				{
+					"name": "DOM Traversal",
+					"children": []
+				}
+			]
+		}
+	];
+
+    let Encoding = [
+		{
+			"name": "Preface",
+			"children": []
+		},
+		{
+			"name": "Security background",
+			"children": []
+		},
+		{
+			"name": "Terminology",
+			"children": []
+		},
+		{
+			"name": "Encodings",
+			"children": [
+				{
+					"name": "Encoders and decoders",
+					"children": []
+				},
+				{
+					"name": "Names and labels",
+					"children": []
+				},
+				{
+					"name": "Output encodings",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Indexes",
+			"children": []
+		},
+		{
+			"name": "Hooks for standards",
+			"children": []
+		},
+		{
+			"name": "API",
+			"children": [
+				{
+					"name": "Interface mixin TextDecoderCommon",
+					"children": []
+				},
+				{
+					"name": "Interface TextDecoder",
+					"children": []
+				},
+				{
+					"name": "Interface mixin TextEncoderCommon",
+					"children": []
+				},
+				{
+					"name": "Interface TextEncoder",
+					"children": []
+				},
+				{
+					"name": "Interface mixin GenericTransformStream",
+					"children": []
+				},
+				{
+					"name": "Interface TextDecoderStream",
+					"children": []
+				},
+				{
+					"name": "Interface TextEncoderStream",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "The encoding",
+			"children": [
+				{
+					"name": "UTF-8",
+					"children": [
+						{
+							"name": "UTF-8 decoder",
+							"children": []
+						},
+						{
+							"name": "UTF-8 encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Legacy single-byte encodings",
+			"children": [
+				{
+					"name": "single-byte decoder",
+					"children": []
+				},
+				{
+					"name": "single-byte encoder",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Legacy multi-byte Chinese (simplified) encodings",
+			"children": [
+				{
+					"name": "GBK",
+					"children": [
+						{
+							"name": "GBK decoder",
+							"children": []
+						},
+						{
+							"name": "GBK encoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "gb18030",
+					"children": [
+						{
+							"name": "gb18030 decoder",
+							"children": []
+						},
+						{
+							"name": "gb18030 encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Legacy multi-byte Chinese (traditional) encodings",
+			"children": [
+				{
+					"name": "Big5",
+					"children": [
+						{
+							"name": "Big5 decoder",
+							"children": []
+						},
+						{
+							"name": "Big5 encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Legacy multi-byte Japanese encodings",
+			"children": [
+				{
+					"name": "EUC-JP",
+					"children": [
+						{
+							"name": "EUC-JP decoder",
+							"children": []
+						},
+						{
+							"name": "EUC-JP encoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "ISO-2022-JP",
+					"children": [
+						{
+							"name": "ISO-2022-JP decoder",
+							"children": []
+						},
+						{
+							"name": "ISO-2022-JP encoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Shift_JIS",
+					"children": [
+						{
+							"name": "Shift_JIS decoder",
+							"children": []
+						},
+						{
+							"name": "Shift_JIS encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Legacy multi-byte Korean encodings",
+			"children": [
+				{
+					"name": "EUC-KR",
+					"children": [
+						{
+							"name": "EUC-KR decoder",
+							"children": []
+						},
+						{
+							"name": "EUC-KR encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Legacy miscellaneous encodings",
+			"children": [
+				{
+					"name": "replacement",
+					"children": [
+						{
+							"name": "replacement decoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Common infrastructure for UTF-16BE and UTF-16LE",
+					"children": [
+						{
+							"name": "shared UTF-16 decoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "UTF-16BE",
+					"children": [
+						{
+							"name": "UTF-16BE decoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "UTF-16LE",
+					"children": [
+						{
+							"name": "UTF-16LE decoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "x-user-defined",
+					"children": [
+						{
+							"name": "x-user-defined decoder",
+							"children": []
+						},
+						{
+							"name": "x-user-defined encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Browser UI",
+			"children": []
+		}
+	];
+
+    let Fetch = [
+		{
+			"name": "Preface",
+			"children": []
+		},
+		{
+			"name": "Infrastructure",
+			"children": [
+				{
+					"name": "URL",
+					"children": []
+				},
+				{
+					"name": "HTTP",
+					"children": [
+						{
+							"name": "Methods",
+							"children": []
+						},
+						{
+							"name": "Headers",
+							"children": []
+						},
+						{
+							"name": "Statuses",
+							"children": []
+						},
+						{
+							"name": "Bodies",
+							"children": []
+						},
+						{
+							"name": "Requests",
+							"children": []
+						},
+						{
+							"name": "Responses",
+							"children": []
+						},
+						{
+							"name": "Miscellaneous",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Authentication entries",
+					"children": []
+				},
+				{
+					"name": "Fetch groups",
+					"children": []
+				},
+				{
+					"name": "Connections",
+					"children": []
+				},
+				{
+					"name": "Port blocking",
+					"children": []
+				},
+				{
+					"name": "Should response to request be blocked due to its MIME type?",
+					"children": []
+				},
+				{
+					"name": "Streams",
+					"children": [
+						{
+							"name": "ReadableStream",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "HTTP extensions",
+			"children": [
+				{
+					"name": "`Origin` header",
+					"children": []
+				},
+				{
+					"name": "CORS protocol",
+					"children": [
+						{
+							"name": "General",
+							"children": []
+						},
+						{
+							"name": "HTTP requests",
+							"children": []
+						},
+						{
+							"name": "HTTP responses",
+							"children": []
+						},
+						{
+							"name": "HTTP new-header syntax",
+							"children": []
+						},
+						{
+							"name": "CORS protocol and credentials",
+							"children": []
+						},
+						{
+							"name": "Examples",
+							"children": []
+						},
+						{
+							"name": "CORS protocol exceptions",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "`Content-Type` header",
+					"children": []
+				},
+				{
+					"name": "`X-Content-Type-Options` header",
+					"children": [
+						{
+							"name": "Should response to request be blocked due to nosniff?",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "CORB",
+					"children": []
+				},
+				{
+					"name": "`Cross-Origin-Resource-Policy` header",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Fetching",
+			"children": [
+				{
+					"name": "Main fetch",
+					"children": []
+				},
+				{
+					"name": "Scheme fetch",
+					"children": []
+				},
+				{
+					"name": "HTTP fetch",
+					"children": []
+				},
+				{
+					"name": "HTTP-redirect fetch",
+					"children": []
+				},
+				{
+					"name": "HTTP-network-or-cache fetch",
+					"children": []
+				},
+				{
+					"name": "HTTP-network fetch",
+					"children": []
+				},
+				{
+					"name": "CORS-preflight fetch",
+					"children": []
+				},
+				{
+					"name": "CORS-preflight cache",
+					"children": []
+				},
+				{
+					"name": "CORS check",
+					"children": []
+				},
+				{
+					"name": "TAO check",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Fetch API",
+			"children": [
+				{
+					"name": "Headers class",
+					"children": []
+				},
+				{
+					"name": "Body mixin",
+					"children": []
+				},
+				{
+					"name": "Request class",
+					"children": []
+				},
+				{
+					"name": "Response class",
+					"children": []
+				},
+				{
+					"name": "Fetch method",
+					"children": []
+				},
+				{
+					"name": "Garbage collection",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "WebSocket protocol alterations",
+			"children": [
+				{
+					"name": "Connections",
+					"children": []
+				},
+				{
+					"name": "Opening handshake",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "data: URLs",
+			"children": []
+		}
+	];
+
+    let Fullscreen = [
+		{
+			"name": "Terminology",
+			"children": []
+		},
+		{
+			"name": "Model",
+			"children": []
+		},
+		{
+			"name": "API",
+			"children": []
+		},
+		{
+			"name": "UI",
+			"children": []
+		},
+		{
+			"name": "Rendering",
+			"children": [
+				{
+					"name": "New stacking layer",
+					"children": []
+				},
+				{
+					"name": "::backdrop pseudo-element",
+					"children": []
+				},
+				{
+					"name": ":fullscreen pseudo-class",
+					"children": []
+				},
+				{
+					"name": "User-agent level style sheet defaults",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Feature Policy Integration",
+			"children": []
+		},
+		{
+			"name": "Security and Privacy Considerations",
+			"children": []
+		}
+	];
+
+    let HTML = [
+		"Introduction",
+		"Common infrastructure",
+		"Semantics, structure, and APIs of HTML documents",
+		"The elements of HTML",
+		"Microdata",
+		"User interaction",
+		"Loading Web pages",
+		"Web application APIs",
+		"Communication",
+		"Web workers",
+		"Web storage",
+		"The HTML syntax",
+		"The XML syntax",
+		"Rendering",
+		"Obsolete features",
+		"IANA considerations"
+    ];
+
+
+    let lin = [
+		{
+			"name": "Preface",
+		},
+		{
+			"name": "Security background",
+		},
+		{
+			"name": "Terminology",
+		},
+		{
+			"name": "Encodings",
+			"children": [
+				{
+					"name": "Encoders and decoders",
+				},
+				{
+					"name": "Names and labels",
+				},
+				{
+					"name": "Output encodings",
+				}
+			]
+		},
+		{
+			"name": "Indexes",
+		},
+		{
+			"name": "Hooks for standards",
+		},
+		{
+			"name": "API",
+			"children": [
+				{
+					"name": "Interface mixin TextDecoderCommon",
+				},
+				{
+					"name": "Interface TextDecoder",
+				},
+				{
+					"name": "Interface mixin TextEncoderCommon",
+				},
+				{
+					"name": "Interface TextEncoder",
+				},
+				{
+					"name": "Interface mixin GenericTransformStream",
+				},
+				{
+					"name": "Interface TextDecoderStream",
+				},
+				{
+					"name": "Interface TextEncoderStream",
+				}
+			]
+		},
+		{
+			"name": "The encoding",
+			"children": [
+				{
+					"name": "UTF-8",
+					"children": [
+						{
+							"name": "UTF-8 decoder",
+							"children": []
+						},
+						{
+							"name": "UTF-8 encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Legacy single-byte encodings",
+			"children": [
+				{
+					"name": "single-byte decoder",
+				},
+				{
+					"name": "single-byte encoder",
+				}
+			]
+		},
+		{
+			"name": "Legacy multi-byte Chinese (simplified) encodings",
+			"children": [
+				{
+					"name": "GBK",
+					"children": [
+						{
+							"name": "GBK decoder",
+						},
+						{
+							"name": "GBK encoder",
+						}
+					]
+				},
+				{
+					"name": "gb18030",
+					"children": [
+						{
+							"name": "gb18030 decoder",
+							"children": []
+						},
+						{
+							"name": "gb18030 encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Legacy multi-byte Chinese (traditional) encodings",
+			"children": [
+				{
+					"name": "Big5",
+					"children": [
+						{
+							"name": "Big5 decoder",
+							"children": []
+						},
+						{
+							"name": "Big5 encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Legacy multi-byte Japanese encodings",
+			"children": [
+				{
+					"name": "EUC-JP",
+					"children": [
+						{
+							"name": "EUC-JP decoder",
+							"children": []
+						},
+						{
+							"name": "EUC-JP encoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "ISO-2022-JP",
+					"children": [
+						{
+							"name": "ISO-2022-JP decoder",
+							"children": []
+						},
+						{
+							"name": "ISO-2022-JP encoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Shift_JIS",
+					"children": [
+						{
+							"name": "Shift_JIS decoder",
+							"children": []
+						},
+						{
+							"name": "Shift_JIS encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Legacy multi-byte Korean encodings",
+			"children": [
+				{
+					"name": "EUC-KR",
+					"children": [
+						{
+							"name": "EUC-KR decoder",
+							"children": []
+						},
+						{
+							"name": "EUC-KR encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Legacy miscellaneous encodings",
+			"children": [
+				{
+					"name": "replacement",
+					"children": [
+						{
+							"name": "replacement decoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Common infrastructure for UTF-16BE and UTF-16LE",
+					"children": [
+						{
+							"name": "shared UTF-16 decoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "UTF-16BE",
+					"children": [
+						{
+							"name": "UTF-16BE decoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "UTF-16LE",
+					"children": [
+						{
+							"name": "UTF-16LE decoder",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "x-user-defined",
+					"children": [
+						{
+							"name": "x-user-defined decoder",
+							"children": []
+						},
+						{
+							"name": "x-user-defined encoder",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Browser UI",
+			"children": []
+		}
+	]
+
+    let res = []
+    for (let i=0; i<lin.length; i++ ) {
+    	res.push(lin[i].name)
+    }
+
+
+
+
+</script>

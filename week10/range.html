@@ -5,13 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-<div id="aa">1234567890</div>
+<div id="aa">123<span style="color: red">456789</span>0123456789</div>
 
 <script>
     let element = document.getElementById('aa');
     let range = new Range();
-    // range.setStart(element, 3);
-    // range.setEnd(element, 6);
+    // range.setStart(element.childNodes[1].childNodes[0], 3);
+    range.setStart(element.childNodes[0], 3);
+    range.setEnd(element.childNodes[2], 3);
+    // 等价语上面两行
+    // range.selectNode(element)
+</script>
+
+<script>
+
 </script>
 </body>
 </html>
