@@ -193,8 +193,8 @@ console.log(names.length);
         }
     }
 
-    getAPI(elements, result)
-	console.log(JSON.stringify(result, null, '   ') )
+    getAPI(elements, result);
+	console.log(JSON.stringify(result, null, '   ') );
 
 
 	let Compatibility =	[
@@ -1408,134 +1408,4786 @@ console.log(names.length);
 		}
 	];
 
+
+	// HTML 的格式特殊
+	var result = [];
+
+	function getAPI(element, res) {
+		for (let i=0; i<element.length; i++) {
+			res.push({
+				name: element[i].firstElementChild.innerText,
+				children: []
+			});
+
+			if(element[i].children.length > 1) {
+				getAPI(element[i].children[1].children, res[i].children)
+			}
+		}
+	}
+
+	getAPI(elements, result);
+	console.log(JSON.stringify(result, null, '   ') );
+
     let HTML = [
-		"Introduction",
-		"Common infrastructure",
-		"Semantics, structure, and APIs of HTML documents",
-		"The elements of HTML",
-		"Microdata",
-		"User interaction",
-		"Loading Web pages",
-		"Web application APIs",
-		"Communication",
-		"Web workers",
-		"Web storage",
-		"The HTML syntax",
-		"The XML syntax",
-		"Rendering",
-		"Obsolete features",
-		"IANA considerations"
-    ];
-
-
-    let lin = [
 		{
-			"name": "Preface",
-		},
-		{
-			"name": "Security background",
-		},
-		{
-			"name": "Terminology",
-		},
-		{
-			"name": "Encodings",
+			"name": "1 Introduction",
 			"children": [
 				{
-					"name": "Encoders and decoders",
+					"name": "1.1 Where does this specification fit?",
+					"children": []
 				},
 				{
-					"name": "Names and labels",
+					"name": "1.2 Is this HTML5?",
+					"children": []
 				},
 				{
-					"name": "Output encodings",
+					"name": "1.3 Background",
+					"children": []
+				},
+				{
+					"name": "1.4 Audience",
+					"children": []
+				},
+				{
+					"name": "1.5 Scope",
+					"children": []
+				},
+				{
+					"name": "1.6 History",
+					"children": []
+				},
+				{
+					"name": "1.7 Design notes",
+					"children": [
+						{
+							"name": "1.7.1 Serializability of script execution",
+							"children": []
+						},
+						{
+							"name": "1.7.2 Compliance with other specifications",
+							"children": []
+						},
+						{
+							"name": "1.7.3 Extensibility",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "1.8 HTML vs XML syntax",
+					"children": []
+				},
+				{
+					"name": "1.9 Structure of this specification",
+					"children": [
+						{
+							"name": "1.9.1 How to read this specification",
+							"children": []
+						},
+						{
+							"name": "1.9.2 Typographic conventions",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "1.10 A quick introduction to HTML",
+					"children": [
+						{
+							"name": "1.10.1 Writing secure applications with HTML",
+							"children": []
+						},
+						{
+							"name": "1.10.2 Common pitfalls to avoid when using the scripting APIs",
+							"children": []
+						},
+						{
+							"name": "1.10.3 How to catch mistakes when writing HTML: validators and conformance checkers",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "1.11 Conformance requirements for authors",
+					"children": [
+						{
+							"name": "1.11.1 Presentational markup",
+							"children": []
+						},
+						{
+							"name": "1.11.2 Syntax errors",
+							"children": []
+						},
+						{
+							"name": "1.11.3 Restrictions on content models and on attribute values",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "1.12 Suggested reading",
+					"children": []
 				}
 			]
 		},
 		{
-			"name": "Indexes",
+			"name": "2 Common infrastructure",
+			"children": [
+				{
+					"name": "2.1 Terminology",
+					"children": [
+						{
+							"name": "2.1.1 Parallelism",
+							"children": []
+						},
+						{
+							"name": "2.1.2 Resources",
+							"children": []
+						},
+						{
+							"name": "2.1.3 XML compatibility",
+							"children": []
+						},
+						{
+							"name": "2.1.4 DOM trees",
+							"children": []
+						},
+						{
+							"name": "2.1.5 Scripting",
+							"children": []
+						},
+						{
+							"name": "2.1.6 Plugins",
+							"children": []
+						},
+						{
+							"name": "2.1.7 Character encodings",
+							"children": []
+						},
+						{
+							"name": "2.1.8 Conformance classes",
+							"children": []
+						},
+						{
+							"name": "2.1.9 Dependencies",
+							"children": []
+						},
+						{
+							"name": "2.1.10 Extensibility",
+							"children": []
+						},
+						{
+							"name": "2.1.11 Interactions with XPath and XSLT",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "2.2 String comparison",
+					"children": []
+				},
+				{
+					"name": "2.3 Policy-controlled features",
+					"children": []
+				},
+				{
+					"name": "2.4 Common microsyntaxes",
+					"children": [
+						{
+							"name": "2.4.1 Common parser idioms",
+							"children": []
+						},
+						{
+							"name": "2.4.2 Boolean attributes",
+							"children": []
+						},
+						{
+							"name": "2.4.3 Keywords and enumerated attributes",
+							"children": []
+						},
+						{
+							"name": "2.4.4 Numbers",
+							"children": [
+								{
+									"name": "2.4.4.1 Signed integers",
+									"children": []
+								},
+								{
+									"name": "2.4.4.2 Non-negative integers",
+									"children": []
+								},
+								{
+									"name": "2.4.4.3 Floating-point numbers",
+									"children": []
+								},
+								{
+									"name": "2.4.4.4 Percentages and lengths",
+									"children": []
+								},
+								{
+									"name": "2.4.4.5 Non-zero percentages and lengths",
+									"children": []
+								},
+								{
+									"name": "2.4.4.6 Lists of floating-point numbers",
+									"children": []
+								},
+								{
+									"name": "2.4.4.7 Lists of dimensions",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "2.4.5 Dates and times",
+							"children": [
+								{
+									"name": "2.4.5.1 Months",
+									"children": []
+								},
+								{
+									"name": "2.4.5.2 Dates",
+									"children": []
+								},
+								{
+									"name": "2.4.5.3 Yearless dates",
+									"children": []
+								},
+								{
+									"name": "2.4.5.4 Times",
+									"children": []
+								},
+								{
+									"name": "2.4.5.5 Local dates and times",
+									"children": []
+								},
+								{
+									"name": "2.4.5.6 Time zones",
+									"children": []
+								},
+								{
+									"name": "2.4.5.7 Global dates and times",
+									"children": []
+								},
+								{
+									"name": "2.4.5.8 Weeks",
+									"children": []
+								},
+								{
+									"name": "2.4.5.9 Durations",
+									"children": []
+								},
+								{
+									"name": "2.4.5.10 Vaguer moments in time",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "2.4.6 Colors",
+							"children": []
+						},
+						{
+							"name": "2.4.7 Space-separated tokens",
+							"children": []
+						},
+						{
+							"name": "2.4.8 Comma-separated tokens",
+							"children": []
+						},
+						{
+							"name": "2.4.9 References",
+							"children": []
+						},
+						{
+							"name": "2.4.10 Media queries",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "2.5 URLs",
+					"children": [
+						{
+							"name": "2.5.1 Terminology",
+							"children": []
+						},
+						{
+							"name": "2.5.2 Parsing URLs",
+							"children": []
+						},
+						{
+							"name": "2.5.3 Dynamic changes to base URLs",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "2.6 Fetching resources",
+					"children": [
+						{
+							"name": "2.6.1 Terminology",
+							"children": []
+						},
+						{
+							"name": "2.6.2 Determining the type of a resource",
+							"children": []
+						},
+						{
+							"name": "2.6.3 Extracting character encodings from meta elements",
+							"children": []
+						},
+						{
+							"name": "2.6.4 CORS settings attributes",
+							"children": []
+						},
+						{
+							"name": "2.6.5 Referrer policy attributes",
+							"children": []
+						},
+						{
+							"name": "2.6.6 Nonce attributes",
+							"children": []
+						},
+						{
+							"name": "2.6.7 Lazy loading attributes",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "2.7 Common DOM interfaces",
+					"children": [
+						{
+							"name": "2.7.1 Reflecting content attributes in IDL attributes",
+							"children": []
+						},
+						{
+							"name": "2.7.2 Collections",
+							"children": [
+								{
+									"name": "2.7.2.1 The HTMLAllCollection interface",
+									"children": [
+										{
+											"name": "2.7.2.1.1 [[Call]] ( thisArgument, argumentsList )",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "2.7.2.2 The HTMLFormControlsCollection interface",
+									"children": []
+								},
+								{
+									"name": "2.7.2.3 The HTMLOptionsCollection interface",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "2.7.3 The DOMStringList interface",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "2.8 Safe passing of structured data",
+					"children": [
+						{
+							"name": "2.8.1 Serializable objects",
+							"children": []
+						},
+						{
+							"name": "2.8.2 Transferable objects",
+							"children": []
+						},
+						{
+							"name": "2.8.3 StructuredSerializeInternal ( value, forStorage [ , memory ] )",
+							"children": []
+						},
+						{
+							"name": "2.8.4 StructuredSerialize ( value )",
+							"children": []
+						},
+						{
+							"name": "2.8.5 StructuredSerializeForStorage ( value )",
+							"children": []
+						},
+						{
+							"name": "2.8.6 StructuredDeserialize ( serialized, targetRealm [ , memory ] )",
+							"children": []
+						},
+						{
+							"name": "2.8.7 StructuredSerializeWithTransfer ( value, transferList )",
+							"children": []
+						},
+						{
+							"name": "2.8.8 StructuredDeserializeWithTransfer ( serializeWithTransferResult, targetRealm )",
+							"children": []
+						},
+						{
+							"name": "2.8.9 Performing serialization and transferring from other specifications",
+							"children": []
+						}
+					]
+				}
+			]
 		},
 		{
-			"name": "Hooks for standards",
+			"name": "3 Semantics, structure, and APIs of HTML documents",
+			"children": [
+				{
+					"name": "3.1 Documents",
+					"children": [
+						{
+							"name": "3.1.1 The Document object",
+							"children": []
+						},
+						{
+							"name": "3.1.2 The DocumentOrShadowRoot interface",
+							"children": []
+						},
+						{
+							"name": "3.1.3 Resource metadata management",
+							"children": []
+						},
+						{
+							"name": "3.1.4 DOM tree accessors",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "3.2 Elements",
+					"children": [
+						{
+							"name": "3.2.1 Semantics",
+							"children": []
+						},
+						{
+							"name": "3.2.2 Elements in the DOM",
+							"children": []
+						},
+						{
+							"name": "3.2.3 HTML element constructors",
+							"children": []
+						},
+						{
+							"name": "3.2.4 Element definitions",
+							"children": [
+								{
+									"name": "3.2.4.1 Attributes",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "3.2.5 Content models",
+							"children": [
+								{
+									"name": "3.2.5.1 The \"nothing\" content model",
+									"children": []
+								},
+								{
+									"name": "3.2.5.2 Kinds of content",
+									"children": [
+										{
+											"name": "3.2.5.2.1 Metadata content",
+											"children": []
+										},
+										{
+											"name": "3.2.5.2.2 Flow content",
+											"children": []
+										},
+										{
+											"name": "3.2.5.2.3 Sectioning content",
+											"children": []
+										},
+										{
+											"name": "3.2.5.2.4 Heading content",
+											"children": []
+										},
+										{
+											"name": "3.2.5.2.5 Phrasing content",
+											"children": []
+										},
+										{
+											"name": "3.2.5.2.6 Embedded content",
+											"children": []
+										},
+										{
+											"name": "3.2.5.2.7 Interactive content",
+											"children": []
+										},
+										{
+											"name": "3.2.5.2.8 Palpable content",
+											"children": []
+										},
+										{
+											"name": "3.2.5.2.9 Script-supporting elements",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "3.2.5.3 Transparent content models",
+									"children": []
+								},
+								{
+									"name": "3.2.5.4 Paragraphs",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "3.2.6 Global attributes",
+							"children": [
+								{
+									"name": "3.2.6.1 The title attribute",
+									"children": []
+								},
+								{
+									"name": "3.2.6.2 The lang and xml:lang attributes",
+									"children": []
+								},
+								{
+									"name": "3.2.6.3 The translate attribute",
+									"children": []
+								},
+								{
+									"name": "3.2.6.4 The dir attribute",
+									"children": []
+								},
+								{
+									"name": "3.2.6.5 The style attribute",
+									"children": []
+								},
+								{
+									"name": "3.2.6.6 Embedding custom non-visible data with the data-* attributes",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "3.2.7 The innerText getter and setter",
+							"children": []
+						},
+						{
+							"name": "3.2.8 Requirements relating to the bidirectional algorithm",
+							"children": [
+								{
+									"name": "3.2.8.1 Authoring conformance criteria for bidirectional-algorithm formatting characters",
+									"children": []
+								},
+								{
+									"name": "3.2.8.2 User agent conformance criteria",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "3.2.9 Requirements related to ARIA and to platform accessibility APIs",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "4 The elements of HTML",
+			"children": [
+				{
+					"name": "4.1 The document element",
+					"children": [
+						{
+							"name": "4.1.1 The html element",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.2 Document metadata",
+					"children": [
+						{
+							"name": "4.2.1 The head element",
+							"children": []
+						},
+						{
+							"name": "4.2.2 The title element",
+							"children": []
+						},
+						{
+							"name": "4.2.3 The base element",
+							"children": []
+						},
+						{
+							"name": "4.2.4 The link element",
+							"children": [
+								{
+									"name": "4.2.4.1 Processing the media attribute",
+									"children": []
+								},
+								{
+									"name": "4.2.4.2 Processing the type attribute",
+									"children": []
+								},
+								{
+									"name": "4.2.4.3 Fetching and processing a resource from a link element",
+									"children": []
+								},
+								{
+									"name": "4.2.4.4 Processing `Link` headers",
+									"children": []
+								},
+								{
+									"name": "4.2.4.5 Providing users with a means to follow hyperlinks created using the link element",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.2.5 The meta element",
+							"children": [
+								{
+									"name": "4.2.5.1 Standard metadata names",
+									"children": []
+								},
+								{
+									"name": "4.2.5.2 Other metadata names",
+									"children": []
+								},
+								{
+									"name": "4.2.5.3 Pragma directives",
+									"children": []
+								},
+								{
+									"name": "4.2.5.4 Specifying the document's character encoding",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.2.6 The style element",
+							"children": []
+						},
+						{
+							"name": "4.2.7 Interactions of styling and scripting",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.3 Sections",
+					"children": [
+						{
+							"name": "4.3.1 The body element",
+							"children": []
+						},
+						{
+							"name": "4.3.2 The article element",
+							"children": []
+						},
+						{
+							"name": "4.3.3 The section element",
+							"children": []
+						},
+						{
+							"name": "4.3.4 The nav element",
+							"children": []
+						},
+						{
+							"name": "4.3.5 The aside element",
+							"children": []
+						},
+						{
+							"name": "4.3.6 The h1, h2, h3, h4, h5, and h6 elements",
+							"children": []
+						},
+						{
+							"name": "4.3.7 The hgroup element",
+							"children": []
+						},
+						{
+							"name": "4.3.8 The header element",
+							"children": []
+						},
+						{
+							"name": "4.3.9 The footer element",
+							"children": []
+						},
+						{
+							"name": "4.3.10 The address element",
+							"children": []
+						},
+						{
+							"name": "4.3.11 Headings and sections",
+							"children": [
+								{
+									"name": "4.3.11.1 Creating an outline",
+									"children": []
+								},
+								{
+									"name": "4.3.11.2 Sample outlines",
+									"children": []
+								},
+								{
+									"name": "4.3.11.3 Exposing outlines to users",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.3.12 Usage summary",
+							"children": [
+								{
+									"name": "4.3.12.1 Article or section?",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "4.4 Grouping content",
+					"children": [
+						{
+							"name": "4.4.1 The p element",
+							"children": []
+						},
+						{
+							"name": "4.4.2 The hr element",
+							"children": []
+						},
+						{
+							"name": "4.4.3 The pre element",
+							"children": []
+						},
+						{
+							"name": "4.4.4 The blockquote element",
+							"children": []
+						},
+						{
+							"name": "4.4.5 The ol element",
+							"children": []
+						},
+						{
+							"name": "4.4.6 The ul element",
+							"children": []
+						},
+						{
+							"name": "4.4.7 The menu element",
+							"children": []
+						},
+						{
+							"name": "4.4.8 The li element",
+							"children": []
+						},
+						{
+							"name": "4.4.9 The dl element",
+							"children": []
+						},
+						{
+							"name": "4.4.10 The dt element",
+							"children": []
+						},
+						{
+							"name": "4.4.11 The dd element",
+							"children": []
+						},
+						{
+							"name": "4.4.12 The figure element",
+							"children": []
+						},
+						{
+							"name": "4.4.13 The figcaption element",
+							"children": []
+						},
+						{
+							"name": "4.4.14 The main element",
+							"children": []
+						},
+						{
+							"name": "4.4.15 The div element",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.5 Text-level semantics",
+					"children": [
+						{
+							"name": "4.5.1 The a element",
+							"children": []
+						},
+						{
+							"name": "4.5.2 The em element",
+							"children": []
+						},
+						{
+							"name": "4.5.3 The strong element",
+							"children": []
+						},
+						{
+							"name": "4.5.4 The small element",
+							"children": []
+						},
+						{
+							"name": "4.5.5 The s element",
+							"children": []
+						},
+						{
+							"name": "4.5.6 The cite element",
+							"children": []
+						},
+						{
+							"name": "4.5.7 The q element",
+							"children": []
+						},
+						{
+							"name": "4.5.8 The dfn element",
+							"children": []
+						},
+						{
+							"name": "4.5.9 The abbr element",
+							"children": []
+						},
+						{
+							"name": "4.5.10 The ruby element",
+							"children": []
+						},
+						{
+							"name": "4.5.11 The rt element",
+							"children": []
+						},
+						{
+							"name": "4.5.12 The rp element",
+							"children": []
+						},
+						{
+							"name": "4.5.13 The data element",
+							"children": []
+						},
+						{
+							"name": "4.5.14 The time element",
+							"children": []
+						},
+						{
+							"name": "4.5.15 The code element",
+							"children": []
+						},
+						{
+							"name": "4.5.16 The var element",
+							"children": []
+						},
+						{
+							"name": "4.5.17 The samp element",
+							"children": []
+						},
+						{
+							"name": "4.5.18 The kbd element",
+							"children": []
+						},
+						{
+							"name": "4.5.19 The sub and sup elements",
+							"children": []
+						},
+						{
+							"name": "4.5.20 The i element",
+							"children": []
+						},
+						{
+							"name": "4.5.21 The b element",
+							"children": []
+						},
+						{
+							"name": "4.5.22 The u element",
+							"children": []
+						},
+						{
+							"name": "4.5.23 The mark element",
+							"children": []
+						},
+						{
+							"name": "4.5.24 The bdi element",
+							"children": []
+						},
+						{
+							"name": "4.5.25 The bdo element",
+							"children": []
+						},
+						{
+							"name": "4.5.26 The span element",
+							"children": []
+						},
+						{
+							"name": "4.5.27 The br element",
+							"children": []
+						},
+						{
+							"name": "4.5.28 The wbr element",
+							"children": []
+						},
+						{
+							"name": "4.5.29 Usage summary",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.6 Links",
+					"children": [
+						{
+							"name": "4.6.1 Introduction",
+							"children": []
+						},
+						{
+							"name": "4.6.2 Links created by a and area elements",
+							"children": []
+						},
+						{
+							"name": "4.6.3 API for a and area elements",
+							"children": []
+						},
+						{
+							"name": "4.6.4 Following hyperlinks",
+							"children": []
+						},
+						{
+							"name": "4.6.5 Downloading resources",
+							"children": [
+								{
+									"name": "4.6.5.1 Hyperlink auditing",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.6.6 Link types",
+							"children": [
+								{
+									"name": "4.6.6.1 Link type \"alternate\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.2 Link type \"author\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.3 Link type \"bookmark\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.4 Link type \"canonical\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.5 Link type \"dns-prefetch\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.6 Link type \"external\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.7 Link type \"help\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.8 Link type \"icon\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.9 Link type \"license\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.10 Link type \"modulepreload\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.11 Link type \"nofollow\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.12 Link type \"noopener\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.13 Link type \"noreferrer\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.14 Link type \"opener\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.15 Link type \"pingback\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.16 Link type \"preconnect\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.17 Link type \"prefetch\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.18 Link type \"preload\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.19 Link type \"prerender\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.20 Link type \"search\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.21 Link type \"stylesheet\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.22 Link type \"tag\"",
+									"children": []
+								},
+								{
+									"name": "4.6.6.23 Sequential link types",
+									"children": [
+										{
+											"name": "4.6.6.23.1 Link type \"next\"",
+											"children": []
+										},
+										{
+											"name": "4.6.6.23.2 Link type \"prev\"",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.6.6.24 Other link types",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "4.7 Edits",
+					"children": [
+						{
+							"name": "4.7.1 The ins element",
+							"children": []
+						},
+						{
+							"name": "4.7.2 The del element",
+							"children": []
+						},
+						{
+							"name": "4.7.3 Attributes common to ins and del elements",
+							"children": []
+						},
+						{
+							"name": "4.7.4 Edits and paragraphs",
+							"children": []
+						},
+						{
+							"name": "4.7.5 Edits and lists",
+							"children": []
+						},
+						{
+							"name": "4.7.6 Edits and tables",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.8 Embedded content",
+					"children": [
+						{
+							"name": "4.8.1 The picture element",
+							"children": []
+						},
+						{
+							"name": "4.8.2 The source element",
+							"children": []
+						},
+						{
+							"name": "4.8.3 The img element",
+							"children": []
+						},
+						{
+							"name": "4.8.4 Images",
+							"children": [
+								{
+									"name": "4.8.4.1 Introduction",
+									"children": [
+										{
+											"name": "4.8.4.1.1 Adaptive images",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.8.4.2 Attributes common to source, img, and link elements",
+									"children": [
+										{
+											"name": "4.8.4.2.1 Srcset attributes",
+											"children": []
+										},
+										{
+											"name": "4.8.4.2.2 Sizes attributes",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.8.4.3 Processing model",
+									"children": [
+										{
+											"name": "4.8.4.3.1 When to obtain images",
+											"children": []
+										},
+										{
+											"name": "4.8.4.3.2 Reacting to DOM mutations",
+											"children": []
+										},
+										{
+											"name": "4.8.4.3.3 The list of available images",
+											"children": []
+										},
+										{
+											"name": "4.8.4.3.4 Decoding images",
+											"children": []
+										},
+										{
+											"name": "4.8.4.3.5 Updating the image data",
+											"children": []
+										},
+										{
+											"name": "4.8.4.3.6 Selecting an image source",
+											"children": []
+										},
+										{
+											"name": "4.8.4.3.7 Updating the source set",
+											"children": []
+										},
+										{
+											"name": "4.8.4.3.8 Parsing a srcset attribute",
+											"children": []
+										},
+										{
+											"name": "4.8.4.3.9 Parsing a sizes attribute",
+											"children": []
+										},
+										{
+											"name": "4.8.4.3.10 Normalizing the source densities",
+											"children": []
+										},
+										{
+											"name": "4.8.4.3.11 Reacting to environment changes",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.8.4.4 Requirements for providing text to act as an alternative for images",
+									"children": [
+										{
+											"name": "4.8.4.4.1 General guidelines",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.2 A link or button containing nothing but the image",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.3 A phrase or paragraph with an alternative graphical representation: charts, diagrams, graphs, maps, illustrations",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.4 A short phrase or label with an alternative graphical representation: icons, logos",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.5 Text that has been rendered to a graphic for typographical effect",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.6 A graphical representation of some of the surrounding text",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.7 Ancillary images",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.8 A purely decorative image that doesn't add any information",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.9 A group of images that form a single larger picture with no links",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.10 A group of images that form a single larger picture with links",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.11 A key part of the content",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.12 An image not intended for the user",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.13 An image in an e-mail or private document intended for a specific person who is known to be able to view images",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.14 Guidance for markup generators",
+											"children": []
+										},
+										{
+											"name": "4.8.4.4.15 Guidance for conformance checkers",
+											"children": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "4.8.5 The iframe element",
+							"children": []
+						},
+						{
+							"name": "4.8.6 The embed element",
+							"children": []
+						},
+						{
+							"name": "4.8.7 The object element",
+							"children": []
+						},
+						{
+							"name": "4.8.8 The param element",
+							"children": []
+						},
+						{
+							"name": "4.8.9 The video element",
+							"children": []
+						},
+						{
+							"name": "4.8.10 The audio element",
+							"children": []
+						},
+						{
+							"name": "4.8.11 The track element",
+							"children": []
+						},
+						{
+							"name": "4.8.12 Media elements",
+							"children": [
+								{
+									"name": "4.8.12.1 Error codes",
+									"children": []
+								},
+								{
+									"name": "4.8.12.2 Location of the media resource",
+									"children": []
+								},
+								{
+									"name": "4.8.12.3 MIME types",
+									"children": []
+								},
+								{
+									"name": "4.8.12.4 Network states",
+									"children": []
+								},
+								{
+									"name": "4.8.12.5 Loading the media resource",
+									"children": []
+								},
+								{
+									"name": "4.8.12.6 Offsets into the media resource",
+									"children": []
+								},
+								{
+									"name": "4.8.12.7 Ready states",
+									"children": []
+								},
+								{
+									"name": "4.8.12.8 Playing the media resource",
+									"children": []
+								},
+								{
+									"name": "4.8.12.9 Seeking",
+									"children": []
+								},
+								{
+									"name": "4.8.12.10 Media resources with multiple media tracks",
+									"children": [
+										{
+											"name": "4.8.12.10.1 AudioTrackList and VideoTrackList objects",
+											"children": []
+										},
+										{
+											"name": "4.8.12.10.2 Selecting specific audio and video tracks declaratively",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.8.12.11 Timed text tracks",
+									"children": [
+										{
+											"name": "4.8.12.11.1 Text track model",
+											"children": []
+										},
+										{
+											"name": "4.8.12.11.2 Sourcing in-band text tracks",
+											"children": []
+										},
+										{
+											"name": "4.8.12.11.3 Sourcing out-of-band text tracks",
+											"children": []
+										},
+										{
+											"name": "4.8.12.11.4 Guidelines for exposing cues in various formats as text track cues",
+											"children": []
+										},
+										{
+											"name": "4.8.12.11.5 Text track API",
+											"children": []
+										},
+										{
+											"name": "4.8.12.11.6 Event handlers for objects of the text track APIs",
+											"children": []
+										},
+										{
+											"name": "4.8.12.11.7 Best practices for metadata text tracks",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.8.12.12 Identifying a track kind through a URL",
+									"children": []
+								},
+								{
+									"name": "4.8.12.13 User interface",
+									"children": []
+								},
+								{
+									"name": "4.8.12.14 Time ranges",
+									"children": []
+								},
+								{
+									"name": "4.8.12.15 The TrackEvent interface",
+									"children": []
+								},
+								{
+									"name": "4.8.12.16 Events summary",
+									"children": []
+								},
+								{
+									"name": "4.8.12.17 Security and privacy considerations",
+									"children": []
+								},
+								{
+									"name": "4.8.12.18 Best practices for authors using media elements",
+									"children": []
+								},
+								{
+									"name": "4.8.12.19 Best practices for implementers of media elements",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.8.13 The map element",
+							"children": []
+						},
+						{
+							"name": "4.8.14 The area element",
+							"children": []
+						},
+						{
+							"name": "4.8.15 Image maps",
+							"children": [
+								{
+									"name": "4.8.15.1 Authoring",
+									"children": []
+								},
+								{
+									"name": "4.8.15.2 Processing model",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.8.16 MathML",
+							"children": []
+						},
+						{
+							"name": "4.8.17 SVG",
+							"children": []
+						},
+						{
+							"name": "4.8.18 Dimension attributes",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.9 Tabular data",
+					"children": [
+						{
+							"name": "4.9.1 The table element",
+							"children": [
+								{
+									"name": "4.9.1.1 Techniques for describing tables",
+									"children": []
+								},
+								{
+									"name": "4.9.1.2 Techniques for table design",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.9.2 The caption element",
+							"children": []
+						},
+						{
+							"name": "4.9.3 The colgroup element",
+							"children": []
+						},
+						{
+							"name": "4.9.4 The col element",
+							"children": []
+						},
+						{
+							"name": "4.9.5 The tbody element",
+							"children": []
+						},
+						{
+							"name": "4.9.6 The thead element",
+							"children": []
+						},
+						{
+							"name": "4.9.7 The tfoot element",
+							"children": []
+						},
+						{
+							"name": "4.9.8 The tr element",
+							"children": []
+						},
+						{
+							"name": "4.9.9 The td element",
+							"children": []
+						},
+						{
+							"name": "4.9.10 The th element",
+							"children": []
+						},
+						{
+							"name": "4.9.11 Attributes common to td and th elements",
+							"children": []
+						},
+						{
+							"name": "4.9.12 Processing model",
+							"children": [
+								{
+									"name": "4.9.12.1 Forming a table",
+									"children": []
+								},
+								{
+									"name": "4.9.12.2 Forming relationships between data cells and header cells",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.9.13 Examples",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.10 Forms",
+					"children": [
+						{
+							"name": "4.10.1 Introduction",
+							"children": [
+								{
+									"name": "4.10.1.1 Writing a form's user interface",
+									"children": []
+								},
+								{
+									"name": "4.10.1.2 Implementing the server-side processing for a form",
+									"children": []
+								},
+								{
+									"name": "4.10.1.3 Configuring a form to communicate with a server",
+									"children": []
+								},
+								{
+									"name": "4.10.1.4 Client-side form validation",
+									"children": []
+								},
+								{
+									"name": "4.10.1.5 Enabling client-side automatic filling of form controls",
+									"children": []
+								},
+								{
+									"name": "4.10.1.6 Improving the user experience on mobile devices",
+									"children": []
+								},
+								{
+									"name": "4.10.1.7 The difference between the field type, the autofill field name, and the input modality",
+									"children": []
+								},
+								{
+									"name": "4.10.1.8 Date, time, and number formats",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.10.2 Categories",
+							"children": []
+						},
+						{
+							"name": "4.10.3 The form element",
+							"children": []
+						},
+						{
+							"name": "4.10.4 The label element",
+							"children": []
+						},
+						{
+							"name": "4.10.5 The input element",
+							"children": [
+								{
+									"name": "4.10.5.1 States of the type attribute",
+									"children": [
+										{
+											"name": "4.10.5.1.1 Hidden state (type=hidden)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.2 Text (type=text) state and Search state (type=search)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.3 Telephone state (type=tel)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.4 URL state (type=url)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.5 E-mail state (type=email)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.6 Password state (type=password)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.7 Date state (type=date)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.8 Month state (type=month)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.9 Week state (type=week)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.10 Time state (type=time)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.11 Local Date and Time state (type=datetime-local)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.12 Number state (type=number)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.13 Range state (type=range)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.14 Color state (type=color)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.15 Checkbox state (type=checkbox)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.16 Radio Button state (type=radio)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.17 File Upload state (type=file)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.18 Submit Button state (type=submit)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.19 Image Button state (type=image)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.20 Reset Button state (type=reset)",
+											"children": []
+										},
+										{
+											"name": "4.10.5.1.21 Button state (type=button)",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.10.5.2 Implementation notes regarding localization of form controls",
+									"children": []
+								},
+								{
+									"name": "4.10.5.3 Common input element attributes",
+									"children": [
+										{
+											"name": "4.10.5.3.1 The maxlength and minlength attributes",
+											"children": []
+										},
+										{
+											"name": "4.10.5.3.2 The size attribute",
+											"children": []
+										},
+										{
+											"name": "4.10.5.3.3 The readonly attribute",
+											"children": []
+										},
+										{
+											"name": "4.10.5.3.4 The required attribute",
+											"children": []
+										},
+										{
+											"name": "4.10.5.3.5 The multiple attribute",
+											"children": []
+										},
+										{
+											"name": "4.10.5.3.6 The pattern attribute",
+											"children": []
+										},
+										{
+											"name": "4.10.5.3.7 The min and max attributes",
+											"children": []
+										},
+										{
+											"name": "4.10.5.3.8 The step attribute",
+											"children": []
+										},
+										{
+											"name": "4.10.5.3.9 The list attribute",
+											"children": []
+										},
+										{
+											"name": "4.10.5.3.10 The placeholder attribute",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.10.5.4 Common input element APIs",
+									"children": []
+								},
+								{
+									"name": "4.10.5.5 Common event behaviors",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.10.6 The button element",
+							"children": []
+						},
+						{
+							"name": "4.10.7 The select element",
+							"children": []
+						},
+						{
+							"name": "4.10.8 The datalist element",
+							"children": []
+						},
+						{
+							"name": "4.10.9 The optgroup element",
+							"children": []
+						},
+						{
+							"name": "4.10.10 The option element",
+							"children": []
+						},
+						{
+							"name": "4.10.11 The textarea element",
+							"children": []
+						},
+						{
+							"name": "4.10.12 The output element",
+							"children": []
+						},
+						{
+							"name": "4.10.13 The progress element",
+							"children": []
+						},
+						{
+							"name": "4.10.14 The meter element",
+							"children": []
+						},
+						{
+							"name": "4.10.15 The fieldset element",
+							"children": []
+						},
+						{
+							"name": "4.10.16 The legend element",
+							"children": []
+						},
+						{
+							"name": "4.10.17 Form control infrastructure",
+							"children": [
+								{
+									"name": "4.10.17.1 A form control's value",
+									"children": []
+								},
+								{
+									"name": "4.10.17.2 Mutability",
+									"children": []
+								},
+								{
+									"name": "4.10.17.3 Association of controls and forms",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.10.18 Attributes common to form controls",
+							"children": [
+								{
+									"name": "4.10.18.1 Naming form controls: the name attribute",
+									"children": []
+								},
+								{
+									"name": "4.10.18.2 Submitting element directionality: the dirname attribute",
+									"children": []
+								},
+								{
+									"name": "4.10.18.3 Limiting user input length: the maxlength attribute",
+									"children": []
+								},
+								{
+									"name": "4.10.18.4 Setting minimum input length requirements: the minlength attribute",
+									"children": []
+								},
+								{
+									"name": "4.10.18.5 Enabling and disabling form controls: the disabled attribute",
+									"children": []
+								},
+								{
+									"name": "4.10.18.6 Form submission",
+									"children": []
+								},
+								{
+									"name": "4.10.18.7 Autofill",
+									"children": [
+										{
+											"name": "4.10.18.7.1 Autofilling form controls: the autocomplete attribute",
+											"children": []
+										},
+										{
+											"name": "4.10.18.7.2 Processing model",
+											"children": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "4.10.19 APIs for the text control selections",
+							"children": []
+						},
+						{
+							"name": "4.10.20 Constraints",
+							"children": [
+								{
+									"name": "4.10.20.1 Definitions",
+									"children": []
+								},
+								{
+									"name": "4.10.20.2 Constraint validation",
+									"children": []
+								},
+								{
+									"name": "4.10.20.3 The constraint validation API",
+									"children": []
+								},
+								{
+									"name": "4.10.20.4 Security",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.10.21 Form submission",
+							"children": [
+								{
+									"name": "4.10.21.1 Introduction",
+									"children": []
+								},
+								{
+									"name": "4.10.21.2 Implicit submission",
+									"children": []
+								},
+								{
+									"name": "4.10.21.3 Form submission algorithm",
+									"children": []
+								},
+								{
+									"name": "4.10.21.4 Constructing the entry list",
+									"children": []
+								},
+								{
+									"name": "4.10.21.5 Selecting a form submission encoding",
+									"children": []
+								},
+								{
+									"name": "4.10.21.6 URL-encoded form data",
+									"children": []
+								},
+								{
+									"name": "4.10.21.7 Multipart form data",
+									"children": []
+								},
+								{
+									"name": "4.10.21.8 Plain text form data",
+									"children": []
+								},
+								{
+									"name": "4.10.21.9 The SubmitEvent interface",
+									"children": []
+								},
+								{
+									"name": "4.10.21.10 The FormDataEvent interface",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.10.22 Resetting a form",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.11 Interactive elements",
+					"children": [
+						{
+							"name": "4.11.1 The details element",
+							"children": []
+						},
+						{
+							"name": "4.11.2 The summary element",
+							"children": []
+						},
+						{
+							"name": "4.11.3 Commands",
+							"children": [
+								{
+									"name": "4.11.3.1 Facets",
+									"children": []
+								},
+								{
+									"name": "4.11.3.2 Using the a element to define a command",
+									"children": []
+								},
+								{
+									"name": "4.11.3.3 Using the button element to define a command",
+									"children": []
+								},
+								{
+									"name": "4.11.3.4 Using the input element to define a command",
+									"children": []
+								},
+								{
+									"name": "4.11.3.5 Using the option element to define a command",
+									"children": []
+								},
+								{
+									"name": "4.11.3.6 Using the accesskey attribute on a legend element to define a command",
+									"children": []
+								},
+								{
+									"name": "4.11.3.7 Using the accesskey attribute to define a command on other elements",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.11.4 The dialog element",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.12 Scripting",
+					"children": [
+						{
+							"name": "4.12.1 The script element",
+							"children": [
+								{
+									"name": "4.12.1.1 Processing model",
+									"children": []
+								},
+								{
+									"name": "4.12.1.2 Scripting languages",
+									"children": []
+								},
+								{
+									"name": "4.12.1.3 Restrictions for contents of script elements",
+									"children": []
+								},
+								{
+									"name": "4.12.1.4 Inline documentation for external scripts",
+									"children": []
+								},
+								{
+									"name": "4.12.1.5 Interaction of script elements and XSLT",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.12.2 The noscript element",
+							"children": []
+						},
+						{
+							"name": "4.12.3 The template element",
+							"children": [
+								{
+									"name": "4.12.3.1 Interaction of template elements with XSLT and XPath",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.12.4 The slot element",
+							"children": []
+						},
+						{
+							"name": "4.12.5 The canvas element",
+							"children": [
+								{
+									"name": "4.12.5.1 The 2D rendering context",
+									"children": [
+										{
+											"name": "4.12.5.1.1 Implementation notes",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.2 The canvas state",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.3 Line styles",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.4 Text styles",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.5 Building paths",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.6 Path2D objects",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.7 Transformations",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.8 Image sources for 2D rendering contexts",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.9 Fill and stroke styles",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.10 Drawing rectangles to the bitmap",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.11 Drawing text to the bitmap",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.12 Drawing paths to the canvas",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.13 Drawing focus rings and scrolling paths into view",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.14 Drawing images",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.15 Pixel manipulation",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.16 Compositing",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.17 Image smoothing",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.18 Shadows",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.19 Filters",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.20 Working with externally-defined SVG filters",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.21 Drawing model",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.22 Best practices",
+											"children": []
+										},
+										{
+											"name": "4.12.5.1.23 Examples",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.12.5.2 The ImageBitmap rendering context",
+									"children": [
+										{
+											"name": "4.12.5.2.1 Introduction",
+											"children": []
+										},
+										{
+											"name": "4.12.5.2.2 The ImageBitmapRenderingContext interface",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.12.5.3 The OffscreenCanvas interface",
+									"children": [
+										{
+											"name": "4.12.5.3.1 The offscreen 2D rendering context",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "4.12.5.4 Color spaces and color correction",
+									"children": []
+								},
+								{
+									"name": "4.12.5.5 Serializing bitmaps to a file",
+									"children": []
+								},
+								{
+									"name": "4.12.5.6 Security with canvas elements",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "4.13 Custom elements",
+					"children": [
+						{
+							"name": "4.13.1 Introduction",
+							"children": [
+								{
+									"name": "4.13.1.1 Creating an autonomous custom element",
+									"children": []
+								},
+								{
+									"name": "4.13.1.2 Creating a form-associated custom element",
+									"children": []
+								},
+								{
+									"name": "4.13.1.3 Creating a customized built-in element",
+									"children": []
+								},
+								{
+									"name": "4.13.1.4 Drawbacks of autonomous custom elements",
+									"children": []
+								},
+								{
+									"name": "4.13.1.5 Upgrading elements after their creation",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "4.13.2 Requirements for custom element constructors and reactions",
+							"children": []
+						},
+						{
+							"name": "4.13.3 Core concepts",
+							"children": []
+						},
+						{
+							"name": "4.13.4 The CustomElementRegistry interface",
+							"children": []
+						},
+						{
+							"name": "4.13.5 Upgrades",
+							"children": []
+						},
+						{
+							"name": "4.13.6 Custom element reactions",
+							"children": []
+						},
+						{
+							"name": "4.13.7 The ElementInternals interface",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.14 Common idioms without dedicated elements",
+					"children": [
+						{
+							"name": "4.14.1 Bread crumb navigation",
+							"children": []
+						},
+						{
+							"name": "4.14.2 Tag clouds",
+							"children": []
+						},
+						{
+							"name": "4.14.3 Conversations",
+							"children": []
+						},
+						{
+							"name": "4.14.4 Footnotes",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "4.15 Disabled elements",
+					"children": []
+				},
+				{
+					"name": "4.16 Matching HTML elements using selectors and CSS",
+					"children": [
+						{
+							"name": "4.16.1 Case-sensitivity of the CSS 'attr()' function",
+							"children": []
+						},
+						{
+							"name": "4.16.2 Case-sensitivity of selectors",
+							"children": []
+						},
+						{
+							"name": "4.16.3 Pseudo-classes",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "5 Microdata",
+			"children": [
+				{
+					"name": "5.1 Introduction",
+					"children": [
+						{
+							"name": "5.1.1 Overview",
+							"children": []
+						},
+						{
+							"name": "5.1.2 The basic syntax",
+							"children": []
+						},
+						{
+							"name": "5.1.3 Typed items",
+							"children": []
+						},
+						{
+							"name": "5.1.4 Global identifiers for items",
+							"children": []
+						},
+						{
+							"name": "5.1.5 Selecting names when defining vocabularies",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "5.2 Encoding microdata",
+					"children": [
+						{
+							"name": "5.2.1 The microdata model",
+							"children": []
+						},
+						{
+							"name": "5.2.2 Items",
+							"children": []
+						},
+						{
+							"name": "5.2.3 Names: the itemprop attribute",
+							"children": []
+						},
+						{
+							"name": "5.2.4 Values",
+							"children": []
+						},
+						{
+							"name": "5.2.5 Associating names with items",
+							"children": []
+						},
+						{
+							"name": "5.2.6 Microdata and other namespaces",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "5.3 Sample microdata vocabularies",
+					"children": [
+						{
+							"name": "5.3.1 vCard",
+							"children": [
+								{
+									"name": "5.3.1.1 Conversion to vCard",
+									"children": []
+								},
+								{
+									"name": "5.3.1.2 Examples",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "5.3.2 vEvent",
+							"children": [
+								{
+									"name": "5.3.2.1 Conversion to iCalendar",
+									"children": []
+								},
+								{
+									"name": "5.3.2.2 Examples",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "5.3.3 Licensing works",
+							"children": [
+								{
+									"name": "5.3.3.1 Examples",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "5.4 Converting HTML to other formats",
+					"children": [
+						{
+							"name": "5.4.1 JSON",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "6 User interaction",
+			"children": [
+				{
+					"name": "6.1 The hidden attribute",
+					"children": []
+				},
+				{
+					"name": "6.2 Inert subtrees",
+					"children": []
+				},
+				{
+					"name": "6.3 Tracking user activation",
+					"children": [
+						{
+							"name": "6.3.1 Data model",
+							"children": []
+						},
+						{
+							"name": "6.3.2 Processing model",
+							"children": []
+						},
+						{
+							"name": "6.3.3 APIs gated by user activation",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "6.4 Activation behavior of elements",
+					"children": []
+				},
+				{
+					"name": "6.5 Focus",
+					"children": [
+						{
+							"name": "6.5.1 Introduction",
+							"children": []
+						},
+						{
+							"name": "6.5.2 Data model",
+							"children": []
+						},
+						{
+							"name": "6.5.3 The tabindex attribute",
+							"children": []
+						},
+						{
+							"name": "6.5.4 Processing model",
+							"children": []
+						},
+						{
+							"name": "6.5.5 Sequential focus navigation",
+							"children": []
+						},
+						{
+							"name": "6.5.6 Focus management APIs",
+							"children": []
+						},
+						{
+							"name": "6.5.7 The autofocus attribute",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "6.6 Assigning keyboard shortcuts",
+					"children": [
+						{
+							"name": "6.6.1 Introduction",
+							"children": []
+						},
+						{
+							"name": "6.6.2 The accesskey attribute",
+							"children": []
+						},
+						{
+							"name": "6.6.3 Processing model",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "6.7 Editing",
+					"children": [
+						{
+							"name": "6.7.1 Making document regions editable: The contenteditable content attribute",
+							"children": []
+						},
+						{
+							"name": "6.7.2 Making entire documents editable: the designMode getter and setter",
+							"children": []
+						},
+						{
+							"name": "6.7.3 Best practices for in-page editors",
+							"children": []
+						},
+						{
+							"name": "6.7.4 Editing APIs",
+							"children": []
+						},
+						{
+							"name": "6.7.5 Spelling and grammar checking",
+							"children": []
+						},
+						{
+							"name": "6.7.6 Autocapitalization",
+							"children": []
+						},
+						{
+							"name": "6.7.7 Input modalities: the inputmode attribute",
+							"children": []
+						},
+						{
+							"name": "6.7.8 Input modalities: the enterkeyhint attribute",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "6.8 Drag and drop",
+					"children": [
+						{
+							"name": "6.8.1 Introduction",
+							"children": []
+						},
+						{
+							"name": "6.8.2 The drag data store",
+							"children": []
+						},
+						{
+							"name": "6.8.3 The DataTransfer interface",
+							"children": [
+								{
+									"name": "6.8.3.1 The DataTransferItemList interface",
+									"children": []
+								},
+								{
+									"name": "6.8.3.2 The DataTransferItem interface",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "6.8.4 The DragEvent interface",
+							"children": []
+						},
+						{
+							"name": "6.8.5 Processing model",
+							"children": []
+						},
+						{
+							"name": "6.8.6 Events summary",
+							"children": []
+						},
+						{
+							"name": "6.8.7 The draggable attribute",
+							"children": []
+						},
+						{
+							"name": "6.8.8 Security risks in the drag-and-drop model",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "7 Loading Web pages",
+			"children": [
+				{
+					"name": "7.1 Browsing contexts",
+					"children": [
+						{
+							"name": "7.1.1 Creating browsing contexts",
+							"children": []
+						},
+						{
+							"name": "7.1.2 Related browsing contexts",
+							"children": [
+								{
+									"name": "7.1.2.1 Navigating related browsing contexts in the DOM",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "7.1.3 Security",
+							"children": []
+						},
+						{
+							"name": "7.1.4 Groupings of browsing contexts",
+							"children": []
+						},
+						{
+							"name": "7.1.5 Browsing context names",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "7.2 Security infrastructure for Window, WindowProxy, and Location objects",
+					"children": [
+						{
+							"name": "7.2.1 Integration with IDL",
+							"children": []
+						},
+						{
+							"name": "7.2.2 Shared internal slot: [[CrossOriginPropertyDescriptorMap]]",
+							"children": []
+						},
+						{
+							"name": "7.2.3 Shared abstract operations",
+							"children": [
+								{
+									"name": "7.2.3.1 CrossOriginProperties ( O )",
+									"children": []
+								},
+								{
+									"name": "7.2.3.2 CrossOriginPropertyFallback ( P )",
+									"children": []
+								},
+								{
+									"name": "7.2.3.3 IsPlatformObjectSameOrigin ( O )",
+									"children": []
+								},
+								{
+									"name": "7.2.3.4 CrossOriginGetOwnPropertyHelper ( O, P )",
+									"children": []
+								},
+								{
+									"name": "7.2.3.5 CrossOriginGet ( O, P, Receiver )",
+									"children": []
+								},
+								{
+									"name": "7.2.3.6 CrossOriginSet ( O, P, V, Receiver )",
+									"children": []
+								},
+								{
+									"name": "7.2.3.7 CrossOriginOwnPropertyKeys ( O )",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "7.3 The Window object",
+					"children": [
+						{
+							"name": "7.3.1 APIs for creating and navigating browsing contexts by name",
+							"children": []
+						},
+						{
+							"name": "7.3.2 Accessing other browsing contexts",
+							"children": []
+						},
+						{
+							"name": "7.3.3 Named access on the Window object",
+							"children": []
+						},
+						{
+							"name": "7.3.4 Discarding browsing contexts",
+							"children": []
+						},
+						{
+							"name": "7.3.5 Closing browsing contexts",
+							"children": []
+						},
+						{
+							"name": "7.3.6 Browser interface elements",
+							"children": []
+						},
+						{
+							"name": "7.3.7 Script settings for Window objects",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "7.4 The WindowProxy exotic object",
+					"children": [
+						{
+							"name": "7.4.1 [[GetPrototypeOf]] ( )",
+							"children": []
+						},
+						{
+							"name": "7.4.2 [[SetPrototypeOf]] ( V )",
+							"children": []
+						},
+						{
+							"name": "7.4.3 [[IsExtensible]] ( )",
+							"children": []
+						},
+						{
+							"name": "7.4.4 [[PreventExtensions]] ( )",
+							"children": []
+						},
+						{
+							"name": "7.4.5 [[GetOwnProperty]] ( P )",
+							"children": []
+						},
+						{
+							"name": "7.4.6 [[DefineOwnProperty]] ( P, Desc )",
+							"children": []
+						},
+						{
+							"name": "7.4.7 [[Get]] ( P, Receiver )",
+							"children": []
+						},
+						{
+							"name": "7.4.8 [[Set]] ( P, V, Receiver )",
+							"children": []
+						},
+						{
+							"name": "7.4.9 [[Delete]] ( P )",
+							"children": []
+						},
+						{
+							"name": "7.4.10 [[OwnPropertyKeys]] ( )",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "7.5 Origin",
+					"children": [
+						{
+							"name": "7.5.1 Sites",
+							"children": []
+						},
+						{
+							"name": "7.5.2 Relaxing the same-origin restriction",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "7.6 Sandboxing",
+					"children": []
+				},
+				{
+					"name": "7.7 Session history and navigation",
+					"children": [
+						{
+							"name": "7.7.1 Browsing sessions",
+							"children": []
+						},
+						{
+							"name": "7.7.2 The session history of browsing contexts",
+							"children": []
+						},
+						{
+							"name": "7.7.3 The History interface",
+							"children": []
+						},
+						{
+							"name": "7.7.4 Implementation notes for session history",
+							"children": []
+						},
+						{
+							"name": "7.7.5 The Location interface",
+							"children": [
+								{
+									"name": "7.7.5.1 [[GetPrototypeOf]] ( )",
+									"children": []
+								},
+								{
+									"name": "7.7.5.2 [[SetPrototypeOf]] ( V )",
+									"children": []
+								},
+								{
+									"name": "7.7.5.3 [[IsExtensible]] ( )",
+									"children": []
+								},
+								{
+									"name": "7.7.5.4 [[PreventExtensions]] ( )",
+									"children": []
+								},
+								{
+									"name": "7.7.5.5 [[GetOwnProperty]] ( P )",
+									"children": []
+								},
+								{
+									"name": "7.7.5.6 [[DefineOwnProperty]] ( P, Desc )",
+									"children": []
+								},
+								{
+									"name": "7.7.5.7 [[Get]] ( P, Receiver )",
+									"children": []
+								},
+								{
+									"name": "7.7.5.8 [[Set]] ( P, V, Receiver )",
+									"children": []
+								},
+								{
+									"name": "7.7.5.9 [[Delete]] ( P )",
+									"children": []
+								},
+								{
+									"name": "7.7.5.10 [[OwnPropertyKeys]] ( )",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "7.8 Browsing the Web",
+					"children": [
+						{
+							"name": "7.8.1 Navigating across documents",
+							"children": []
+						},
+						{
+							"name": "7.8.2 Page load processing model for HTML files",
+							"children": []
+						},
+						{
+							"name": "7.8.3 Page load processing model for XML files",
+							"children": []
+						},
+						{
+							"name": "7.8.4 Page load processing model for text files",
+							"children": []
+						},
+						{
+							"name": "7.8.5 Page load processing model for multipart/x-mixed-replace resources",
+							"children": []
+						},
+						{
+							"name": "7.8.6 Page load processing model for media",
+							"children": []
+						},
+						{
+							"name": "7.8.7 Page load processing model for content that uses plugins",
+							"children": []
+						},
+						{
+							"name": "7.8.8 Page load processing model for inline content that doesn't have a DOM",
+							"children": []
+						},
+						{
+							"name": "7.8.9 Navigating to a fragment",
+							"children": []
+						},
+						{
+							"name": "7.8.10 History traversal",
+							"children": [
+								{
+									"name": "7.8.10.1 Persisted user state restoration",
+									"children": []
+								},
+								{
+									"name": "7.8.10.2 The PopStateEvent interface",
+									"children": []
+								},
+								{
+									"name": "7.8.10.3 The HashChangeEvent interface",
+									"children": []
+								},
+								{
+									"name": "7.8.10.4 The PageTransitionEvent interface",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "7.8.11 Unloading documents",
+							"children": [
+								{
+									"name": "7.8.11.1 The BeforeUnloadEvent interface",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "7.8.12 Aborting a document load",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "7.9 Offline Web applications",
+					"children": [
+						{
+							"name": "7.9.1 Introduction",
+							"children": [
+								{
+									"name": "7.9.1.1 Supporting offline caching for legacy applications",
+									"children": []
+								},
+								{
+									"name": "7.9.1.2 Events summary",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "7.9.2 Application caches",
+							"children": []
+						},
+						{
+							"name": "7.9.3 The cache manifest syntax",
+							"children": [
+								{
+									"name": "7.9.3.1 Some sample manifests",
+									"children": []
+								},
+								{
+									"name": "7.9.3.2 Writing cache manifests",
+									"children": []
+								},
+								{
+									"name": "7.9.3.3 Parsing cache manifests",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "7.9.4 Downloading or updating an application cache",
+							"children": []
+						},
+						{
+							"name": "7.9.5 The application cache selection algorithm",
+							"children": []
+						},
+						{
+							"name": "7.9.6 Changes to the networking model",
+							"children": []
+						},
+						{
+							"name": "7.9.7 Expiring application caches",
+							"children": []
+						},
+						{
+							"name": "7.9.8 Disk space",
+							"children": []
+						},
+						{
+							"name": "7.9.9 Security concerns with offline applications caches",
+							"children": []
+						},
+						{
+							"name": "7.9.10 Application cache API",
+							"children": []
+						},
+						{
+							"name": "7.9.11 Browser state",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "8 Web application APIs",
+			"children": [
+				{
+					"name": "8.1 Scripting",
+					"children": [
+						{
+							"name": "8.1.1 Introduction",
+							"children": []
+						},
+						{
+							"name": "8.1.2 Enabling and disabling scripting",
+							"children": []
+						},
+						{
+							"name": "8.1.3 Processing model",
+							"children": [
+								{
+									"name": "8.1.3.1 Definitions",
+									"children": []
+								},
+								{
+									"name": "8.1.3.2 Fetching scripts",
+									"children": []
+								},
+								{
+									"name": "8.1.3.3 Creating scripts",
+									"children": []
+								},
+								{
+									"name": "8.1.3.4 Calling scripts",
+									"children": []
+								},
+								{
+									"name": "8.1.3.5 Realms, settings objects, and global objects",
+									"children": [
+										{
+											"name": "8.1.3.5.1 Entry",
+											"children": []
+										},
+										{
+											"name": "8.1.3.5.2 Incumbent",
+											"children": []
+										},
+										{
+											"name": "8.1.3.5.3 Current",
+											"children": []
+										},
+										{
+											"name": "8.1.3.5.4 Relevant",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "8.1.3.6 Killing scripts",
+									"children": []
+								},
+								{
+									"name": "8.1.3.7 HostEnqueuePromiseJob(job, realm)",
+									"children": []
+								},
+								{
+									"name": "8.1.3.8 Integration with the JavaScript module system",
+									"children": [
+										{
+											"name": "8.1.3.8.1 HostResolveImportedModule(referencingScriptOrModule, specifier)",
+											"children": []
+										},
+										{
+											"name": "8.1.3.8.2 HostImportModuleDynamically(referencingScriptOrModule, specifier, promiseCapability)",
+											"children": []
+										},
+										{
+											"name": "8.1.3.8.3 HostGetImportMetaProperties(moduleRecord)",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "8.1.3.9 Integration with the JavaScript agent formalism",
+									"children": []
+								},
+								{
+									"name": "8.1.3.10 Integration with the JavaScript agent cluster formalism",
+									"children": []
+								},
+								{
+									"name": "8.1.3.11 Runtime script errors",
+									"children": [
+										{
+											"name": "8.1.3.11.1 Runtime script errors in documents",
+											"children": []
+										},
+										{
+											"name": "8.1.3.11.2 The ErrorEvent interface",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "8.1.3.12 Unhandled promise rejections",
+									"children": [
+										{
+											"name": "8.1.3.12.1 HostPromiseRejectionTracker(promise, operation)",
+											"children": []
+										},
+										{
+											"name": "8.1.3.12.2 The PromiseRejectionEvent interface",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "8.1.3.13 HostEnsureCanCompileStrings(callerRealm, calleeRealm)",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "8.1.4 Event loops",
+							"children": [
+								{
+									"name": "8.1.4.1 Definitions",
+									"children": []
+								},
+								{
+									"name": "8.1.4.2 Queuing tasks",
+									"children": []
+								},
+								{
+									"name": "8.1.4.3 Processing model",
+									"children": []
+								},
+								{
+									"name": "8.1.4.4 Generic task sources",
+									"children": []
+								},
+								{
+									"name": "8.1.4.5 Dealing with the event loop from other specifications",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "8.1.5 Events",
+							"children": [
+								{
+									"name": "8.1.5.1 Event handlers",
+									"children": []
+								},
+								{
+									"name": "8.1.5.2 Event handlers on elements, Document objects, and Window objects",
+									"children": [
+										{
+											"name": "8.1.5.2.1 IDL definitions",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "8.1.5.3 Event firing",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "8.2 The WindowOrWorkerGlobalScope mixin",
+					"children": []
+				},
+				{
+					"name": "8.3 Base64 utility methods",
+					"children": []
+				},
+				{
+					"name": "8.4 Dynamic markup insertion",
+					"children": [
+						{
+							"name": "8.4.1 Opening the input stream",
+							"children": []
+						},
+						{
+							"name": "8.4.2 Closing the input stream",
+							"children": []
+						},
+						{
+							"name": "8.4.3 document.write()",
+							"children": []
+						},
+						{
+							"name": "8.4.4 document.writeln()",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "8.5 DOM parsing",
+					"children": []
+				},
+				{
+					"name": "8.6 Timers",
+					"children": []
+				},
+				{
+					"name": "8.7 Microtask queuing",
+					"children": []
+				},
+				{
+					"name": "8.8 User prompts",
+					"children": [
+						{
+							"name": "8.8.1 Simple dialogs",
+							"children": []
+						},
+						{
+							"name": "8.8.2 Printing",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "8.9 System state and capabilities",
+					"children": [
+						{
+							"name": "8.9.1 The Navigator object",
+							"children": [
+								{
+									"name": "8.9.1.1 Client identification",
+									"children": []
+								},
+								{
+									"name": "8.9.1.2 Language preferences",
+									"children": []
+								},
+								{
+									"name": "8.9.1.3 Custom scheme handlers: the registerProtocolHandler() method",
+									"children": [
+										{
+											"name": "8.9.1.3.1 Security and privacy",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "8.9.1.4 Cookies",
+									"children": []
+								},
+								{
+									"name": "8.9.1.5 Plugins",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "8.10 Images",
+					"children": []
+				},
+				{
+					"name": "8.11 Animation frames",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "9 Communication",
+			"children": [
+				{
+					"name": "9.1 The MessageEvent interface",
+					"children": []
+				},
+				{
+					"name": "9.2 Server-sent events",
+					"children": [
+						{
+							"name": "9.2.1 Introduction",
+							"children": []
+						},
+						{
+							"name": "9.2.2 The EventSource interface",
+							"children": []
+						},
+						{
+							"name": "9.2.3 Processing model",
+							"children": []
+						},
+						{
+							"name": "9.2.4 Parsing an event stream",
+							"children": []
+						},
+						{
+							"name": "9.2.5 Interpreting an event stream",
+							"children": []
+						},
+						{
+							"name": "9.2.6 Authoring notes",
+							"children": []
+						},
+						{
+							"name": "9.2.7 Connectionless push and other features",
+							"children": []
+						},
+						{
+							"name": "9.2.8 Garbage collection",
+							"children": []
+						},
+						{
+							"name": "9.2.9 Implementation advice",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "9.3 Web sockets",
+					"children": [
+						{
+							"name": "9.3.1 Introduction",
+							"children": []
+						},
+						{
+							"name": "9.3.2 The WebSocket interface",
+							"children": []
+						},
+						{
+							"name": "9.3.3 Feedback from the protocol",
+							"children": []
+						},
+						{
+							"name": "9.3.4 Ping and Pong frames",
+							"children": []
+						},
+						{
+							"name": "9.3.5 The CloseEvent interface",
+							"children": []
+						},
+						{
+							"name": "9.3.6 Garbage collection",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "9.4 Cross-document messaging",
+					"children": [
+						{
+							"name": "9.4.1 Introduction",
+							"children": []
+						},
+						{
+							"name": "9.4.2 Security",
+							"children": [
+								{
+									"name": "9.4.2.1 Authors",
+									"children": []
+								},
+								{
+									"name": "9.4.2.2 User agents",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "9.4.3 Posting messages",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "9.5 Channel messaging",
+					"children": [
+						{
+							"name": "9.5.1 Introduction",
+							"children": [
+								{
+									"name": "9.5.1.1 Examples",
+									"children": []
+								},
+								{
+									"name": "9.5.1.2 Ports as the basis of an object-capability model on the Web",
+									"children": []
+								},
+								{
+									"name": "9.5.1.3 Ports as the basis of abstracting out service implementations",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "9.5.2 Message channels",
+							"children": []
+						},
+						{
+							"name": "9.5.3 Message ports",
+							"children": []
+						},
+						{
+							"name": "9.5.4 Broadcasting to many ports",
+							"children": []
+						},
+						{
+							"name": "9.5.5 Ports and garbage collection",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "9.6 Broadcasting to other browsing contexts",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "10 Web workers",
+			"children": [
+				{
+					"name": "10.1 Introduction",
+					"children": [
+						{
+							"name": "10.1.1 Scope",
+							"children": []
+						},
+						{
+							"name": "10.1.2 Examples",
+							"children": [
+								{
+									"name": "10.1.2.1 A background number-crunching worker",
+									"children": []
+								},
+								{
+									"name": "10.1.2.2 Using a JavaScript module as a worker",
+									"children": []
+								},
+								{
+									"name": "10.1.2.3 Shared workers introduction",
+									"children": []
+								},
+								{
+									"name": "10.1.2.4 Shared state using a shared worker",
+									"children": []
+								},
+								{
+									"name": "10.1.2.5 Delegation",
+									"children": []
+								},
+								{
+									"name": "10.1.2.6 Providing libraries",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "10.1.3 Tutorials",
+							"children": [
+								{
+									"name": "10.1.3.1 Creating a dedicated worker",
+									"children": []
+								},
+								{
+									"name": "10.1.3.2 Communicating with a dedicated worker",
+									"children": []
+								},
+								{
+									"name": "10.1.3.3 Shared workers",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "10.2 Infrastructure",
+					"children": [
+						{
+							"name": "10.2.1 The global scope",
+							"children": [
+								{
+									"name": "10.2.1.1 The WorkerGlobalScope common interface",
+									"children": []
+								},
+								{
+									"name": "10.2.1.2 Dedicated workers and the DedicatedWorkerGlobalScope interface",
+									"children": []
+								},
+								{
+									"name": "10.2.1.3 Shared workers and the SharedWorkerGlobalScope interface",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "10.2.2 The event loop",
+							"children": []
+						},
+						{
+							"name": "10.2.3 The worker's lifetime",
+							"children": []
+						},
+						{
+							"name": "10.2.4 Processing model",
+							"children": []
+						},
+						{
+							"name": "10.2.5 Runtime script errors",
+							"children": []
+						},
+						{
+							"name": "10.2.6 Creating workers",
+							"children": [
+								{
+									"name": "10.2.6.1 The AbstractWorker mixin",
+									"children": []
+								},
+								{
+									"name": "10.2.6.2 Script settings for workers",
+									"children": []
+								},
+								{
+									"name": "10.2.6.3 Dedicated workers and the Worker interface",
+									"children": []
+								},
+								{
+									"name": "10.2.6.4 Shared workers and the SharedWorker interface",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "10.2.7 Concurrent hardware capabilities",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "10.3 APIs available to workers",
+					"children": [
+						{
+							"name": "10.3.1 Importing scripts and libraries",
+							"children": []
+						},
+						{
+							"name": "10.3.2 The WorkerNavigator interface",
+							"children": []
+						},
+						{
+							"name": "10.3.3 The WorkerLocation interface",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "11 Web storage",
+			"children": [
+				{
+					"name": "11.1 Introduction",
+					"children": []
+				},
+				{
+					"name": "11.2 The API",
+					"children": [
+						{
+							"name": "11.2.1 The Storage interface",
+							"children": []
+						},
+						{
+							"name": "11.2.2 The sessionStorage attribute",
+							"children": []
+						},
+						{
+							"name": "11.2.3 The localStorage attribute",
+							"children": []
+						},
+						{
+							"name": "11.2.4 The storage event",
+							"children": [
+								{
+									"name": "11.2.4.1 The StorageEvent interface",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "11.3 Disk space",
+					"children": []
+				},
+				{
+					"name": "11.4 Privacy",
+					"children": [
+						{
+							"name": "11.4.1 User tracking",
+							"children": []
+						},
+						{
+							"name": "11.4.2 Sensitivity of data",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "11.5 Security",
+					"children": [
+						{
+							"name": "11.5.1 DNS spoofing attacks",
+							"children": []
+						},
+						{
+							"name": "11.5.2 Cross-directory attacks",
+							"children": []
+						},
+						{
+							"name": "11.5.3 Implementation risks",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "12 The HTML syntax",
+			"children": [
+				{
+					"name": "12.1 Writing HTML documents",
+					"children": [
+						{
+							"name": "12.1.1 The DOCTYPE",
+							"children": []
+						},
+						{
+							"name": "12.1.2 Elements",
+							"children": [
+								{
+									"name": "12.1.2.1 Start tags",
+									"children": []
+								},
+								{
+									"name": "12.1.2.2 End tags",
+									"children": []
+								},
+								{
+									"name": "12.1.2.3 Attributes",
+									"children": []
+								},
+								{
+									"name": "12.1.2.4 Optional tags",
+									"children": []
+								},
+								{
+									"name": "12.1.2.5 Restrictions on content models",
+									"children": []
+								},
+								{
+									"name": "12.1.2.6 Restrictions on the contents of raw text and escapable raw text elements",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "12.1.3 Text",
+							"children": [
+								{
+									"name": "12.1.3.1 Newlines",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "12.1.4 Character references",
+							"children": []
+						},
+						{
+							"name": "12.1.5 CDATA sections",
+							"children": []
+						},
+						{
+							"name": "12.1.6 Comments",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "12.2 Parsing HTML documents",
+					"children": [
+						{
+							"name": "12.2.1 Overview of the parsing model",
+							"children": []
+						},
+						{
+							"name": "12.2.2 Parse errors",
+							"children": []
+						},
+						{
+							"name": "12.2.3 The input byte stream",
+							"children": [
+								{
+									"name": "12.2.3.1 Parsing with a known character encoding",
+									"children": []
+								},
+								{
+									"name": "12.2.3.2 Determining the character encoding",
+									"children": []
+								},
+								{
+									"name": "12.2.3.3 Character encodings",
+									"children": []
+								},
+								{
+									"name": "12.2.3.4 Changing the encoding while parsing",
+									"children": []
+								},
+								{
+									"name": "12.2.3.5 Preprocessing the input stream",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "12.2.4 Parse state",
+							"children": [
+								{
+									"name": "12.2.4.1 The insertion mode",
+									"children": []
+								},
+								{
+									"name": "12.2.4.2 The stack of open elements",
+									"children": []
+								},
+								{
+									"name": "12.2.4.3 The list of active formatting elements",
+									"children": []
+								},
+								{
+									"name": "12.2.4.4 The element pointers",
+									"children": []
+								},
+								{
+									"name": "12.2.4.5 Other parsing state flags",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "12.2.5 Tokenization",
+							"children": [
+								{
+									"name": "12.2.5.1 Data state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.2 RCDATA state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.3 RAWTEXT state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.4 Script data state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.5 PLAINTEXT state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.6 Tag open state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.7 End tag open state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.8 Tag name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.9 RCDATA less-than sign state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.10 RCDATA end tag open state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.11 RCDATA end tag name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.12 RAWTEXT less-than sign state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.13 RAWTEXT end tag open state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.14 RAWTEXT end tag name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.15 Script data less-than sign state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.16 Script data end tag open state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.17 Script data end tag name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.18 Script data escape start state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.19 Script data escape start dash state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.20 Script data escaped state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.21 Script data escaped dash state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.22 Script data escaped dash dash state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.23 Script data escaped less-than sign state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.24 Script data escaped end tag open state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.25 Script data escaped end tag name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.26 Script data double escape start state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.27 Script data double escaped state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.28 Script data double escaped dash state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.29 Script data double escaped dash dash state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.30 Script data double escaped less-than sign state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.31 Script data double escape end state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.32 Before attribute name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.33 Attribute name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.34 After attribute name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.35 Before attribute value state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.36 Attribute value (double-quoted) state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.37 Attribute value (single-quoted) state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.38 Attribute value (unquoted) state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.39 After attribute value (quoted) state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.40 Self-closing start tag state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.41 Bogus comment state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.42 Markup declaration open state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.43 Comment start state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.44 Comment start dash state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.45 Comment state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.46 Comment less-than sign state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.47 Comment less-than sign bang state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.48 Comment less-than sign bang dash state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.49 Comment less-than sign bang dash dash state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.50 Comment end dash state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.51 Comment end state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.52 Comment end bang state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.53 DOCTYPE state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.54 Before DOCTYPE name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.55 DOCTYPE name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.56 After DOCTYPE name state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.57 After DOCTYPE public keyword state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.58 Before DOCTYPE public identifier state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.59 DOCTYPE public identifier (double-quoted) state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.60 DOCTYPE public identifier (single-quoted) state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.61 After DOCTYPE public identifier state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.62 Between DOCTYPE public and system identifiers state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.63 After DOCTYPE system keyword state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.64 Before DOCTYPE system identifier state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.65 DOCTYPE system identifier (double-quoted) state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.66 DOCTYPE system identifier (single-quoted) state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.67 After DOCTYPE system identifier state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.68 Bogus DOCTYPE state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.69 CDATA section state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.70 CDATA section bracket state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.71 CDATA section end state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.72 Character reference state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.73 Named character reference state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.74 Ambiguous ampersand state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.75 Numeric character reference state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.76 Hexadecimal character reference start state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.77 Decimal character reference start state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.78 Hexadecimal character reference state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.79 Decimal character reference state",
+									"children": []
+								},
+								{
+									"name": "12.2.5.80 Numeric character reference end state",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "12.2.6 Tree construction",
+							"children": [
+								{
+									"name": "12.2.6.1 Creating and inserting nodes",
+									"children": []
+								},
+								{
+									"name": "12.2.6.2 Parsing elements that contain only text",
+									"children": []
+								},
+								{
+									"name": "12.2.6.3 Closing elements that have implied end tags",
+									"children": []
+								},
+								{
+									"name": "12.2.6.4 The rules for parsing tokens in HTML content",
+									"children": [
+										{
+											"name": "12.2.6.4.1 The \"initial\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.2 The \"before html\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.3 The \"before head\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.4 The \"in head\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.5 The \"in head noscript\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.6 The \"after head\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.7 The \"in body\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.8 The \"text\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.9 The \"in table\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.10 The \"in table text\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.11 The \"in caption\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.12 The \"in column group\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.13 The \"in table body\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.14 The \"in row\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.15 The \"in cell\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.16 The \"in select\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.17 The \"in select in table\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.18 The \"in template\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.19 The \"after body\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.20 The \"in frameset\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.21 The \"after frameset\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.22 The \"after after body\" insertion mode",
+											"children": []
+										},
+										{
+											"name": "12.2.6.4.23 The \"after after frameset\" insertion mode",
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "12.2.6.5 The rules for parsing tokens in foreign content",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "12.2.7 The end",
+							"children": []
+						},
+						{
+							"name": "12.2.8 Coercing an HTML DOM into an infoset",
+							"children": []
+						},
+						{
+							"name": "12.2.9 An introduction to error handling and strange cases in the parser",
+							"children": [
+								{
+									"name": "12.2.9.1 Misnested tags: <b><i></b></i>",
+									"children": []
+								},
+								{
+									"name": "12.2.9.2 Misnested tags: <b><p></b></p>",
+									"children": []
+								},
+								{
+									"name": "12.2.9.3 Unexpected markup in tables",
+									"children": []
+								},
+								{
+									"name": "12.2.9.4 Scripts that modify the page as it is being parsed",
+									"children": []
+								},
+								{
+									"name": "12.2.9.5 The execution of scripts that are moving across multiple documents",
+									"children": []
+								},
+								{
+									"name": "12.2.9.6 Unclosed formatting elements",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "12.3 Serializing HTML fragments",
+					"children": []
+				},
+				{
+					"name": "12.4 Parsing HTML fragments",
+					"children": []
+				},
+				{
+					"name": "12.5 Named character references",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "13 The XML syntax",
+			"children": [
+				{
+					"name": "13.1 Writing documents in the XML syntax",
+					"children": []
+				},
+				{
+					"name": "13.2 Parsing XML documents",
+					"children": []
+				},
+				{
+					"name": "13.3 Serializing XML fragments",
+					"children": []
+				},
+				{
+					"name": "13.4 Parsing XML fragments",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "14 Rendering",
+			"children": [
+				{
+					"name": "14.1 Introduction",
+					"children": []
+				},
+				{
+					"name": "14.2 The CSS user agent style sheet and presentational hints",
+					"children": []
+				},
+				{
+					"name": "14.3 Non-replaced elements",
+					"children": [
+						{
+							"name": "14.3.1 Hidden elements",
+							"children": []
+						},
+						{
+							"name": "14.3.2 The page",
+							"children": []
+						},
+						{
+							"name": "14.3.3 Flow content",
+							"children": []
+						},
+						{
+							"name": "14.3.4 Phrasing content",
+							"children": []
+						},
+						{
+							"name": "14.3.5 Bidirectional text",
+							"children": []
+						},
+						{
+							"name": "14.3.6 Quotes",
+							"children": []
+						},
+						{
+							"name": "14.3.7 Sections and headings",
+							"children": []
+						},
+						{
+							"name": "14.3.8 Lists",
+							"children": []
+						},
+						{
+							"name": "14.3.9 Tables",
+							"children": []
+						},
+						{
+							"name": "14.3.10 Margin collapsing quirks",
+							"children": []
+						},
+						{
+							"name": "14.3.11 Form controls",
+							"children": []
+						},
+						{
+							"name": "14.3.12 The hr element",
+							"children": []
+						},
+						{
+							"name": "14.3.13 The fieldset and legend elements",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "14.4 Replaced elements",
+					"children": [
+						{
+							"name": "14.4.1 Embedded content",
+							"children": []
+						},
+						{
+							"name": "14.4.2 Images",
+							"children": []
+						},
+						{
+							"name": "14.4.3 Attributes for embedded content and images",
+							"children": []
+						},
+						{
+							"name": "14.4.4 Image maps",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "14.5 Widgets",
+					"children": [
+						{
+							"name": "14.5.1 Introduction",
+							"children": []
+						},
+						{
+							"name": "14.5.2 Button layout",
+							"children": []
+						},
+						{
+							"name": "14.5.3 The button element",
+							"children": []
+						},
+						{
+							"name": "14.5.4 The details and summary elements",
+							"children": []
+						},
+						{
+							"name": "14.5.5 The input element as a text entry widget",
+							"children": []
+						},
+						{
+							"name": "14.5.6 The input element as domain-specific widgets",
+							"children": []
+						},
+						{
+							"name": "14.5.7 The input element as a range control",
+							"children": []
+						},
+						{
+							"name": "14.5.8 The input element as a color well",
+							"children": []
+						},
+						{
+							"name": "14.5.9 The input element as a checkbox and radio button widgets",
+							"children": []
+						},
+						{
+							"name": "14.5.10 The input element as a file upload control",
+							"children": []
+						},
+						{
+							"name": "14.5.11 The input element as a button",
+							"children": []
+						},
+						{
+							"name": "14.5.12 The marquee element",
+							"children": []
+						},
+						{
+							"name": "14.5.13 The meter element",
+							"children": []
+						},
+						{
+							"name": "14.5.14 The progress element",
+							"children": []
+						},
+						{
+							"name": "14.5.15 The select element",
+							"children": []
+						},
+						{
+							"name": "14.5.16 The textarea element",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "14.6 Frames and framesets",
+					"children": []
+				},
+				{
+					"name": "14.7 Interactive media",
+					"children": [
+						{
+							"name": "14.7.1 Links, forms, and navigation",
+							"children": []
+						},
+						{
+							"name": "14.7.2 The title attribute",
+							"children": []
+						},
+						{
+							"name": "14.7.3 Editing hosts",
+							"children": []
+						},
+						{
+							"name": "14.7.4 Text rendered in native user interfaces",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "14.8 Print media",
+					"children": []
+				},
+				{
+					"name": "14.9 Unstyled XML documents",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "15 Obsolete features",
+			"children": [
+				{
+					"name": "15.1 Obsolete but conforming features",
+					"children": [
+						{
+							"name": "15.1.1 Warnings for obsolete but conforming features",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "15.2 Non-conforming features",
+					"children": []
+				},
+				{
+					"name": "15.3 Requirements for implementations",
+					"children": [
+						{
+							"name": "15.3.1 The marquee element",
+							"children": []
+						},
+						{
+							"name": "15.3.2 Frames",
+							"children": []
+						},
+						{
+							"name": "15.3.3 Other elements, attributes and APIs",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "16 IANA considerations",
+			"children": [
+				{
+					"name": "16.1 text/html",
+					"children": []
+				},
+				{
+					"name": "16.2 multipart/x-mixed-replace",
+					"children": []
+				},
+				{
+					"name": "16.3 application/xhtml+xml",
+					"children": []
+				},
+				{
+					"name": "16.4 text/cache-manifest",
+					"children": []
+				},
+				{
+					"name": "16.5 text/ping",
+					"children": []
+				},
+				{
+					"name": "16.6 application/microdata+json",
+					"children": []
+				},
+				{
+					"name": "16.7 text/event-stream",
+					"children": []
+				},
+				{
+					"name": "16.8 `Ping-From`",
+					"children": []
+				},
+				{
+					"name": "16.9 `Ping-To`",
+					"children": []
+				},
+				{
+					"name": "16.10 `Refresh`",
+					"children": []
+				},
+				{
+					"name": "16.11 `Last-Event-ID`",
+					"children": []
+				},
+				{
+					"name": "16.12 web+ scheme prefix",
+					"children": []
+				}
+			]
+		}
+	];
+
+    let Infra = [
+		{
+			"name": "Usage",
+			"children": []
+		},
+		{
+			"name": "Conventions",
+			"children": [
+				{
+					"name": "Conformance",
+					"children": []
+				},
+				{
+					"name": "Compliance with other specifications",
+					"children": []
+				},
+				{
+					"name": "Terminology",
+					"children": []
+				},
+				{
+					"name": "Privacy concerns",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Algorithms",
+			"children": [
+				{
+					"name": "Variables",
+					"children": []
+				},
+				{
+					"name": "Control flow",
+					"children": []
+				},
+				{
+					"name": "Conditional abort",
+					"children": []
+				},
+				{
+					"name": "Iteration",
+					"children": []
+				},
+				{
+					"name": "Assertions",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Primitive data types",
+			"children": [
+				{
+					"name": "Nulls",
+					"children": []
+				},
+				{
+					"name": "Booleans",
+					"children": []
+				},
+				{
+					"name": "Bytes",
+					"children": []
+				},
+				{
+					"name": "Byte sequences",
+					"children": []
+				},
+				{
+					"name": "Code points",
+					"children": []
+				},
+				{
+					"name": "Strings",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Data structures",
+			"children": [
+				{
+					"name": "Lists",
+					"children": [
+						{
+							"name": "Stacks",
+							"children": []
+						},
+						{
+							"name": "Queues",
+							"children": []
+						},
+						{
+							"name": "Sets",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Maps",
+					"children": []
+				},
+				{
+					"name": "Structs",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "JSON",
+			"children": []
+		},
+		{
+			"name": "Forgiving base64",
+			"children": []
+		},
+		{
+			"name": "Namespaces",
+			"children": []
+		}
+	];
+
+    let MIME_Sniffing = [
+		{
+			"name": "Conformance requirements",
+			"children": []
+		},
+		{
+			"name": "Terminology",
+			"children": []
+		},
+		{
+			"name": "MIME types",
+			"children": [
+				{
+					"name": "MIME type representation",
+					"children": []
+				},
+				{
+					"name": "MIME type miscellaneous",
+					"children": []
+				},
+				{
+					"name": "MIME type writing",
+					"children": []
+				},
+				{
+					"name": "Parsing a MIME type",
+					"children": []
+				},
+				{
+					"name": "Serializing a MIME type",
+					"children": []
+				},
+				{
+					"name": "MIME type groups",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Handling a resource",
+			"children": [
+				{
+					"name": "Interpreting the resource metadata",
+					"children": []
+				},
+				{
+					"name": "Reading the resource header",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Matching a MIME type pattern",
+			"children": [
+				{
+					"name": "Matching an image type pattern",
+					"children": []
+				},
+				{
+					"name": "Matching an audio or video type pattern",
+					"children": [
+						{
+							"name": "Signature for MP4",
+							"children": []
+						},
+						{
+							"name": "Signature for WebM",
+							"children": []
+						},
+						{
+							"name": "Signature for MP3 without ID3",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Matching a font type pattern",
+					"children": []
+				},
+				{
+					"name": "Matching an archive type pattern",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Determining the computed MIME type of a resource",
+			"children": [
+				{
+					"name": "Identifying a resource with an unknown MIME type",
+					"children": []
+				},
+				{
+					"name": "Sniffing a mislabeled binary resource",
+					"children": []
+				},
+				{
+					"name": "Sniffing a mislabeled feed",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Context-specific sniffing",
+			"children": [
+				{
+					"name": "Sniffing in a browsing context",
+					"children": []
+				},
+				{
+					"name": "Sniffing in an image context",
+					"children": []
+				},
+				{
+					"name": "Sniffing in an audio or video context",
+					"children": []
+				},
+				{
+					"name": "Sniffing in a plugin context",
+					"children": []
+				},
+				{
+					"name": "Sniffing in a style context",
+					"children": []
+				},
+				{
+					"name": "Sniffing in a script context",
+					"children": []
+				},
+				{
+					"name": "Sniffing in a font context",
+					"children": []
+				},
+				{
+					"name": "Sniffing in a text track context",
+					"children": []
+				},
+				{
+					"name": "Sniffing in a cache manifest context",
+					"children": []
+				}
+			]
+		}
+	];
+
+    let Notifications_API = [
+		{
+			"name": "Terminology",
+			"children": []
+		},
+		{
+			"name": "Notifications",
+			"children": [
+				{
+					"name": "Lifetime and UI integration",
+					"children": []
+				},
+				{
+					"name": "Permission model",
+					"children": []
+				},
+				{
+					"name": "Direction",
+					"children": []
+				},
+				{
+					"name": "Language",
+					"children": []
+				},
+				{
+					"name": "Resources",
+					"children": []
+				},
+				{
+					"name": "Showing a notification",
+					"children": []
+				},
+				{
+					"name": "Activating a notification",
+					"children": []
+				},
+				{
+					"name": "Closing a notification",
+					"children": []
+				},
+				{
+					"name": "Alerting the user",
+					"children": []
+				}
+			]
 		},
 		{
 			"name": "API",
 			"children": [
 				{
-					"name": "Interface mixin TextDecoderCommon",
+					"name": "Garbage collection",
+					"children": []
 				},
 				{
-					"name": "Interface TextDecoder",
+					"name": "Constructors",
+					"children": []
 				},
 				{
-					"name": "Interface mixin TextEncoderCommon",
+					"name": "Static members",
+					"children": []
 				},
 				{
-					"name": "Interface TextEncoder",
+					"name": "Object members",
+					"children": []
 				},
 				{
-					"name": "Interface mixin GenericTransformStream",
-				},
-				{
-					"name": "Interface TextDecoderStream",
-				},
-				{
-					"name": "Interface TextEncoderStream",
-				}
-			]
-		},
-		{
-			"name": "The encoding",
-			"children": [
-				{
-					"name": "UTF-8",
+					"name": "Examples",
 					"children": [
 						{
-							"name": "UTF-8 decoder",
+							"name": "Using events from a page",
 							"children": []
 						},
 						{
-							"name": "UTF-8 encoder",
-							"children": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Legacy single-byte encodings",
-			"children": [
-				{
-					"name": "single-byte decoder",
-				},
-				{
-					"name": "single-byte encoder",
-				}
-			]
-		},
-		{
-			"name": "Legacy multi-byte Chinese (simplified) encodings",
-			"children": [
-				{
-					"name": "GBK",
-					"children": [
-						{
-							"name": "GBK decoder",
-						},
-						{
-							"name": "GBK encoder",
-						}
-					]
-				},
-				{
-					"name": "gb18030",
-					"children": [
-						{
-							"name": "gb18030 decoder",
+							"name": "Using actions from a service worker",
 							"children": []
 						},
 						{
-							"name": "gb18030 encoder",
+							"name": "Using the tag member for multiple instances",
+							"children": []
+						},
+						{
+							"name": "Using the tag member for a single instance",
 							"children": []
 						}
 					]
@@ -1543,151 +6195,904 @@ console.log(names.length);
 			]
 		},
 		{
-			"name": "Legacy multi-byte Chinese (traditional) encodings",
-			"children": [
-				{
-					"name": "Big5",
-					"children": [
-						{
-							"name": "Big5 decoder",
-							"children": []
-						},
-						{
-							"name": "Big5 encoder",
-							"children": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Legacy multi-byte Japanese encodings",
-			"children": [
-				{
-					"name": "EUC-JP",
-					"children": [
-						{
-							"name": "EUC-JP decoder",
-							"children": []
-						},
-						{
-							"name": "EUC-JP encoder",
-							"children": []
-						}
-					]
-				},
-				{
-					"name": "ISO-2022-JP",
-					"children": [
-						{
-							"name": "ISO-2022-JP decoder",
-							"children": []
-						},
-						{
-							"name": "ISO-2022-JP encoder",
-							"children": []
-						}
-					]
-				},
-				{
-					"name": "Shift_JIS",
-					"children": [
-						{
-							"name": "Shift_JIS decoder",
-							"children": []
-						},
-						{
-							"name": "Shift_JIS encoder",
-							"children": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Legacy multi-byte Korean encodings",
-			"children": [
-				{
-					"name": "EUC-KR",
-					"children": [
-						{
-							"name": "EUC-KR decoder",
-							"children": []
-						},
-						{
-							"name": "EUC-KR encoder",
-							"children": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Legacy miscellaneous encodings",
-			"children": [
-				{
-					"name": "replacement",
-					"children": [
-						{
-							"name": "replacement decoder",
-							"children": []
-						}
-					]
-				},
-				{
-					"name": "Common infrastructure for UTF-16BE and UTF-16LE",
-					"children": [
-						{
-							"name": "shared UTF-16 decoder",
-							"children": []
-						}
-					]
-				},
-				{
-					"name": "UTF-16BE",
-					"children": [
-						{
-							"name": "UTF-16BE decoder",
-							"children": []
-						}
-					]
-				},
-				{
-					"name": "UTF-16LE",
-					"children": [
-						{
-							"name": "UTF-16LE decoder",
-							"children": []
-						}
-					]
-				},
-				{
-					"name": "x-user-defined",
-					"children": [
-						{
-							"name": "x-user-defined decoder",
-							"children": []
-						},
-						{
-							"name": "x-user-defined encoder",
-							"children": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Browser UI",
+			"name": "Service worker API",
 			"children": []
 		}
-	]
+	];
 
-    let res = []
-    for (let i=0; i<lin.length; i++ ) {
-    	res.push(lin[i].name)
-    }
+    let Quirks_Mode = [
+		{
+			"name": "Common infrastructure",
+			"children": [
+				{
+					"name": "Conformance",
+					"children": []
+				},
+				{
+					"name": "Terminology",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "CSS",
+			"children": [
+				{
+					"name": "The hashless hex color quirk",
+					"children": []
+				},
+				{
+					"name": "The unitless length quirk",
+					"children": []
+				},
+				{
+					"name": "The line height calculation quirk",
+					"children": []
+				},
+				{
+					"name": "The blocks ignore line-height quirk",
+					"children": []
+				},
+				{
+					"name": "The percentage height calculation quirk",
+					"children": []
+				},
+				{
+					"name": "The html element fills the viewport quirk",
+					"children": []
+				},
+				{
+					"name": "The body element fills the html element quirk",
+					"children": []
+				},
+				{
+					"name": "The table cell width calculation quirk",
+					"children": []
+				},
+				{
+					"name": "The table cell nowrap minimum width calculation quirk",
+					"children": []
+				},
+				{
+					"name": "The collapsing table quirk",
+					"children": []
+				},
+				{
+					"name": "The text decoration doesn’t propagate into tables quirk",
+					"children": []
+				},
+				{
+					"name": "The tables inherit color from body quirk",
+					"children": []
+				},
+				{
+					"name": "The table cell height box sizing quirk",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Selectors",
+			"children": [
+				{
+					"name": "The :active and :hover quirk",
+					"children": []
+				}
+			]
+		}
+	];
 
+    let Storege = [
+		{
+			"name": "Terminology",
+			"children": []
+		},
+		{
+			"name": "Lay of the land",
+			"children": []
+		},
+		{
+			"name": "Model",
+			"children": [
+				{
+					"name": "Storage endpoints",
+					"children": []
+				},
+				{
+					"name": "Storage keys",
+					"children": []
+				},
+				{
+					"name": "Storage sheds",
+					"children": []
+				},
+				{
+					"name": "Storage shelves",
+					"children": []
+				},
+				{
+					"name": "Storage buckets",
+					"children": []
+				},
+				{
+					"name": "Storage bottles",
+					"children": []
+				},
+				{
+					"name": "Storage proxy maps",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Persistence permission",
+			"children": []
+		},
+		{
+			"name": "Usage and quota",
+			"children": []
+		},
+		{
+			"name": "Management",
+			"children": [
+				{
+					"name": "Storage pressure",
+					"children": []
+				},
+				{
+					"name": "User interface guidelines",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "API",
+			"children": []
+		}
+	];
 
+    let Streams = [
+		{
+			"name": "Model",
+			"children": [
+				{
+					"name": "Readable streams",
+					"children": []
+				},
+				{
+					"name": "Writable streams",
+					"children": []
+				},
+				{
+					"name": "Transform streams",
+					"children": []
+				},
+				{
+					"name": "Pipe chains and backpressure",
+					"children": []
+				},
+				{
+					"name": "Internal queues and queuing strategies",
+					"children": []
+				},
+				{
+					"name": "Locking",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Conventions",
+			"children": []
+		},
+		{
+			"name": "Readable streams",
+			"children": [
+				{
+					"name": "Using readable streams",
+					"children": []
+				},
+				{
+					"name": "The ReadableStream class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "The underlying source API",
+							"children": []
+						},
+						{
+							"name": "Constructor, methods, and properties",
+							"children": []
+						},
+						{
+							"name": "Asynchronous iteration",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "The ReadableStreamDefaultReader class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "Constructor, methods, and properties",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "The ReadableStreamBYOBReader class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "Constructor, methods, and properties",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "The ReadableStreamDefaultController class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "Methods and properties",
+							"children": []
+						},
+						{
+							"name": "Internal methods",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "The ReadableByteStreamController class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "Methods and properties",
+							"children": []
+						},
+						{
+							"name": "Internal methods",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "The ReadableStreamBYOBRequest class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "Methods and properties",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Abstract operations",
+					"children": [
+						{
+							"name": "Working with readable streams",
+							"children": []
+						},
+						{
+							"name": "Interfacing with controllers",
+							"children": []
+						},
+						{
+							"name": "Readers",
+							"children": []
+						},
+						{
+							"name": "Default controllers",
+							"children": []
+						},
+						{
+							"name": "Byte stream controllers",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Writable streams",
+			"children": [
+				{
+					"name": "Using writable streams",
+					"children": []
+				},
+				{
+					"name": "The WritableStream class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "The underlying sink API",
+							"children": []
+						},
+						{
+							"name": "Constructor, methods, and properties",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "The WritableStreamDefaultWriter class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "Constructor, methods, and properties",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "The WritableStreamDefaultController class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "Methods",
+							"children": []
+						},
+						{
+							"name": "Internal methods",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Abstract operations",
+					"children": [
+						{
+							"name": "Working with writable streams",
+							"children": []
+						},
+						{
+							"name": "Interfacing with controllers",
+							"children": []
+						},
+						{
+							"name": "Writers",
+							"children": []
+						},
+						{
+							"name": "Default controllers",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Transform streams",
+			"children": [
+				{
+					"name": "Using transform streams",
+					"children": []
+				},
+				{
+					"name": "The TransformStream class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "The transformer API",
+							"children": []
+						},
+						{
+							"name": "Constructor and properties",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "The TransformStreamDefaultController class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "Methods and properties",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Abstract operations",
+					"children": [
+						{
+							"name": "Working with transform streams",
+							"children": []
+						},
+						{
+							"name": "Default controllers",
+							"children": []
+						},
+						{
+							"name": "Default sinks",
+							"children": []
+						},
+						{
+							"name": "Default sources",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Queuing strategies",
+			"children": [
+				{
+					"name": "The queuing strategy API",
+					"children": []
+				},
+				{
+					"name": "The ByteLengthQueuingStrategy class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "Constructor and properties",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "The CountQueuingStrategy class",
+					"children": [
+						{
+							"name": "Interface definition",
+							"children": []
+						},
+						{
+							"name": "Internal slots",
+							"children": []
+						},
+						{
+							"name": "Constructor and properties",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Abstract operations",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Supporting abstract operations",
+			"children": [
+				{
+					"name": "Queue-with-sizes",
+					"children": []
+				},
+				{
+					"name": "Miscellaneous",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Examples of creating streams",
+			"children": [
+				{
+					"name": "A readable stream with an underlying push source (no backpressure support)",
+					"children": []
+				},
+				{
+					"name": "A readable stream with an underlying push source and backpressure support",
+					"children": []
+				},
+				{
+					"name": "A readable byte stream with an underlying push source (no backpressure support)",
+					"children": []
+				},
+				{
+					"name": "A readable stream with an underlying pull source",
+					"children": []
+				},
+				{
+					"name": "A readable byte stream with an underlying pull source",
+					"children": []
+				},
+				{
+					"name": "A writable stream with no backpressure or success signals",
+					"children": []
+				},
+				{
+					"name": "A writable stream with backpressure and success signals",
+					"children": []
+				},
+				{
+					"name": "A { readable, writable } stream pair wrapping the same underlying resource",
+					"children": []
+				},
+				{
+					"name": "A transform stream that replaces template tags",
+					"children": []
+				},
+				{
+					"name": "A transform stream created from a sync mapper function",
+					"children": []
+				}
+			]
+		}
+	];
+
+    let URL = [
+		{
+			"name": "Infrastructure",
+			"children": [
+				{
+					"name": "Writing",
+					"children": []
+				},
+				{
+					"name": "Parsers",
+					"children": []
+				},
+				{
+					"name": "Percent-encoded bytes",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Security considerations",
+			"children": []
+		},
+		{
+			"name": "Hosts (domains and IP addresses)",
+			"children": [
+				{
+					"name": "Host representation",
+					"children": []
+				},
+				{
+					"name": "Host miscellaneous",
+					"children": []
+				},
+				{
+					"name": "IDNA",
+					"children": []
+				},
+				{
+					"name": "Host writing",
+					"children": []
+				},
+				{
+					"name": "Host parsing",
+					"children": []
+				},
+				{
+					"name": "Host serializing",
+					"children": []
+				},
+				{
+					"name": "Host equivalence",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "URLs",
+			"children": [
+				{
+					"name": "URL representation",
+					"children": []
+				},
+				{
+					"name": "URL miscellaneous",
+					"children": []
+				},
+				{
+					"name": "URL writing",
+					"children": []
+				},
+				{
+					"name": "URL parsing",
+					"children": []
+				},
+				{
+					"name": "URL serializing",
+					"children": []
+				},
+				{
+					"name": "URL equivalence",
+					"children": []
+				},
+				{
+					"name": "Origin",
+					"children": []
+				},
+				{
+					"name": "URL rendering",
+					"children": [
+						{
+							"name": "Simplify non-human-readable or irrelevant components",
+							"children": []
+						},
+						{
+							"name": "Elision",
+							"children": []
+						},
+						{
+							"name": "Internationalization and special characters",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "application/x-www-form-urlencoded",
+			"children": [
+				{
+					"name": "application/x-www-form-urlencoded parsing",
+					"children": []
+				},
+				{
+					"name": "application/x-www-form-urlencoded serializing",
+					"children": []
+				},
+				{
+					"name": "Hooks",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "API",
+			"children": [
+				{
+					"name": "URL class",
+					"children": []
+				},
+				{
+					"name": "URLSearchParams class",
+					"children": []
+				},
+				{
+					"name": "URL APIs elsewhere",
+					"children": []
+				}
+			]
+		}
+	];
+
+    let XMLHttpRequest = [
+		{
+			"name": "Conformance",
+			"children": [
+				{
+					"name": "Extensibility",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Terminology",
+			"children": []
+		},
+		{
+			"name": "Interface XMLHttpRequest",
+			"children": [
+				{
+					"name": "Constructors",
+					"children": []
+				},
+				{
+					"name": "Garbage collection",
+					"children": []
+				},
+				{
+					"name": "Event handlers",
+					"children": []
+				},
+				{
+					"name": "States",
+					"children": []
+				},
+				{
+					"name": "Request",
+					"children": [
+						{
+							"name": "The open() method",
+							"children": []
+						},
+						{
+							"name": "The setRequestHeader() method",
+							"children": []
+						},
+						{
+							"name": "The timeout attribute",
+							"children": []
+						},
+						{
+							"name": "The withCredentials attribute",
+							"children": []
+						},
+						{
+							"name": "The upload attribute",
+							"children": []
+						},
+						{
+							"name": "The send() method",
+							"children": []
+						},
+						{
+							"name": "The abort() method",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Response",
+					"children": [
+						{
+							"name": "The responseURL attribute",
+							"children": []
+						},
+						{
+							"name": "The status attribute",
+							"children": []
+						},
+						{
+							"name": "The statusText attribute",
+							"children": []
+						},
+						{
+							"name": "The getResponseHeader() method",
+							"children": []
+						},
+						{
+							"name": "The getAllResponseHeaders() method",
+							"children": []
+						},
+						{
+							"name": "Response body",
+							"children": []
+						},
+						{
+							"name": "The overrideMimeType() method",
+							"children": []
+						},
+						{
+							"name": "The responseType attribute",
+							"children": []
+						},
+						{
+							"name": "The response attribute",
+							"children": []
+						},
+						{
+							"name": "The responseText attribute",
+							"children": []
+						},
+						{
+							"name": "The responseXML attribute",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "Events summary",
+					"children": []
+				},
+				{
+					"name": "Feature Policy integration",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Interface FormData",
+			"children": []
+		},
+		{
+			"name": "Interface ProgressEvent",
+			"children": [
+				{
+					"name": "Firing events using the ProgressEvent interface",
+					"children": []
+				},
+				{
+					"name": "Suggested names for events using the ProgressEvent interface",
+					"children": []
+				},
+				{
+					"name": "Security considerations",
+					"children": []
+				},
+				{
+					"name": "Example",
+					"children": []
+				}
+			]
+		}
+	];
 
 
 </script>
