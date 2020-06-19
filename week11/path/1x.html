@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cell {
+            width:6px;
+            height:6px;
+            line-height: 6px;
+            background-color: gray;
+            border-bottom:solid 1px white;
+            border-right:solid 1px white;
+        }
+        #container{
+            display: flex;
+            flex-wrap: wrap;
+            width:701px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+</div>
+<button onclick="localStorage.map = JSON.stringify(map)">save</button>
+
+<script>
+    // let map = new Array(100001).join(0).split('')
+
+    let map = localStorage.map ? JSON.parse(localStorage.map) : new Array(10000).fill(0);
+    let container = document.getElementById('container');
+    for(let y=0; y<100; y++) {
+    	for (let x=0; x<100; x++) {
+    		let cell = document.createElement('div');
+    		cell.classList.add('cell');
+
+            if(map[y*100 + x] === 1) {
+				cell.style.backgroundColor = 'black';
+            }
+
+    		cell.addEventListener('mouseover', () => {
+    			if(mouse) {
+    				if(clear) {
+						cell.style.backgroundColor = '';
+						map[y*100 + x] = 0;
+					} else {
+						cell.style.backgroundColor = 'black';
+						map[y*100 + x] = 1;
+
+					}
+                }
+            });
+    		container.appendChild(cell);
+        }
+    }
+
+    let mouse = false;
+    let clear = false;
+
+    document.addEventListener('mousedown', (e) => {
+    	mouse = true;
+    	clear = (e.button === 2)
+    });
+	document.addEventListener('mouseup', (e) => {
+		mouse = false;
+    });
+
+	document.addEventListener('contextmenu', (e) => {
+		e.preventDefault();
+	});
+
+    function path(map, start, end) {
+
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            display: flex;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            margin: 20px;
+            background-color: gray;
+        }
+        .red.light {
+            background-color: red;
+        }
+        .yellow.light {
+            background-color: yellow;
+        }
+        .green.light {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="circle green"></div>
+    <div class="circle yellow"></div>
+    <div class="circle red"></div>
+</div>
+<button id="next">next</button>
+
+<script>
+    // 业务逻辑 与 控制逻辑 分开
+    // let box = document.getElementById('box');
+    // let time = 10;
+    // let color = 'green';
+    // function switchColor(t = 0) {
+    //     setTimeout(() => {
+    //     	box.children[0].style.backgroundColor = 'green'
+    //     }, t * 1000)
+    // }
+    //
+    // switchColor(time)
+
+    function green() {
+		let lights = document.getElementsByClassName('circle');
+        for(let i = 0; i<3; i++) {
+        	lights[i].classList.remove('light')
+        }
+        document.getElementsByClassName('green')[0].classList.add('light')
+	}
+
+	function yellow() {
+		let lights = document.getElementsByClassName('circle');
+		for(let i = 0; i<3; i++) {
+			lights[i].classList.remove('light')
+		}
+		document.getElementsByClassName('yellow')[0].classList.add('light')
+	}
+	function red() {
+		let lights = document.getElementsByClassName('circle');
+		for(let i = 0; i<3; i++) {
+			lights[i].classList.remove('light')
+		}
+		document.getElementsByClassName('red')[0].classList.add('light')
+	}
+
+    // 方法一 : setTimeout
+    function go() {
+        green();
+        setTimeout(function () {
+            yellow();
+            setTimeout(function () {
+                red();
+                setTimeout(function () {
+                    go()
+				}, 5000)
+			}, 2000)
+		}, 10000)
+    }
+    // go();
+
+
+	// 方法二 : Promise
+	function sleep(t) {
+    	return new Promise((resolve, reject) => {
+    		setTimeout(resolve, t)
+        })
+	}
+
+	function go2() {
+		green();
+		sleep(5000).then(() => {
+			yellow();
+			return sleep(1000)
+		}).then(() => {
+			red();
+			return sleep(3000);
+		}).then(go2)
+    }
+    // go2();
+
+
+	
+    // 方法三：async / await
+    async function go3() {
+    	while (true) {
+			green();
+			await sleep(10000);
+			yellow();
+			await sleep(2000);
+			red();
+			await sleep(5000);
+			go3();
+        }
+	}
+	// go3();
+
+	
+	// 方法四：点击控制
+	function happen(element, eventName) {
+		return new Promise((resolve, reject) => {
+			element.addEventListener(eventName, resolve, {once: true})  // {once: true} 只一次有效
+		})
+	}
+	async function go4() {
+		while (true) {
+			green();
+			await happen(document.getElementById('next'), 'click');
+			yellow();
+			await happen(document.getElementById('next'), 'click');
+			red();
+			await happen(document.getElementById('next'), 'click');
+		}
+	}
+    // go4();
+
+    function* generator() {
+        yield 1;
+        yield 2;
+        yield 3;
+        yield 4;
+        yield 5;
+	}
+
+	// 方法五：generator
+    function* g() {
+    	while (true) {
+			green();
+			yield sleep(10000);
+			yellow();
+			yield sleep(2000);
+			red();
+			yield sleep(5000);
+        }
+	}
+
+	/*function co(iterator) {
+        let {value, done} = iterator;
+        if(done) {
+        	return;
+        }
+        if(value instanceof Promise) {
+			value.then(() => {
+				co(iterator)
+			})
+        }
+
+	}
+	co(g())*/
+
+
+	function run(iterator) {
+		let {value, done} = iterator.next();
+		if(done) {
+			return;
+		}
+		if(value instanceof Promise) {
+			value.then(() => {
+				run(iterator)
+			})
+		}
+	}
+
+	function co(generator) {
+        return function () {
+            return run(generator())
+		}
+	}
+	go = co(g);
+
+
+    async function *g2() {
+        let i=0;
+        while (true) {
+        	await sleep(1000);
+        	yield i++;
+        }
+	}
+
+
+
+</script>
+</body>
+</html>
