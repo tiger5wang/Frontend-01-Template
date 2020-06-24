@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 601px;
+        }
+        .cell {
+            width: 5px;
+            height: 5px;
+            border-bottom: solid 1px white;
+            border-right: solid 1px white;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<button onclick="localStorage.map = JSON.stringify(map)">save</button>
+</body>
+
+<script>
+
+	let map = localStorage.map ? JSON.parse(localStorage.map): new Array(10000).fill(0);
+    let container = document.getElementById('container');
+    let fragment = document.createDocumentFragment();
+
+    let mouse = false;  // 用于标记是否按下鼠标
+    let clear = false;  // 用于标记是否按下右键，用于清除
+
+    document.addEventListener('mousedown', (e) => {  // 监听按下右键
+    	mouse = true;
+    	clear = e.button === 2  // 右键
+    });
+
+    document.addEventListener('mouseup', () => {
+    	mouse = false;
+    });
+    // 阻止右键菜单弹出
+	document.addEventListener('contextmenu', (e) => {
+		e.preventDefault();
+	});
+
+	// 绘制地图
+    for(let y=0; y<100; y++) {
+    	for(let x=0; x<100; x++) {
+    		let cell = document.createElement('div');
+    		cell.classList.add('cell');
+
+    		if(map[10*y + x] === 1)  // 初始值都是 0 ， 1 表示绘制上的图
+    			cell.style.backgroundColor = 'black';
+            // 监听鼠标移动事件
+    		cell.addEventListener('mouseover', () => {
+    			if(mouse) {  // 如果是按压鼠标的状态
+    				if(clear) {  // 右键清除内容
+    					cell.style.backgroundColor = '';
+    					map[100*y + x] = 0
+                    } else {  // 否则添加内容
+						cell.style.backgroundColor = 'black';
+						map[100*y + x] = 1  // 绘制图画的点 标记为 1
+                    }
+                }
+            });
+            // 使用 fragment 减少重绘
+			fragment.appendChild(cell);
+        }
+    }
+    container.appendChild(fragment);
+</script>
+</html>
