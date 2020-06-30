@@ -235,10 +235,10 @@
 			await insert(x, y-1, [x,y]);
 			await insert(x, y+1, [x,y]);
             // 添加斜线部分，这个需要特赦数里一下 insert 函数
-            // await insert(x-1, y-1, [x,y], 1);  // 左上角
-            // await insert(x+1, y-1, [x,y], 2);  // 右上角
-            // await insert(x-1, y+1, [x,y], 3);  // 左下角
-            // await insert(x+1, y+1, [x,y], 4);  // 右下角
+            await insert(x-1, y-1, [x,y], 1);  // 左上角
+            await insert(x+1, y-1, [x,y], 2);  // 右上角
+            await insert(x-1, y+1, [x,y], 3);  // 左下角
+            await insert(x+1, y+1, [x,y], 4);  // 右下角
         }
         return null;
 	}

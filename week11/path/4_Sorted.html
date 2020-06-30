@@ -94,7 +94,8 @@
 			let min = this.data[0];
 			let minIndex = 0;
 			for(let i=0; i<this.data.length; i++) {
-				if(this.compare(this.data[i], min) < 0) {
+				let res = this.compare(this.data[i], min);
+				if(res[0] < 0 && res[1] < 0) {
 					min = this.data[i];
 					minIndex = i;
                 }
@@ -120,11 +121,15 @@
 	async function findPath(map, start, end) {
 		map = map.slice();  // 拷贝一份 map， 防止污染全局变量 map
 
-        function distance([x, y]) {
-            return (x-end[0]) **2 + (y-[end[1]]) ** 2
+		function distanceStart([x, y]) {
+			return (x-start[0]) **2 + (y-start[1]) ** 2
 		}
+
+        function distanceEnd([x, y]) {
+            return (x-end[0]) **2 + (y-end[1]) ** 2
+ 		}
 		// let collection = [start];
-		let collection = new Sorted([start], (a,b) => distance(a) - distance(b));
+		let collection = new Sorted([start], (a,b) => [distanceEnd(a) - distanceEnd(b), distanceStart(a) - distanceStart(b)]);
 
 		// 显示出终点
 		container.children[100*(end[1]) + end[0]].style.backgroundColor = 'red';
@@ -136,6 +141,9 @@
 				return;
 			// 超出边界不能添加
 			if(x<0 || y< 0 || x>= 100 || y>=100)
+				return;
+
+			if(distanceStart([x,y]) - distanceStart(pre) < 0 && distanceEnd([x,y]) - distanceEnd(pre) > 0)
 				return;
 
 			map[100*y + x] = pre;  // 将每一个点的值设为 它前一个点的位置坐标 [x,y] 形式

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .keywords {
+            color: blue;
+        }
+        .punctuator {
+            color: blueviolet;
+        }
+        .identifer {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<pre id="container">
+
+</pre>
+<script>
+
+    let reg = /([0-9\.]+)|([ ])|([\r\n]+)|(\+)|(\-)|(\*)|(\/)/g;
+
+    let dictionary = ['Number', 'Whitespace', 'LineTerminator', '+', '-', '*', '/', ];
+
+    function tokenize(source) {
+        let result = null;
+        let lastIndex = 0;
+
+        do {
+        	lastIndex = reg.lastIndex;
+        	result = reg.exec(source);
+
+        	if(!result) break;
+        	if(reg.lastIndex - lastIndex > result.length) {
+        		throw new Error();
+            }
+
+            for(let i=0; i<dictionary.length; i++) {
+        		if(result[i+1]) {
+        			console.log(dictionary[i])
+                }
+            }
+            console.log(result[0])
+        } while (result)
+        
+	}
+
+	tokenize('1024 + 25 * 4')
+
+</script>
+</body>
+</html>

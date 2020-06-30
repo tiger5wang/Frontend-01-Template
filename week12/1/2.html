@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .keywords {
+            color: blue;
+        }
+        .punctuator {
+            color: blueviolet;
+        }
+        .identifer {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<pre id="container">
+
+</pre>
+<script>
+
+	let reg = /([0-9\.]+)|([ ])|([\r\n]+)|(\+)|(\-)|(\*)|(\/)/g;
+
+	let dictionary = ['Number', 'Whitespace', 'LineTerminator', '+', '-', '*', '/', ];
+
+	function* tokenize(source) {
+		let result = null;
+		let lastIndex = 0;
+
+		do {
+			lastIndex = reg.lastIndex;
+			result = reg.exec(source);
+
+			if(!result) break;
+			if(reg.lastIndex - lastIndex > result[0].length) {
+				console.log(lastIndex, reg.lastIndex,  result[0].length)
+				throw new Error("Unexpected token:\"" + source.slice(lastIndex, reg.lastIndex-result[0].length) + "\"!");
+			}
+
+			let token ={
+				type: null,
+                value: null
+            };
+
+			for(let i=0; i<dictionary.length; i++) {
+				if(result[i+1]) {
+					token.type = dictionary[i]
+				}
+			}
+			token.value = result[0];
+
+			yield token;
+		} while (result);
+
+        yield {type: 'EOF'}
+
+	}
+
+	for(let token of tokenize('1024 + 25 * 4')) {
+		console.log(JSON.stringify(token))
+    }
+
+</script>
+</body>
+</html>
