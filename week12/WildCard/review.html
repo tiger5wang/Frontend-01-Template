@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wildcard</title>
+</head>
+<body>
+<script>
+    // wildcard 可以 用 ‘*’ 表示若干个 任意字符， 用 ‘？’ 表示一个任意字符
+
+    // 先处理只有 * 的情况
+    function find(source, pattern) {
+    	const sourceLen = source.length;
+    	const patternLen = pattern.length;
+    	// 先计算出 * 的数量
+        let count = 0;
+        for(let i=0; i<patternLen; i++) {
+        	if(pattern[i] === '*')
+        		count++
+        }
+
+        // 然后条件判断
+        // 如果 * 的数量为 0 ，那么则要一对一的全部匹配才行
+        if(count === 0) {
+        	for (let i=0; i<patternLen; i++) {
+        		if(source[i] !== pattern[i] && pattern[i] !== '?')  // 只要有一个不匹配则返回false
+        			return false
+            }
+            return true   //注意此处一定要return ，否则会造成后面死循环
+        }
+
+        // 接下来就是 * 数量不为 0 的情况
+
+        // 先判断第一个 * 之前的字符是否都能匹配成功
+        let i = 0;  // 用 i 表示遍历到的 pattern 的索引位置
+        for(i; pattern[i] !== '*'; i++) {
+        	if(source[i] !== pattern[i] && pattern[i] !== '?')
+        		return false
+        }
+
+        let lastIndex = i;  // 接下来将要从此处遍历 source ，因为前面已经遍历匹配过了
+
+        // 第一个 * 和最后一个 * 之间的字符串的处理
+        for (let j=1; j<count; j++) {
+        	i++;  // 首先 pattern 的索引向后移一位
+
+            let subPattern = '';
+            while(pattern[i] !== '*') {
+            	subPattern += pattern[i];
+            	i++;
+            }
+
+            // 设置正则
+            let reg = new RegExp(subPattern.replace(/\?/g, "[\\s\\S]"), 'g');  // 将 ？ 转换成 任意字符
+
+            reg.lastIndex = lastIndex;  // 设置正则匹配开始的位置
+
+            let result = reg.exec(source);  // 获取 source 查找匹配结果
+
+            if(result == null)  // 如果没有匹配的结果，则返回false
+            	return false;
+
+            lastIndex = reg.lastIndex;
+        }
+
+        // 最后一个 * 后面的字符匹配情况,从最后位置向前匹配到最后一个 * 的位置
+        for(let m=1; m<patternLen-i && pattern[patternLen-m] !== '*'; m++) {
+        	if(source[sourceLen-m] !== pattern[patternLen-m] && pattern[patternLen-m] !== '?')
+        		return false;
+        }
+        return true
+	}
+
+
+
+	// 带 ？ 的 wildcard
+	function find2(source, pattern) {
+		const sourceLen = source.length;
+		const patternLen = pattern.length;
+		// 先计算出 * 的数量
+		let count = 0;
+		for(let i=0; i<patternLen; i++) {
+			if(pattern[i] === '*')
+				count++
+		}
+
+		// 然后条件判断
+		// 如果 * 的数量为 0 ，那么则要一对一的全部匹配才行
+		if(count === 0) {
+			for (let i=0; i<patternLen; i++) {
+				// console.log(source[i], pattern[i])
+				if(pattern[i] === '?')  // 如果是 ？，那么肯定匹配，直接跳过
+					continue;
+				if(source[i] !== pattern[i])  // 只要有一个不匹配则返回false
+					return false
+			}
+			return true;  //注意此处一定要return ，否则会造成后面死循环
+		}
+
+		// 接下来就是 * 数量不为 0 的情况
+
+		// 先判断第一个 * 之前的字符是否都能匹配成功
+		let i = 0;  // 用 i 表示遍历到的 pattern 的索引位置
+		for(i; pattern[i] !== '*'; i++) {
+			if(pattern[i] === '?')  // 如果是 ？，那么肯定匹配，直接跳过
+				continue;
+			if(source[i] !== pattern[i])
+				return false
+		}
+
+		let lastIndex = i;  // 接下来将要从此处遍历 source ，因为前面已经遍历匹配过了
+
+		// 第一个 * 和最后一个 * 之间的字符串的处理
+		for (let j=1; j<count; j++) {
+			i++;  // 首先 pattern 的索引向后移一位
+
+			let subPattern = '';
+			while(pattern[i] !== '*') {
+				subPattern += pattern[i];
+				i++;
+			}
+
+			// 设置正则
+			let reg = new RegExp(subPattern.replace(/\?/g, "[\\s\\S]"), 'g');  // 将 ？ 转换成 任意字符
+
+			reg.lastIndex = lastIndex;  // 设置正则匹配开始的位置
+
+			let result = reg.exec(source);  // 获取 source 查找匹配结果
+
+			if(result == null)  // 如果没有匹配的结果，则返回false
+				return false;
+
+			lastIndex = reg.lastIndex;
+		}
+
+		console.log(patternLen-i)
+		// 最后一个 * 后面的字符匹配情况,从最后位置向前匹配到最后一个 * 的位置
+		for(let m=1; m<patternLen-i && pattern[patternLen-m] !== '*'; m++) {
+			console.log(source[sourceLen-m], pattern[patternLen-m])
+			if(pattern[patternLen-m] === '?')
+				continue;
+			if(source[sourceLen-m] !== pattern[patternLen-m])
+				return false;
+		}
+		return true
+	}
+</script>
+</body>
+</html>

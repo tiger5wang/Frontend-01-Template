@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 低效 O(m * n)
+    function find1(source, pattern) {
+		let time = new Date()
+		let count = 0;
+    	// 遍历source
+        for (let i=0; i<source.length; i++) {
+			let matched = true;
+			// 对没一个source 中字符，都要遍历 pattern，对比从当前字符开始能否匹配到pattern
+        	for (let j=0; j<pattern.length; j++) {
+        		count++
+        		if(source[i+j] !== pattern[j]) { // 存在不相等的表示匹配失败
+        			matched = false;
+        			break;
+                }
+            }
+            // 如果当前source中的字符开始 跟 pattern 对应上了，说明匹配成功
+            if(matched) {
+				console.log('time:', new Date() - time, count)
+				return true
+			}
+        }
+        return false
+	}
+    // 和find1 效果相同
+	function find2(source, pattern) {
+		let time = new Date()
+        let count = 0;
+		let j = 0;
+		for (let i=0; i<source.length; i++) {
+			count++
+			if(source[i] === pattern[j]) {
+				j++;  // pattern 中的字符和 source 中的字符匹配，则继续匹配 pattern 中的下一个字符
+			} else {  // 如果不相等，source 则要往前回溯 j 个位置， pattern 从头开始
+				i = i - j;
+				j = 0;
+				// console.log('i:',i , 'j:', j)
+			}
+			if(j === pattern.length) {
+				console.log('time:', new Date() - time, count)
+				return true;
+			}
+
+		}
+		return false;
+	}
+
+    // 高效
+	function find3(source, pattern) {
+		let time = new Date()
+        let count = 0;
+    	let table = Array(pattern.length).fill(0);
+    	let k = 0;
+
+    	for (let i=1; i<table.length; i++) {  // 从第二项开始跟第一项比较，如果相等，比较下一项是否相等，不相等时将 k 值重置为0
+            if(pattern[i] === pattern[k]) {
+            	k++
+            } else {
+				// 这里需要注意的是 pattern中重复字符难判断的情况一定是重复的字符出现在第一个位置，否则必须要一一匹配不会回溯
+            	k = 0
+            }
+            table[i] = k;
+        }
+
+        // console.log(table)
+        // return
+
+        let j = 0;
+        for(let i=0; i<source.length; i++) {
+        	count++
+        	if(source[i] === pattern[j]) {
+        		j++
+            } else {
+        		j = table[j-1];  // 需要回溯到上一个相同字符的位置，判断能否和当前字符匹配
+        		if(source[i] === pattern[j]) {  // 匹配成功，则将索引 + 1， 因为到下次循环时 i也要加 1
+        			j++
+                } else { // 匹配失败，则要回到初始位置
+        			j = 0
+                }
+            }
+
+            if(j === pattern.length) {
+				console.log('time:', new Date() - time, count)
+        		return true
+            }
+        }
+        return false;
+	}
+
+
+
+</script>
+</body>
+</html>

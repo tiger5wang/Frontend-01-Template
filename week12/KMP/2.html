@@ -14,7 +14,7 @@
 				j++
             } else {
 				j = 0;
-				if(source[i] === pattern[j]) {
+				if(source[i] === pattern[j]) {  // 解决find('xxy','xy') 的问题， 依然不嫩解决find('abababx', 'ababx')
                     j++
                 }
             }

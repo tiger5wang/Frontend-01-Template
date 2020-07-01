@@ -6,6 +6,9 @@
 </head>
 <body>
 <script>
+
+    // 可以用 * 表示 若干个 任意字符， ？ 表示 一个 任意字符
+
     function find(source, pattern) {
     	let starCount = 0;
         for (let i=0; i<pattern.length; i++) {
@@ -23,17 +26,17 @@
         }
 
         let i = 0;
-        let lastIndex = 0;
 
-        for (let i=0; pattern[i] !== '*'; i++) {
+        for (i; pattern[i] !== '*'; i++) {
         	if(pattern[i] !== source[i] && pattern[i] !== '?') {
                 return false;
             }
         }
 
-        lastIndex = i;
+        let lastIndex = i;
 
-        for (let p=0; p<starCount-1; p++) {} {
+        for (let p=0; p<starCount-1; p++) {
+
             i++;
             let subPattern = '';
             while(pattern[i] !== '*') {
@@ -43,12 +46,20 @@
             let reg = new RegExp(subPattern.replace(/\?/g, "[\\s\\S]"), "g");
             reg.lastIndex = lastIndex;
 
-            reg.exec(source);
+            let result = reg.exec(source);
+            // console.log(reg, result, reg.lastIndex)
+            if(!result)
+            	return false
 
             lastIndex = reg.lastIndex;
         }
 
+        // for (let j=0; j<= source.length - lastIndex; j++) {
+        // 	console.log(pattern[pattern.length-j])
+        // }
+
         for (let j=0; j<= source.length - lastIndex && pattern[pattern.length-j] !== '*'; j++) {
+        	console.log(source.length , lastIndex)
 			if(pattern[pattern.length-j] !== source[source.length-j] && pattern[pattern.length-j] !== '?') {
 				return false;
 			}
@@ -56,6 +67,8 @@
         return true;
 
 	}
+
+
 </script>
 </body>
 </html>
