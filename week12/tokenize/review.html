@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tokenize</title>
+</head>
+<body>
+
+<script>
+	// tokenize 的状态机实现方式
+
+	let dictionary = ['Number', 'WhiteSpace', 'LineTerminator', '+', '-', '*', '/', ];
+	let result = [];
+    let token = {
+    	type: '',
+        value: ''
+    };
+
+	function tokenize(source) {
+        let state = number;  // 假设都是以正常的 数字开头
+        token.type = 'Number';
+		for(let char of source) {
+            // console.log('char', char)
+            state = state(char)
+        }
+        result.push(token);  // 假设都是以数字结束
+        result.push({type: 'EOF'});
+        return result;
+        // console.log('result', result)
+	}
+
+	function number(char) {
+		// console.log('number', char, char === ' ', !isNaN(char))
+        if(char !== ' ' && (!isNaN(char) || char === '.')) {
+        	token.value += char;
+        	return number
+        } else if(char === ' ') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'WhiteSpace';
+            token.value = '';
+        	return whiteSpace(char)
+        } else if(char.charCodeAt() === 10 || char.charCodeAt() === 13) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'LineTerminator';
+			token.value = '';
+            return lineTerminator(char)
+        } else if(char === '+') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '+';
+			token.value = '';
+        	return add(char)
+        } else if(char === '-') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '-';
+			token.value = '';
+        	return subtraction(char)
+        } else if(char === '*') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '*';
+			token.value = '';
+        	return multiplication(char)
+        } else if(char === '/') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '/';
+			token.value = '';
+        	return division(char)
+        } else {
+			throw new Error("Unexpected token!")
+        }
+	}
+
+	function whiteSpace(char) {
+		// console.log('WhiteSpace', char)
+		if(char === ' ') {
+            token.value += char;
+            return whiteSpace;
+        } else if(char.charCodeAt() === 10 || char.charCodeAt() === 13) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'LineTerminator';
+			token.value = '';
+			return lineTerminator(char)
+		} else if(char === '+') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '+';
+			token.value = '';
+			return add(char)
+		} else if(char === '-') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '-';
+			token.value = '';
+			return subtraction(char)
+		} else if(char === '*') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '*';
+			token.value = '';
+			return multiplication(char)
+		} else if(char === '/') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '/';
+			token.value = '';
+			return division(char)
+		} else if(char !== ' ' && (!isNaN(char) || char === '.')) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'Number';
+			token.value = '';
+			return number(char)
+        } else {
+			throw new Error("Unexpected token!")
+		}
+    }
+
+	function lineTerminator(char) {
+        if(char.charCodeAt() === 10 || char.charCodeAt() === 13) {
+        	token.value += char;
+        	return lineTerminator;
+        } else if(char === '+') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '+';
+			token.value = '';
+			return add(char)
+		} else if(char === '-') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '-';
+			token.value = '';
+			return subtraction(char)
+		} else if(char === '*') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '*';
+			token.value = '';
+			return multiplication(char)
+		} else if(char === '/') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = '/';
+			token.value = '';
+			return division(char)
+		} else if(char !== ' ' && (!isNaN(char) || char === '.')) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'Number';
+			token.value = '';
+			return number(char)
+		} else if(char === ' ') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'WhiteSpace';
+			token.value = '';
+			return whiteSpace(char)
+        } else {
+			throw new Error("Unexpected token!")
+		}
+	}
+
+	function add(char) {
+		// console.log('add', char)
+        if(char === '+') {
+			token.value += char;
+			return add
+        } else if(char !== ' ' && (!isNaN(char) || char === '.')) {
+			// result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'Number';
+			token.value = '';
+			return number(char)
+		} else if(char === ' ') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'WhiteSpace';
+			token.value = '';
+			return whiteSpace(char)
+        } else  if(char.charCodeAt() === 10 || char.charCodeAt() === 13) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'LineTerminator';
+			token.value = '';
+			return lineTerminator(char)
+		} else {
+			throw new Error("Unexpected token!")
+		}
+	}
+
+	function subtraction(char) {
+		// console.log('subtraction', char)
+		if(char === '-') {
+			token.value += char;
+			return subtraction
+		} else if(char !== ' ' && (!isNaN(char) || char === '.')) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'Number';
+			token.value = '';
+			return number(char)
+		} else if(char === ' ') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'WhiteSpace';
+			token.value = '';
+			return whiteSpace(char)
+		} else  if(char.charCodeAt() === 10 || char.charCodeAt() === 13) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'LineTerminator';
+			token.value = '';
+			return lineTerminator(char)
+		} else {
+			throw new Error("Unexpected token!")
+		}
+	}
+
+	function multiplication(char) {
+		// console.log('multiplication', char)
+		if(char === '*') {
+			token.value += char;
+			return multiplication
+		} else if(char !== ' ' && (!isNaN(char) || char === '.')) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'Number';
+			token.value = '';
+			return number(char)
+		} else if(char === ' ') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'WhiteSpace';
+			token.value = '';
+			return whiteSpace(char)
+		} else  if(char.charCodeAt() === 10 || char.charCodeAt() === 13) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'LineTerminator';
+			token.value = '';
+			return lineTerminator(char)
+		} else {
+			throw new Error("Unexpected token!")
+		}
+	}
+
+	function division(char) {
+		// console.log('division', char)
+		if(char === '/') {
+			token.value += char;
+			return division
+		} else if(char !== ' ' && (!isNaN(char) || char === '.')) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'Number';
+			token.value = '';
+			return number(char)
+		} else if(char === ' ') {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'WhiteSpace';
+			token.value = '';
+			return whiteSpace(char)
+		} else  if(char.charCodeAt() === 10 || char.charCodeAt() === 13) {
+			result.push(JSON.parse(JSON.stringify(token)));
+			token.type = 'LineTerminator';
+			token.value = '';
+			return lineTerminator(char)
+		} else {
+			throw new Error("Unexpected token!")
+		}
+	}
+
+	// tokenize('1024 + 4 * 512 / 2 - 2048')
+
+    let source = [];
+
+    for(let token of tokenize('1024 + 4 * 512 / 2 - 2048')) {
+        if(token.type !== 'WhiteSpace' && token.type !== 'LineTerminator') {
+        	source.push(token)
+        }
+    }
+
+    console.log(source)
+
+
+</script>
+
+</body>
+</html>
