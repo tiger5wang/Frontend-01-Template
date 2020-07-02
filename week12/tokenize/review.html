@@ -20,18 +20,19 @@
         let state = number;  // 假设都是以正常的 数字开头
         token.type = 'Number';
 		for(let char of source) {
-            // console.log('char', char)
+            console.log('char', state)
+            console.log(JSON.parse(JSON.stringify(token)))
             state = state(char)
         }
-        result.push(token);  // 假设都是以数字结束
-        result.push({type: 'EOF'});
+        result.push(token);  // 把最后一项加上
+        result.push({type: 'EOF'});  // 再添加加束类型
         return result;
         // console.log('result', result)
 	}
-
+    // 数字部分
 	function number(char) {
 		// console.log('number', char, char === ' ', !isNaN(char))
-        if(char !== ' ' && (!isNaN(char) || char === '.')) {
+        if(char !== ' ' && (!isNaN(char) || char === '.')) {   // 注意 isNan(' ') 为false
         	token.value += char;
         	return number
         } else if(char === ' ') {
@@ -65,10 +66,10 @@
 			token.value = '';
         	return division(char)
         } else {
-			throw new Error("Unexpected token!")
+			throw new Error(`Unexpected token: "${char}"`)
         }
 	}
-
+    // 空格
 	function whiteSpace(char) {
 		// console.log('WhiteSpace', char)
 		if(char === ' ') {
@@ -105,10 +106,10 @@
 			token.value = '';
 			return number(char)
         } else {
-			throw new Error("Unexpected token!")
+			throw new Error(`Unexpected token: "${char}"`)
 		}
     }
-
+    // 换行
 	function lineTerminator(char) {
         if(char.charCodeAt() === 10 || char.charCodeAt() === 13) {
         	token.value += char;
@@ -144,10 +145,10 @@
 			token.value = '';
 			return whiteSpace(char)
         } else {
-			throw new Error("Unexpected token!")
+			throw new Error(`Unexpected token: "${char}"`)
 		}
 	}
-
+    // 加号
 	function add(char) {
 		// console.log('add', char)
         if(char === '+') {
@@ -169,10 +170,10 @@
 			token.value = '';
 			return lineTerminator(char)
 		} else {
-			throw new Error("Unexpected token!")
+			throw new Error(`Unexpected token: "${char}"`)
 		}
 	}
-
+    // 减号
 	function subtraction(char) {
 		// console.log('subtraction', char)
 		if(char === '-') {
@@ -194,10 +195,10 @@
 			token.value = '';
 			return lineTerminator(char)
 		} else {
-			throw new Error("Unexpected token!")
+			throw new Error(`Unexpected token: "${char}"`)
 		}
 	}
-
+    // 乘号
 	function multiplication(char) {
 		// console.log('multiplication', char)
 		if(char === '*') {
@@ -219,10 +220,10 @@
 			token.value = '';
 			return lineTerminator(char)
 		} else {
-			throw new Error("Unexpected token!")
+			throw new Error(`Unexpected token: "${char}"`)
 		}
 	}
-
+    // 除号
 	function division(char) {
 		// console.log('division', char)
 		if(char === '/') {
@@ -244,7 +245,7 @@
 			token.value = '';
 			return lineTerminator(char)
 		} else {
-			throw new Error("Unexpected token!")
+			throw new Error(`Unexpected token: "${char}"`)
 		}
 	}
 

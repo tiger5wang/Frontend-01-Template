@@ -1,7 +1,7 @@
 # 每周总结可以写在这里
 
 optional:
-1. 把正则风格的 tokenize 换成状态机 // 已实现 ./tokenize/review
+1. 把正则风格的 tokenize 换成状态机 // 已实现 ./tokenize/review,    generator 形式: ./tokenize/review2
 2. wildcard 实现 带 ？的部分，     // 已实现 ./wildcard/review
 
 
