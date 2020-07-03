@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="range" id="r" min=0 max=255 />
+<input type="range" id="g" min=0 max=255 />
+<input type="range" id="b" min=0 max=255 />
+<div id="box" style="width: 100px;height: 100px;"></div>
+
+<script>
+    let object = {
+    	a: 1,
+        b: 2
+    };
+    let handlerMap = new Map();
+    let usedReactivities = [];
+    let reactivityMap = new Map();
+
+
+    function reactive(obj) {
+		// 处理对象多层问题
+    	if(reactivityMap.has(obj)) {
+    		console.log('222222222222222222222')
+    		return reactivityMap.get(obj)
+        }
+
+        let proxy = new Proxy(obj, {
+        	get(obj, prop) {
+        		// console.log(obj, prop);
+        		usedReactivities.push([obj, prop]);
+        		// 处理对象多层问题
+        		if(typeof obj[prop] === 'object') {
+					console.log('333333333333333333')
+					return reactive(obj[prop]);
+                }
+        		return obj[prop]
+            },
+            set(obj, prop, val) {
+        		obj[prop] = val;  // 需要先执行一次赋值操作
+                if(handlerMap.get(obj).get(prop)) {
+                	for(let handler of handlerMap.get(obj).get(prop)) {
+                		handler()
+                    }
+                }
+        		return obj[prop] = val;
+            }
+        });
+
+		// 处理对象多层问题
+        reactivityMap.set(obj, proxy);
+    	reactivityMap.set((proxy, proxy));
+
+    	return proxy;
+	}
+
+	function effect(handler) {
+    	usedReactivities = [];
+        handler();
+
+        for (let usedReactivity of usedReactivities) {
+        	let [obj, prop] = usedReactivity;
+        	if (!handlerMap.has(obj)) {
+        		handlerMap.set(obj, new Map())
+            }
+            if (!handlerMap.get(obj).has(prop)) {
+        		handlerMap.get(obj).set(prop, [])
+            }
+            handlerMap.get(obj).get(prop).push(handler)
+        }
+
+	}
+
+	let p = reactive(object);
+
+    let dummy;
+    effect(() => dummy = p.a);
+
+    let v12, v1, v2;
+    let p1 = reactive({a: 1});
+    let p2 = reactive({b: 2});
+
+
+    effect(() => v12 = p1.a + p2.b);
+    effect(() => v1 = p1.a);
+    effect(() => v2 = p2.b);
+    console.log(v12, v1, v2);  // 3 1 2
+    p1.a = 11;
+	console.log(v12, v1, v2);  // 13 11 2
+	p2.b = 22;
+	console.log(v12, v1, v2);  // 33 11 22
+
+
+    let v;
+    let p3 = reactive({c: 3});
+    let xx = false;
+    effect(() => v = xx ? 333 : p3.c);
+    console.log(v) ; // 3
+    p3.c = 11;
+    console.log(v);  // 11
+    xx = true;
+    p3.c = 22;
+    console.log(v) ; // 333
+
+
+	let object2 = {
+		a: {x: 1},
+		b: 2
+	};
+	let v4;
+	console.log('--------------')
+    let p4 = reactive(object2);
+	console.log('+++++++++++++++')
+    effect(() => v4 = p4.a.x);
+    console.log(p4.a.x);   // 1
+    console.log(v4);   // 1
+    p4.a.x = 111;
+	console.log(p4.a.x);   // 111
+	console.log(v4);   // 1  --> 111
+	p4.a = {x: 22};
+	console.log(p4.a.x);   // 22
+	console.log(v4);   // 22
+
+
+    let r = reactive({r: 100});
+    effect(() => {
+    	document.getElementById('r').value = r.r
+    });
+    document.getElementById('r').addEventListener('input', (event) => {
+    	r.r = event.target.value;
+    });
+
+	let g = reactive({g: 100});
+	effect(() => {
+		document.getElementById('g').value = g.g
+	});
+	document.getElementById('g').addEventListener('input', (event) => {
+		g.g = event.target.value;
+	});
+
+	let b = reactive({b: 100});
+	effect(() => {
+		document.getElementById('b').value = b.b
+	});
+	document.getElementById('b').addEventListener('input', (event) => {
+		b.b = event.target.value;
+	});
+
+	effect(() => {
+		document.getElementById('box').style.backgroundColor = `rgb(${r.r}, ${g.g}, ${b.b})`
+    })
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+	let object = {
+		a: 1,
+		b: 2
+	};
+
+	let handlers = [];
+
+	function reactive(obj) {
+        return new Proxy(obj, {  // 下面的为监听方法
+			get(obj, prop) {  // 监听get 方法后，后面每次获取 proxy的属性值的时候都会调用此方法
+				console.log(obj, prop);
+				return obj[prop]
+			},
+			set(obj, prop, val) {  // 监听set 方法后，再给proxy 对象属性赋值时，会调用此方法
+				// console.log(obj, prop, val);
+				obj[prop] = val;
+				for(let handler of handlers) {
+					handler()
+                }
+
+				return obj[prop] = val
+            }
+		})
+	}
+
+	function effect(handler) {
+		handler();
+		handlers.push(handler)
+	}
+
+	let dummy;
+	let proxy = reactive(object);
+
+    effect(() => {dummy = proxy.a});
+
+    console.log('dummy:', dummy)
+    proxy.a = 2;
+	console.log('dummy:', dummy)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+	let object = {
+		a: 1,
+		b: 2
+	};
+
+	let mapHandler = new Map();
+	let usedReactivities = [];   // 用于存放用到的对象及属性
+
+	function reactive(obj) {
+		return new Proxy(obj, {  // 下面的为监听方法
+			get(obj, prop) {  // 监听get 方法后，后面每次获取 proxy的属性值的时候都会调用此方法
+				usedReactivities.push([obj, prop]);  // 将使用的对象及属性存放起来
+				return obj[prop]
+			},
+			set(obj, prop, val) {  // 监听set 方法后，再给proxy 对象属性赋值时，会调用此方法
+				// console.log(mapHandler);
+				obj[prop] = val;
+				if(mapHandler.get(obj).get(prop)) {
+					for(let handler of mapHandler.get(obj).get(prop))
+						handler()
+                }
+
+				return obj[prop] = val
+			}
+		})
+	}
+
+	function effect(handler) {
+		usedReactivities = [];  // 每次调用effect 时都先把之前记录的数据清空，防止调用无关的handler
+		handler();
+
+		// console.log(usedReactivities);
+		for (let usedReactivity of usedReactivities) {
+			let [obj, prop] = usedReactivity;
+			if(!mapHandler.has(obj)) {
+				mapHandler.set(obj, new Map())
+            }
+            if(!mapHandler.get(obj).has(prop)) {
+				mapHandler.get(obj).set(prop, [])
+            }
+            mapHandler.get(obj).get(prop).push(handler)
+        }
+	}
+
+	// let dummy;
+	// let proxy = reactive(object);
+    //
+    //
+	// effect(() => {dummy = proxy.a; console.log('-------effect--------')});
+	// // 通过上面的步骤实现了对 proxy 对象的 a 属性的依赖收集，只有再更改 a 属性的值的时候才会触发 handler 回调函数，修改其他属性则不会
+    //
+    //
+	// console.log('dummy:', dummy)
+	// proxy.a = 2;
+	// console.log('dummy:', dummy)
+
+    // case2：
+    // let v12, v1, v2;
+    // let p1 = reactive({a: 1});
+    // let p2 = reactive({b: 2});
+    //
+    // effect(() => v12 = p1.a + p2.b);
+    // effect(() => v1 = p1.a);
+    // effect(() => v2 = p2.b);
+
+    // case3:
+    let v;
+    let p = reactive({a: 1});
+	let b = false;
+
+	effect(() =>  v = b ? 2: p.a);
+
+	console.log(v);   // 1
+	b = true;
+	p.a = 10;
+	console.log(v)   // 2, 就是上面表达式的 2
+
+</script>
+
+</body>
+</html>

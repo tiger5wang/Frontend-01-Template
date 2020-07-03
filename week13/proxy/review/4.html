@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+	let object = {
+		a: {x: 1},
+		b: 2
+	};
+
+	let mapHandler = new Map();
+	let usedReactivities = [];   // 用于存放用到的对象及属性
+    let reactivityMap = new Map();
+
+	function reactive(obj) {
+		// 处理对象多层问题
+		if(reactivityMap.has(obj)) {
+			return reactivityMap.get(obj)
+        }
+
+		let proxy = new Proxy(obj, {  // 下面的为监听方法
+			get(obj, prop) {  // 监听get 方法后，后面每次获取 proxy的属性值的时候都会调用此方法
+				usedReactivities.push([obj, prop]);  // 将使用的对象及属性存放起来
+                // 处理对象多层问题
+                if(typeof obj[prop] === 'object')
+                	return reactive(obj[prop]);
+				return obj[prop]
+			},
+			set(obj, prop, val) {  // 监听set 方法后，再给proxy 对象属性赋值时，会调用此方法
+				// console.log(mapHandler);
+				obj[prop] = val;
+				if(mapHandler.get(obj).get(prop)) {
+					for(let handler of mapHandler.get(obj).get(prop))
+						handler()
+				}
+
+				return obj[prop] = val
+			}
+		});
+
+		// 处理对象多层问题
+        reactivityMap.set(obj, proxy);
+        reactivityMap.set(proxy, proxy);
+
+		return proxy;
+	}
+
+	function effect(handler) {
+		usedReactivities = [];  // 每次调用effect 时都先把之前记录的数据清空，防止调用无关的handler
+		handler();
+
+		// console.log(usedReactivities);
+		for (let usedReactivity of usedReactivities) {
+			let [obj, prop] = usedReactivity;
+			if(!mapHandler.has(obj)) {
+				mapHandler.set(obj, new Map())
+			}
+			if(!mapHandler.get(obj).has(prop)) {
+				mapHandler.get(obj).set(prop, [])
+			}
+			mapHandler.get(obj).get(prop).push(handler)
+		}
+	}
+
+	let v;
+	let p = reactive(object);
+
+	effect(() =>  v = p.a.x);
+
+	console.log(v);   // 1
+	p.a.x = 10;
+	console.log(v)    // 10
+
+</script>
+
+</body>
+</html>
