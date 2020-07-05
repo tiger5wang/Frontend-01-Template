@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="dragable" style="width: 100px;height: 100px;background-color: pink;"></div>
+
+<script>
+    let drag = document.getElementById('dragable');
+	let baseX = 0, baseY = 0;
+
+    drag.addEventListener('mousedown', (event) => {
+    	let startX = event.clientX, startY = event.clientY;
+
+
+    	let move = (event) => {
+    		let x =baseX + event.clientX - startX, y =baseY + event.clientY - startY;
+    		drag.style.transform = `translate(${x}px, ${y}px)`
+        };
+    	let up = (event) => {
+			baseX = baseX + event.clientX - startX;
+            baseY = baseY + event.clientY - startY;
+
+    		document.removeEventListener('mousemove', move);
+			document.removeEventListener('mouseup', move);
+        };
+		document.addEventListener('mousemove', move);
+		document.addEventListener('mouseup', up);
+    });
+
+
+    // 问题 1: 下面这样写回产生什么问题？
+    // drag.addEventListener('mousedown', () => {});
+    // drag.addEventListener('mousemove', () => {});
+    // drag.addEventListener('mouseup', () => {});
+    // 这样写会导致鼠标移动到 drag 元素之外后 mouseup 事件失效，所以需要改成 document，如下面
+    // 问题2：下面这样写回产生什么问题？
+    // drag.addEventListener('mousedown', () => {});
+    // document.addEventListener('mousemove', () => {});
+    // document.addEventListener('mouseup', () => {});
+    // 这样回导致只要鼠标移动就会触发 mousemove 事件，而不是再按下鼠标后才会触发 mouse move 事件，并且再 mouseup 的时候没有移除监听
+</script>
+</body>
+</html>
