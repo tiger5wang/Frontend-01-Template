@@ -10,6 +10,7 @@
 <input type="range" id="g" min=0 max=255 />
 <input type="range" id="b" min=0 max=255 />
 <div id="box" style="width: 100px;height: 100px;"></div>
+<div id="text">Hello {name}!</div>
 
 <script>
     let object = {
@@ -24,7 +25,6 @@
     function reactive(obj) {
 		// 处理对象多层问题
     	if(reactivityMap.has(obj)) {
-    		console.log('222222222222222222222')
     		return reactivityMap.get(obj)
         }
 
@@ -34,15 +34,15 @@
         		usedReactivities.push([obj, prop]);
         		// 处理对象多层问题
         		if(typeof obj[prop] === 'object') {
-					console.log('333333333333333333')
 					return reactive(obj[prop]);
                 }
         		return obj[prop]
             },
             set(obj, prop, val) {
-        		obj[prop] = val;  // 需要先执行一次赋值操作
+				obj[prop] = val;  // 需要先执行一次赋值操作
                 if(handlerMap.get(obj).get(prop)) {
                 	for(let handler of handlerMap.get(obj).get(prop)) {
+
                 		handler()
                     }
                 }
@@ -74,7 +74,7 @@
 
 	}
 
-	let p = reactive(object);
+    let p = reactive(object);
 
     let dummy;
     effect(() => dummy = p.a);
@@ -89,9 +89,9 @@
     effect(() => v2 = p2.b);
     console.log(v12, v1, v2);  // 3 1 2
     p1.a = 11;
-	console.log(v12, v1, v2);  // 13 11 2
-	p2.b = 22;
-	console.log(v12, v1, v2);  // 33 11 22
+    console.log(v12, v1, v2);  // 13 11 2
+    p2.b = 22;
+    console.log(v12, v1, v2);  // 33 11 22
 
 
     let v;
@@ -111,18 +111,19 @@
 		b: 2
 	};
 	let v4;
-	console.log('--------------')
     let p4 = reactive(object2);
-	console.log('+++++++++++++++')
     effect(() => v4 = p4.a.x);
-    console.log(p4.a.x);   // 1
+    // console.log(p4.a.x);   // 1
     console.log(v4);   // 1
     p4.a.x = 111;
-	console.log(p4.a.x);   // 111
+	// console.log(p4.a.x);   // 111
 	console.log(v4);   // 1  --> 111
 	p4.a = {x: 22};
-	console.log(p4.a.x);   // 22
+	// console.log(p4.a.x);   // 22
 	console.log(v4);   // 22
+    // p4.a.x = 88;
+    // console.log(v4)
+
 
 
     let r = reactive({r: 100});
@@ -151,7 +152,19 @@
 
 	effect(() => {
 		document.getElementById('box').style.backgroundColor = `rgb(${r.r}, ${g.g}, ${b.b})`
+    });
+
+	let text = document.getElementById('text');
+    let range = document.createRange();
+    range.setStart(text.childNodes[0], 6);
+    range.setEnd(text.childNodes[0], 12);
+
+    let data = reactive({text: 'world'});
+    effect(() => {
+    	range.extractContents();
+        range.insertNode(document.createTextNode(data.text))
     })
+
 
 </script>
 
