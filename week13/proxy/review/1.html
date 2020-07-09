@@ -12,20 +12,20 @@
         b: 2
     };
 
-    let proxy = new Proxy(object, {  // 下面的为监听方法
-    	get(obj, prop) {  // 监听get 方法后，后面每次获取 proxy的属性值的时候都会调用此方法
-    		console.log(obj, prop);
-    		return obj[prop]
-        },
-		set(obj, prop, val) {  // 监听set 方法后，再给proxy 对象属性赋值时，会调用此方法
+	let proxy = new Proxy(object, {  // 下面为 要拦截并重新定义的方法
+		get(obj, prop) {  // 重新定义get 方法后，后面每次获取 proxy的属性值的时候都会调用此方法
+			console.log(obj, prop);
+			return obj[prop]
+		},
+		set(obj, prop, val) {  // 重新定义set 方法后，再给proxy 对象属性赋值时，会调用此方法
 			console.log(obj, prop, val);
 			return obj[prop] = val
 		},
-        defineProperty(obj, prop, desc) {  // 监听 defineProperty 方法后，每次调用 Object.defineProperty(obj, prop, desc) 的时候都会调用此方法
-    		console.log(arguments);
-            return Object.defineProperty(obj, prop, desc)
-        }
-    })
+		defineProperty(obj, prop, desc) {  // 重新定义 defineProperty 方法后，每次调用 Object.defineProperty(obj, prop, desc) 的时候都会调用此方法
+			console.log(arguments);
+			return Object.defineProperty(obj, prop, desc)
+		}
+	})
 </script>
 
 </body>
