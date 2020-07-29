@@ -1,0 +1,45 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            height: 100%;-->
+<!--            background-color: lightblue;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+
+<!--</html>-->
+
+<body>
+<div id="box" style="transform: translate(0px, 0px); width: 100px; height: 100px;background-color: lawngreen"></div>
+</body>
+<script src="./gesture.js"></script>
+<script>
+    // PC 触摸板操作
+    document.addEventListener('contextmenu', event => event.preventDefault())
+    document.addEventListener('selectstart', event => event.preventDefault())
+    document.addEventListener('touchmove', event => event.preventDefault(), {passive:false})
+
+    enableGesture(document.body);
+
+    // 监听 enableGesture 派发的事件
+    document.addEventListener('tap', () => console.log('tap!!!!!!!!!!!!!!!!!!!!'))
+
+    let x=0, y = 0;
+    let box = document.getElementById('box');
+    document.addEventListener('pan-move', (event) => {
+        console.log(x + event.pointX - event.startX);
+        console.log(y + event.pointY - event.startY);
+        box.style.transform = `translate(${x + event.pointX - event.startX}px, ${y + event.pointY - event.startY}px)`
+    });
+
+    document.addEventListener('pan-end', (event) => {
+        // 记录停止的 x,y 的位置
+        x = (x + event.pointX - event.startX);
+        y = (y + event.pointY - event.startY)
+        // box.style.transform = `translate(${x + event.pointX - event.startX}px, ${y + event.pointY - event.startY}px)`
+    })
+</script>
