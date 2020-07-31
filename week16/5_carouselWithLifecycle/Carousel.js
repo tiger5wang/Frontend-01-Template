@@ -61,11 +61,12 @@ export class Carousel {
             let onPanend = event =>{
                 let direction = 0;
                 let dx = event.pointX - event.startX;
-
-                if (dx + offset > 250) {
+                
+                console.log('isflick', event.isFlick)
+                if (dx + offset > 250 || dx > 0 && event.isFlick) {
                     direction = 1
                 }
-                if (dx + offset < -250) {
+                if (dx + offset < -250 || dx < 0 && event.isFlick) {
                     direction = -1
                 }
 
@@ -107,8 +108,8 @@ export class Carousel {
             let current = children[position];
             let next = children[nextPosition];
 
-            let currentAnimation = new Animation(current.style, 'transform',-100 * position, -100 - 100 * position, 1000, 1000, ease, v => `translateX(${5*v}px)`);
-            let nextAnimation = new Animation(next.style, 'transform',100-100 * nextPosition, -100 * nextPosition, 1000, 1000, ease, v => `translateX(${5*v}px)`);
+            let currentAnimation = new Animation(current.style, 'transform',-100 * position, -100 - 100 * position, 1000, 0, ease, v => `translateX(${5*v}px)`);
+            let nextAnimation = new Animation(next.style, 'transform',100-100 * nextPosition, -100 * nextPosition, 1000, 0, ease, v => `translateX(${5*v}px)`);
 
             timeline.add(currentAnimation);
             timeline.add(nextAnimation);

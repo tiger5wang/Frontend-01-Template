@@ -136,7 +136,7 @@ export function enableGesture(element) {
             let record = context.moves[0];
             let speed = Math.sqrt((record.dx - dx) ** 2 + (record.dy - dy) ** 2) / (Date.now() - record.t);
 
-            let isFlick = speed > 2.5;  // 速度大于 2.5 触发 flick
+            let isFlick = speed > 1.5;  // 速度大于 2.5 触发 flick
             if (isFlick) {
                 // 派发事件
                 let dispatch = new CustomEvent('flick');
@@ -145,7 +145,8 @@ export function enableGesture(element) {
                     startY: context.startY,
                     pointX: point.clientX,
                     pointY: point.clientY,
-                    speed
+                    speed,
+					isFlick
                 });
                 element.dispatchEvent(dispatch)
             }
