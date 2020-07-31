@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/tiger5wang/Frontend-01-Template#readme",
   "dependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "babel-loader": "^8.1.0",
     "css": "^2.2.4",
     "images": "^3.0.2"
   },
