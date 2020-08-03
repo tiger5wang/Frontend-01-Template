@@ -20,7 +20,8 @@
     "@babel/plugin-transform-react-jsx": "^7.10.4",
     "babel-loader": "^8.1.0",
     "css": "^2.2.4",
-    "images": "^3.0.2"
+    "images": "^3.0.2",
+    "ttys": "0.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
