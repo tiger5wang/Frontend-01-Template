@@ -23,6 +23,12 @@ module.exports = {
                 use:{
                     loader: require.resolve("./week15/2_sfc/myloader.js")
                 }
+            },
+            {
+                test: /\.css/,
+                use:{
+                    loader: require.resolve("./cssLoader.js")
+                }
             }
 		]
 		

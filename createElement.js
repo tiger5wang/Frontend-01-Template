@@ -55,6 +55,18 @@ export class Wrapper {
 			enableGesture(this.root)
 		}
 	}
+
+    getAttribute(name) {
+        return this.root.getAttribute(name)
+    }
+
+    get classList() {
+        return this.root.classList;
+    }
+
+    set innerText(text) {
+        return this.root.innerText = text;
+    }
 	
 	appendChild(child) {   // 添加children 的方法一
 		this.children.push(child)
@@ -85,4 +97,8 @@ export class TextNode {
 	mountTo(parent) {
 		parent.appendChild(this.root)
 	}
+
+    getAttribute(name) {
+        return
+    }
 }

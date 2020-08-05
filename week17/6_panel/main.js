@@ -14,7 +14,7 @@ import {ListView} from './ListView'
 component.mountTo(document.body);*/
 
 
-let panel = <TabPanel>
+/*let panel = <TabPanel>
 	<span title='title1'>this is content1111</span>
 	<span title='title2'>this is content2222</span>
 	<span title='title3'>this is content3333</span>
@@ -22,10 +22,10 @@ let panel = <TabPanel>
 </TabPanel>;
 panel.mountTo(document.body);
 
-window.panel = panel;
+window.panel = panel;*/
 
 
-/*let data = data=[
+let data = data=[
 	{title: '蓝猫', url:"https://static001.geekbang.org/resource/image/bb/21/bb38fb7c1073eaee1755f81131f11d21.jpg"},
 	{title: '橘猫加白', url: "https://static001.geekbang.org/resource/image/1b/21/1b809d9a2bdf3ecc481322d7c9223c21.jpg"},
 	{title: '狸花加白', url: "https://static001.geekbang.org/resource/image/b6/4f/b6d65b2f12646a9fd6b8cb2b020d754f.jpg"},
@@ -39,7 +39,7 @@ let list = <ListView data={data}>
 	</figure>}
 </ListView>
 
-list.mountTo(document.body)*/
+list.mountTo(document.body)
 
 // jsx 的写法转义成 js 语法
 // var component = createElement(
