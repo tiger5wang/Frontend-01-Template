@@ -17,18 +17,22 @@
   },
   "homepage": "https://github.com/tiger5wang/Frontend-01-Template#readme",
   "dependencies": {
+    "fsevents": "*",
     "images": "^3.0.2",
+    "npm": "^6.14.7",
     "ttys": "0.0.3",
     "yeoman-generator": "^4.11.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
     "@babel/plugin-transform-react-jsx": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@vue/compiler-sfc": "^3.0.0-rc.5",
     "babel-loader": "^8.1.0",
     "css": "^2.2.4",
-    "css-loader": "^4.2.0",
-    "webpack": "^4.43.0",
+    "css-loader": "^4.2.1",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   }
