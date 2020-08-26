@@ -5,3 +5,9 @@
 
 ## 注
 PhantomJS 中不能使用 let 声明变量，只能使用 var
+
+
+# 2. 发布系统 | OAuth
+## 参考链接：
+- https://developer.github.com/v3/
+- OAuth： https://justauth.wiki/#/quickstart/oauth
