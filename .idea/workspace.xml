@@ -1,0 +1,1286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="NOTE.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week19/NOTE.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="641">
+              <caret line="31" selection-start-line="31" selection-end-line="31" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NOTE.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week20/NOTE.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OAuth.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/week20/OAuth.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="597">
+              <caret line="87" column="23" lean-forward="true" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="作业.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week20/作业.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="作业.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week19/作业.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="watcher.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week18/watcher/watcher.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NOTE.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week17/NOTE.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>computedStyle</find>
+      <find>getStyle</find>
+      <find>style</find>
+      <find>stack</find>
+      <find>back</find>
+      <find>match</find>
+      <find>webkit</find>
+      <find>tab-size</find>
+      <find>row-gap</find>
+      <find>buffered-rendering</find>
+      <find>willWin</find>
+      <find>console</find>
+      <find>move</find>
+      <find>judge</find>
+      <find>去</find>
+      <find>queue</find>
+      <find>collection</find>
+      <find>length</find>
+      <find>console.log</find>
+      <find>isNaN</find>
+      <find>result.push('</find>
+      <find>Whitespace</find>
+      <find>return WhiteSpace</find>
+      <find>&quot;Unexpected token!&quot;</find>
+      <find>number</find>
+      <find>range</find>
+      <find>console.l</find>
+      <find>getChar</find>
+      <find>parser</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>result.push(JSON.parse(JSON.stringify(token)))</replace>
+      <replace>return whiteSpace</replace>
+      <replace>`Unexpected token: &quot;${char}&quot;`</replace>
+      <replace>mapHandler</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/week12/KMP/1.html" />
+        <option value="$PROJECT_DIR$/week12/1/2.html" />
+        <option value="$PROJECT_DIR$/week12/1/1.html" />
+        <option value="$PROJECT_DIR$/week12/1/3.html" />
+        <option value="$PROJECT_DIR$/week12/2/1.html" />
+        <option value="$PROJECT_DIR$/week12/KMP/3.html" />
+        <option value="$PROJECT_DIR$/week12/KMP/2.html" />
+        <option value="$PROJECT_DIR$/week12/KMP/mt.html" />
+        <option value="$PROJECT_DIR$/week12/KMP/review.html" />
+        <option value="$PROJECT_DIR$/week12/WildCard/1.html" />
+        <option value="$PROJECT_DIR$/week12/WildCard/review.html" />
+        <option value="$PROJECT_DIR$/week12/tokenize/1.html" />
+        <option value="$PROJECT_DIR$/week12/tokenize/review.html" />
+        <option value="$PROJECT_DIR$/week12/tokenize/review2.html" />
+        <option value="$PROJECT_DIR$/week12/NOTE.md" />
+        <option value="$PROJECT_DIR$/week13/proxy/1.html" />
+        <option value="$PROJECT_DIR$/week13/proxy/2.html" />
+        <option value="$PROJECT_DIR$/week13/proxy/3.html" />
+        <option value="$PROJECT_DIR$/week13/proxy/4.html" />
+        <option value="$PROJECT_DIR$/week13/proxy/5.html" />
+        <option value="$PROJECT_DIR$/week13/proxy2.html" />
+        <option value="$PROJECT_DIR$/week13/proxy2/1.html" />
+        <option value="$PROJECT_DIR$/week13/proxy2/3.html" />
+        <option value="$PROJECT_DIR$/week13/proxy2/2.html" />
+        <option value="$PROJECT_DIR$/week13/proxy2/6.html" />
+        <option value="$PROJECT_DIR$/week13/proxy2/5.html" />
+        <option value="$PROJECT_DIR$/week13/proxy2/4.html" />
+        <option value="$PROJECT_DIR$/week13/drag/2.html" />
+        <option value="$PROJECT_DIR$/week13/components/1.html" />
+        <option value="$PROJECT_DIR$/week13/components/carousel.html" />
+        <option value="$PROJECT_DIR$/week13/drag/1.html" />
+        <option value="$PROJECT_DIR$/week13/drag/review.html" />
+        <option value="$PROJECT_DIR$/week13/proxy/review/6.html" />
+        <option value="$PROJECT_DIR$/week13/proxy/review/1.html" />
+        <option value="$PROJECT_DIR$/week13/NOTE.md" />
+        <option value="$PROJECT_DIR$/week14/test.html" />
+        <option value="$PROJECT_DIR$/createElement.js" />
+        <option value="$PROJECT_DIR$/week16/5_carouselWithLifecycle/Carousel.js" />
+        <option value="$PROJECT_DIR$/week16/5_carouselWithLifecycle/gesture.js" />
+        <option value="$PROJECT_DIR$/week17/Toolkit/index.js" />
+        <option value="$PROJECT_DIR$/week17/NOTE.md" />
+        <option value="$PROJECT_DIR$/week18/babel/demo.js" />
+        <option value="$PROJECT_DIR$/week18/babel/.babelrc.json" />
+        <option value="$PROJECT_DIR$/week18/tools/run-vue.js" />
+        <option value="$PROJECT_DIR$/week18/npm/main.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/week18/watcher/watcher.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/week19/NOTE.md" />
+        <option value="$PROJECT_DIR$/week20/作业.md" />
+        <option value="$PROJECT_DIR$/week19/作业.md" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1940" />
+    <option name="height" value="1060" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Frontend-01-Template" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Frontend-01-Template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Frontend-01-Template" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Frontend-01-Template" type="462c0819:PsiDirectoryNode" />
+              <item name="week19" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Frontend-01-Template" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Frontend-01-Template" type="462c0819:PsiDirectoryNode" />
+              <item name="week20" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.eslint.settings.ESLintSettingsPage" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\work\myProject\Frontend-01-Template\week20" />
+      <recent name="C:\work\myProject\Frontend-01-Template\week17" />
+      <recent name="C:\work\myProject\Frontend-01-Template\week12" />
+      <recent name="C:\work\myProject\Frontend-01-Template\week10" />
+      <recent name="C:\work\myProject\Frontend-01-Template\week09" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\work\myProject\Frontend-01-Template\week13\proxy" />
+      <recent name="C:\work\myProject\Frontend-01-Template\week12\1" />
+    </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/week18/NOTE.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/week19/NOTE.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/week20/NOTE.md</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/week19/作业.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/week20/作业.md</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Node.js.Unnamed">
+    <configuration name="Unnamed" type="JavascriptDebugType" factoryName="JavaScript Debug" uri="http://localhost:63342/Frontend-01-Template/week08/match.html" />
+    <configuration name="Unnamed" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="week18/watcher/watcher.js" working-dir="$PROJECT_DIR$" />
+    <list>
+      <item itemvalue="JavaScript Debug.Unnamed" />
+      <item itemvalue="Node.js.Unnamed" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e73bad9c-dafb-477c-8098-105f1d55c23b" name="Default" comment="" />
+      <created>1586956726968</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586956726968</updated>
+      <workItem from="1586956728767" duration="2467000" />
+      <workItem from="1586996936985" duration="631000" />
+      <workItem from="1589264061249" duration="15398000" />
+      <workItem from="1589629805086" duration="761000" />
+      <workItem from="1589850167927" duration="48200000" />
+      <workItem from="1590022182547" duration="28000" />
+      <workItem from="1590022256165" duration="9584000" />
+      <workItem from="1590121410187" duration="14495000" />
+      <workItem from="1590367886590" duration="31595000" />
+      <workItem from="1590713670036" duration="2433000" />
+      <workItem from="1590973371685" duration="278000" />
+      <workItem from="1591078123340" duration="41098000" />
+      <workItem from="1591326024850" duration="16141000" />
+      <workItem from="1591576986649" duration="7343000" />
+      <workItem from="1591838437056" duration="1389000" />
+      <workItem from="1591924189136" duration="3308000" />
+      <workItem from="1592188087878" duration="15552000" />
+      <workItem from="1592225830378" duration="603000" />
+      <workItem from="1592266660653" duration="47594000" />
+      <workItem from="1592481491023" duration="8744000" />
+      <workItem from="1592527989398" duration="10231000" />
+      <workItem from="1592635544051" duration="13896000" />
+      <workItem from="1592786161447" duration="25955000" />
+      <workItem from="1592907587894" duration="44497000" />
+      <workItem from="1593476476214" duration="97595000" />
+      <workItem from="1593844035251" duration="25537000" />
+      <workItem from="1594025536753" duration="10416000" />
+      <workItem from="1594257589987" duration="10000" />
+      <workItem from="1594289318582" duration="2910000" />
+      <workItem from="1595215423895" duration="31000" />
+      <workItem from="1596098404775" duration="680000" />
+      <workItem from="1596175076920" duration="3276000" />
+      <workItem from="1596242160847" duration="139000" />
+      <workItem from="1596435711671" duration="14785000" />
+      <workItem from="1596502480807" duration="615000" />
+      <workItem from="1596514750378" duration="607000" />
+      <workItem from="1596768869561" duration="8648000" />
+      <workItem from="1597021847410" duration="5282000" />
+      <workItem from="1598603921260" duration="961000" />
+    </task>
+    <task id="LOCAL-00005" summary="parserTag">
+      <created>1589858218062</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1589858218062</updated>
+    </task>
+    <task id="LOCAL-00006" summary="emitToken创建元素">
+      <created>1589860991255</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1589860991255</updated>
+    </task>
+    <task id="LOCAL-00007" summary="处理属性">
+      <created>1589880285789</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589880285789</updated>
+    </task>
+    <task id="LOCAL-00008" summary="构建DOM 树">
+      <created>1589883099613</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589883099613</updated>
+    </task>
+    <task id="LOCAL-00009" summary="添加注释">
+      <created>1589943704851</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1589943704851</updated>
+    </task>
+    <task id="LOCAL-00010" summary="文本节点">
+      <created>1589947687039</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1589947687039</updated>
+    </task>
+    <task id="LOCAL-00011" summary="install css">
+      <created>1589953627133</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1589953627133</updated>
+    </task>
+    <task id="LOCAL-00012" summary="addCSSRules，computeCSS">
+      <created>1589969162481</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1589969162481</updated>
+    </task>
+    <task id="LOCAL-00013" summary="注释">
+      <created>1590054862175</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1590054862175</updated>
+    </task>
+    <task id="LOCAL-00014" summary="npm install images">
+      <created>1590122250638</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1590122250639</updated>
+    </task>
+    <task id="LOCAL-00015" summary="主轴、交叉轴">
+      <created>1590136993228</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1590136993228</updated>
+    </task>
+    <task id="LOCAL-00016" summary="auto sizing">
+      <created>1590141609093</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1590141609093</updated>
+    </task>
+    <task id="LOCAL-00017" summary="交叉轴计算">
+      <created>1590400884465</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1590400884465</updated>
+    </task>
+    <task id="LOCAL-00018" summary="workspace">
+      <created>1590540182638</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1590540182639</updated>
+    </task>
+    <task id="LOCAL-00019" summary="workspace.xml">
+      <created>1590540528295</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1590540528295</updated>
+    </task>
+    <task id="LOCAL-00020" summary="workspace.xml">
+      <created>1590541074274</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1590541074274</updated>
+    </task>
+    <task id="LOCAL-00021" summary="render">
+      <created>1590565434191</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1590565434191</updated>
+    </task>
+    <task id="LOCAL-00022" summary="css-standers">
+      <created>1590573441823</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1590573441823</updated>
+    </task>
+    <task id="LOCAL-00023" summary="css.xmind">
+      <created>1590743769143</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1590743769143</updated>
+    </task>
+    <task id="LOCAL-00024" summary="match">
+      <created>1591178601706</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1591178601706</updated>
+    </task>
+    <task id="LOCAL-00025" summary="match">
+      <created>1591264738439</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1591264738439</updated>
+    </task>
+    <task id="LOCAL-00026" summary="完善compare 匹配部分">
+      <created>1591348804800</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1591348804800</updated>
+    </task>
+    <task id="LOCAL-00027" summary="css property">
+      <created>1591351193275</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1591351193275</updated>
+    </task>
+    <task id="LOCAL-00028" summary="css property">
+      <created>1591783579043</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1591783579043</updated>
+    </task>
+    <task id="LOCAL-00029" summary="animation,CubicBezier">
+      <created>1591956206500</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1591956206500</updated>
+    </task>
+    <task id="LOCAL-00030" summary="井字棋">
+      <created>1592289907415</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1592289907416</updated>
+    </task>
+    <task id="LOCAL-00031" summary="井字棋">
+      <created>1592291078220</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1592291078220</updated>
+    </task>
+    <task id="LOCAL-00032" summary="井字棋 一维数组">
+      <created>1592292563258</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1592292563258</updated>
+    </task>
+    <task id="LOCAL-00033" summary="作业">
+      <created>1592406742518</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1592406742518</updated>
+    </task>
+    <task id="LOCAL-00034" summary="作业">
+      <created>1592452966553</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1592452966553</updated>
+    </task>
+    <task id="LOCAL-00035" summary="作业">
+      <created>1592453141840</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1592453141840</updated>
+    </task>
+    <task id="LOCAL-00036" summary="红路灯，寻路">
+      <created>1592561006832</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1592561006832</updated>
+    </task>
+    <task id="LOCAL-00037" summary="作业">
+      <created>1593008802116</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1593008802117</updated>
+    </task>
+    <task id="LOCAL-00038" summary="十二周作业">
+      <created>1593529602172</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1593529602172</updated>
+    </task>
+    <task id="LOCAL-00039" summary="十二周作业">
+      <created>1593614872047</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1593614872047</updated>
+    </task>
+    <task id="LOCAL-00040" summary="十二周作业">
+      <created>1593672848579</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1593672848579</updated>
+    </task>
+    <task id="LOCAL-00041" summary="十二周作业">
+      <created>1593682038069</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1593682038069</updated>
+    </task>
+    <task id="LOCAL-00042" summary="proxy 与其双向绑定">
+      <created>1593782635629</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1593782635630</updated>
+    </task>
+    <task id="LOCAL-00043" summary="drag">
+      <created>1593941913235</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1593941913236</updated>
+    </task>
+    <task id="LOCAL-00044" summary="reactive 结合 range 使用">
+      <created>1593998730520</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1593998730521</updated>
+    </task>
+    <task id="LOCAL-00045" summary="作业">
+      <created>1594256388820</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1594256388820</updated>
+    </task>
+    <task id="LOCAL-00046" summary="作业">
+      <created>1594257228891</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1594257228891</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Carousel-flick">
+      <created>1596176484515</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1596176484515</updated>
+    </task>
+    <task id="LOCAL-00048" summary="createElement 添加监听组件 on方法">
+      <created>1596176558821</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1596176558821</updated>
+    </task>
+    <task id="LOCAL-00049" summary="package.json">
+      <created>1596176582090</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1596176582090</updated>
+    </task>
+    <task id="LOCAL-00050" summary="console_toolkit 控制台工具">
+      <created>1596460682340</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1596460682340</updated>
+    </task>
+    <task id="LOCAL-00051" summary="参考网站">
+      <created>1596769326512</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1596769326513</updated>
+    </task>
+    <task id="LOCAL-00052" summary="DEV工具">
+      <created>1596793181868</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1596793181870</updated>
+    </task>
+    <task id="LOCAL-00053" summary="作业">
+      <created>1598604265322</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1598604265322</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="425514000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Key Promoter X" order="3" weight="0.3297587" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20107238" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50067025" side_tool="true" weight="0.32489452" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32770744" />
+      <window_info anchor="bottom" id="Run" order="10" weight="0.43881857" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932975" weight="0.42334738" />
+      <window_info anchor="bottom" id="RNConsole" order="9" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.3206751" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32928476" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18230563" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Run" order="10" weight="0.31504923" />
+      <window_info anchor="bottom" id="RNConsole" order="9" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.32166892" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932975" weight="0.32208157" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50067025" side_tool="true" weight="0.32489452" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32770744" />
+      <window_info anchor="right" id="Key Promoter X" order="3" weight="0.3297587" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32928476" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="auto sizing" />
+    <MESSAGE value="交叉轴计算" />
+    <MESSAGE value="workspace" />
+    <MESSAGE value="workspace.xml" />
+    <MESSAGE value="render" />
+    <MESSAGE value="css-standers" />
+    <MESSAGE value="css.xmind" />
+    <MESSAGE value="match" />
+    <MESSAGE value="完善compare 匹配部分" />
+    <MESSAGE value="css property" />
+    <MESSAGE value="animation,CubicBezier" />
+    <MESSAGE value="井字棋" />
+    <MESSAGE value="井字棋 一维数组" />
+    <MESSAGE value="红路灯，寻路" />
+    <MESSAGE value="十二周作业" />
+    <MESSAGE value="proxy 与其双向绑定" />
+    <MESSAGE value="drag" />
+    <MESSAGE value="reactive 结合 range 使用" />
+    <MESSAGE value="Carousel-flick" />
+    <MESSAGE value="createElement 添加监听组件 on方法" />
+    <MESSAGE value="package.json" />
+    <MESSAGE value="console_toolkit 控制台工具" />
+    <MESSAGE value="参考网站" />
+    <MESSAGE value="DEV工具" />
+    <MESSAGE value="作业" />
+    <option name="LAST_COMMIT_MESSAGE" value="作业" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="45" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JavascriptDebugType">
+        <watch expression="selectorObj" language="JavaScript" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>selector</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>selectorObj</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>RegExp.$2</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>RegExp.$1</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>parseInt(element.computedStyle[prop].value)</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>element.computedStyle[prop].value</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/week12/WildCard/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="51" column="28" lean-forward="true" selection-start-line="50" selection-start-column="11" selection-end-line="51" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week12/WildCard/review.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/proxy2.html" />
+    <entry file="file://$PROJECT_DIR$/week13/proxy/4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="52" column="30" selection-end-line="90" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/proxy/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/proxy/5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="84" column="6" lean-forward="true" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/proxy/review/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/proxy/review/5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/proxy/review/4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/proxy/review/3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week12/trie/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week12/tokenize/review2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="145" column="9" lean-forward="true" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week12/KMP/review.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1650">
+          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/drag/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/drag/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="9" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/drag/review.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week10/apis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1254" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week10/stylesheet.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week10/scroll.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week10/range.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week10/reverse.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" column="44" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/proxy/review/6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3300">
+          <caret line="150" column="7" selection-start-line="150" selection-start-column="7" selection-end-line="150" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/components/carousel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/proxy/review/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/components/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week13/NOTE.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week10/TicTacToe.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week10/TicTacToe2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week14/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week17/5_carouselWithLifecycle/main.js" />
+    <entry file="file://$PROJECT_DIR$/createElement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week16/5_carouselWithLifecycle/Carousel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="64" column="52" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week16/5_carouselWithLifecycle/gesture.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2948">
+          <caret line="134" selection-start-line="134" selection-end-line="134" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week17/Toolkit/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week18/babel/demo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week18/babel/.babelrc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week18/tools/run-vue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week18/npm/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week18/watcher/watcher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week18/NOTE.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week17/NOTE.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week15/2_sfc/myloader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week15/2_sfc/parser.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week19/NOTE.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="31" selection-start-line="31" selection-end-line="31" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week19/作业.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week20/作业.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week20/NOTE.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week20/OAuth.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="87" column="23" lean-forward="true" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
